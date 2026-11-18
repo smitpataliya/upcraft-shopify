@@ -1,0 +1,25 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Database & Runtime Data
+data/
+*.db
+*.db-journal
+*.sqlite
+
+# Build Outputs
+dist/
+scratch/
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+

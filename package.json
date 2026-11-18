@@ -1,0 +1,26 @@
+{
+  "name": "upcraft-shopify",
+  "version": "1.0.0",
+  "description": "Bulk Shopify COD Draft Order Confirmation Platform targeting Shopify Admin GraphQL API 2026-10",
+  "main": "src/server/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "dev": "node src/server/index.js",
+    "build": "node build.js",
+    "test": "node tests/test_all.js"
+  },
+  "keywords": [
+    "shopify",
+    "graphql",
+    "cod",
+    "draft-orders",
+    "ecommerce",
+    "operations",
+    "upcraft"
+  ],
+  "author": "Upcraft Tech",
+  "license": "UNLICENSED",
+  "private": true
+}
+

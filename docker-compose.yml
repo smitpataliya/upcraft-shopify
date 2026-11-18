@@ -1,0 +1,23 @@
+services:
+  upcraft-shopify:
+    build: .
+    container_name: upcraft-shopify-app
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - HOST=0.0.0.0
+      - SHOPIFY_STORE=${SHOPIFY_STORE:-upcraft-demo.myshopify.com}
+      - SHOPIFY_ACCESS_TOKEN=${SHOPIFY_ACCESS_TOKEN:-}
+      - SHOPIFY_API_VERSION=2026-10
+      - COD_MARKER_TYPE=TAG
+      - COD_MARKER_VALUE=COD
+      - MOCK_MODE=${MOCK_MODE:-true}
+    volumes:
+      - shopify_data:/app/data
+
+volumes:
+  shopify_data:
+    driver: local
+
