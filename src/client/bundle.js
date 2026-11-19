@@ -75389,14 +75389,14 @@ if (false) {
 }
 var LogoutOutlined_default2 = RefIcon43;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/MenuFoldOutlined.js
 var React459 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/PhoneOutlined.js
-var PhoneOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M877.1 238.7L770.6 132.3c-13-13-30.4-20.3-48.8-20.3s-35.8 7.2-48.8 20.3L558.3 246.8c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l89.6 89.7a405.46 405.46 0 01-86.4 127.3c-36.7 36.9-79.6 66-127.2 86.6l-89.6-89.7c-13-13-30.4-20.3-48.8-20.3a68.2 68.2 0 00-48.8 20.3L132.3 673c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l106.4 106.4c22.2 22.2 52.8 34.9 84.2 34.9 6.5 0 12.8-.5 19.2-1.6 132.4-21.8 263.8-92.3 369.9-198.3C818 606 888.4 474.6 910.4 342.1c6.3-37.6-6.3-76.3-33.3-103.4zm-37.6 91.5c-19.5 117.9-82.9 235.5-178.4 331s-213 158.9-330.9 178.4c-14.8 2.5-30-2.5-40.8-13.2L184.9 721.9 295.7 611l119.8 120 .9.9 21.6-8a481.29 481.29 0 00285.7-285.8l8-21.6-120.8-120.7 110.8-110.9 104.5 104.5c10.8 10.8 15.8 26 13.3 40.8z" } }] }, "name": "phone", "theme": "outlined" };
-var PhoneOutlined_default = PhoneOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/MenuFoldOutlined.js
+var MenuFoldOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z" } }] }, "name": "menu-fold", "theme": "outlined" };
+var MenuFoldOutlined_default = MenuFoldOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/MenuFoldOutlined.js
 function _extends107() {
   _extends107 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75411,24 +75411,24 @@ function _extends107() {
   };
   return _extends107.apply(this, arguments);
 }
-var PhoneOutlined2 = (props, ref) => /* @__PURE__ */ React459.createElement(AntdIconLight_default, _extends107({}, props, {
+var MenuFoldOutlined2 = (props, ref) => /* @__PURE__ */ React459.createElement(AntdIconLight_default, _extends107({}, props, {
   ref,
-  icon: PhoneOutlined_default
+  icon: MenuFoldOutlined_default
 }));
-var RefIcon44 = /* @__PURE__ */ React459.forwardRef(PhoneOutlined2);
+var RefIcon44 = /* @__PURE__ */ React459.forwardRef(MenuFoldOutlined2);
 if (false) {
-  RefIcon44.displayName = "PhoneOutlined";
+  RefIcon44.displayName = "MenuFoldOutlined";
 }
-var PhoneOutlined_default2 = RefIcon44;
+var MenuFoldOutlined_default2 = RefIcon44;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/MenuUnfoldOutlined.js
 var React460 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SafetyCertificateOutlined.js
-var SafetyCertificateOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M866.9 169.9L527.1 54.1C523 52.7 517.5 52 512 52s-11 .7-15.1 2.1L157.1 169.9c-8.3 2.8-15.1 12.4-15.1 21.2v482.4c0 8.8 5.7 20.4 12.6 25.9L499.3 968c3.5 2.7 8 4.1 12.6 4.1s9.2-1.4 12.6-4.1l344.7-268.6c6.9-5.4 12.6-17 12.6-25.9V191.1c.2-8.8-6.6-18.3-14.9-21.2zM810 654.3L512 886.5 214 654.3V226.7l298-101.6 298 101.6v427.6zm-405.8-201c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.3 0-12.7-6.5-12.7h-55.2c-5.1 0-10 2.5-13 6.6L468.9 542.4l-64.7-89.1z" } }] }, "name": "safety-certificate", "theme": "outlined" };
-var SafetyCertificateOutlined_default = SafetyCertificateOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/MenuUnfoldOutlined.js
+var MenuUnfoldOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z" } }] }, "name": "menu-unfold", "theme": "outlined" };
+var MenuUnfoldOutlined_default = MenuUnfoldOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/MenuUnfoldOutlined.js
 function _extends108() {
   _extends108 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75443,24 +75443,24 @@ function _extends108() {
   };
   return _extends108.apply(this, arguments);
 }
-var SafetyCertificateOutlined2 = (props, ref) => /* @__PURE__ */ React460.createElement(AntdIconLight_default, _extends108({}, props, {
+var MenuUnfoldOutlined2 = (props, ref) => /* @__PURE__ */ React460.createElement(AntdIconLight_default, _extends108({}, props, {
   ref,
-  icon: SafetyCertificateOutlined_default
+  icon: MenuUnfoldOutlined_default
 }));
-var RefIcon45 = /* @__PURE__ */ React460.forwardRef(SafetyCertificateOutlined2);
+var RefIcon45 = /* @__PURE__ */ React460.forwardRef(MenuUnfoldOutlined2);
 if (false) {
-  RefIcon45.displayName = "SafetyCertificateOutlined";
+  RefIcon45.displayName = "MenuUnfoldOutlined";
 }
-var SafetyCertificateOutlined_default2 = RefIcon45;
+var MenuUnfoldOutlined_default2 = RefIcon45;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
 var React461 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SettingOutlined.js
-var SettingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z" } }] }, "name": "setting", "theme": "outlined" };
-var SettingOutlined_default = SettingOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/PhoneOutlined.js
+var PhoneOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M877.1 238.7L770.6 132.3c-13-13-30.4-20.3-48.8-20.3s-35.8 7.2-48.8 20.3L558.3 246.8c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l89.6 89.7a405.46 405.46 0 01-86.4 127.3c-36.7 36.9-79.6 66-127.2 86.6l-89.6-89.7c-13-13-30.4-20.3-48.8-20.3a68.2 68.2 0 00-48.8 20.3L132.3 673c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l106.4 106.4c22.2 22.2 52.8 34.9 84.2 34.9 6.5 0 12.8-.5 19.2-1.6 132.4-21.8 263.8-92.3 369.9-198.3C818 606 888.4 474.6 910.4 342.1c6.3-37.6-6.3-76.3-33.3-103.4zm-37.6 91.5c-19.5 117.9-82.9 235.5-178.4 331s-213 158.9-330.9 178.4c-14.8 2.5-30-2.5-40.8-13.2L184.9 721.9 295.7 611l119.8 120 .9.9 21.6-8a481.29 481.29 0 00285.7-285.8l8-21.6-120.8-120.7 110.8-110.9 104.5 104.5c10.8 10.8 15.8 26 13.3 40.8z" } }] }, "name": "phone", "theme": "outlined" };
+var PhoneOutlined_default = PhoneOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
 function _extends109() {
   _extends109 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75475,24 +75475,24 @@ function _extends109() {
   };
   return _extends109.apply(this, arguments);
 }
-var SettingOutlined2 = (props, ref) => /* @__PURE__ */ React461.createElement(AntdIconLight_default, _extends109({}, props, {
+var PhoneOutlined2 = (props, ref) => /* @__PURE__ */ React461.createElement(AntdIconLight_default, _extends109({}, props, {
   ref,
-  icon: SettingOutlined_default
+  icon: PhoneOutlined_default
 }));
-var RefIcon46 = /* @__PURE__ */ React461.forwardRef(SettingOutlined2);
+var RefIcon46 = /* @__PURE__ */ React461.forwardRef(PhoneOutlined2);
 if (false) {
-  RefIcon46.displayName = "SettingOutlined";
+  RefIcon46.displayName = "PhoneOutlined";
 }
-var SettingOutlined_default2 = RefIcon46;
+var PhoneOutlined_default2 = RefIcon46;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
 var React462 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShopOutlined.js
-var ShopOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M882 272.1V144c0-17.7-14.3-32-32-32H174c-17.7 0-32 14.3-32 32v128.1c-16.7 1-30 14.9-30 31.9v131.7a177 177 0 0014.4 70.4c4.3 10.2 9.6 19.8 15.6 28.9v345c0 17.6 14.3 32 32 32h676c17.7 0 32-14.3 32-32V535a175 175 0 0015.6-28.9c9.5-22.3 14.4-46 14.4-70.4V304c0-17-13.3-30.9-30-31.9zM214 184h596v88H214v-88zm362 656.1H448V736h128v104.1zm234 0H640V704c0-17.7-14.3-32-32-32H416c-17.7 0-32 14.3-32 32v136.1H214V597.9c2.9 1.4 5.9 2.8 9 4 22.3 9.4 46 14.1 70.4 14.1s48-4.7 70.4-14.1c13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 3-1.3 6-2.6 9-4v242.2zm30-404.4c0 59.8-49 108.3-109.3 108.3-40.8 0-76.4-22.1-95.2-54.9-2.9-5-8.1-8.1-13.9-8.1h-.6c-5.7 0-11 3.1-13.9 8.1A109.24 109.24 0 01512 544c-40.7 0-76.2-22-95-54.7-3-5.1-8.4-8.3-14.3-8.3s-11.4 3.2-14.3 8.3a109.63 109.63 0 01-95.1 54.7C233 544 184 495.5 184 435.7v-91.2c0-.3.2-.5.5-.5h655c.3 0 .5.2.5.5v91.2z" } }] }, "name": "shop", "theme": "outlined" };
-var ShopOutlined_default = ShopOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SafetyCertificateOutlined.js
+var SafetyCertificateOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M866.9 169.9L527.1 54.1C523 52.7 517.5 52 512 52s-11 .7-15.1 2.1L157.1 169.9c-8.3 2.8-15.1 12.4-15.1 21.2v482.4c0 8.8 5.7 20.4 12.6 25.9L499.3 968c3.5 2.7 8 4.1 12.6 4.1s9.2-1.4 12.6-4.1l344.7-268.6c6.9-5.4 12.6-17 12.6-25.9V191.1c.2-8.8-6.6-18.3-14.9-21.2zM810 654.3L512 886.5 214 654.3V226.7l298-101.6 298 101.6v427.6zm-405.8-201c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.3 0-12.7-6.5-12.7h-55.2c-5.1 0-10 2.5-13 6.6L468.9 542.4l-64.7-89.1z" } }] }, "name": "safety-certificate", "theme": "outlined" };
+var SafetyCertificateOutlined_default = SafetyCertificateOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
 function _extends110() {
   _extends110 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75507,24 +75507,24 @@ function _extends110() {
   };
   return _extends110.apply(this, arguments);
 }
-var ShopOutlined2 = (props, ref) => /* @__PURE__ */ React462.createElement(AntdIconLight_default, _extends110({}, props, {
+var SafetyCertificateOutlined2 = (props, ref) => /* @__PURE__ */ React462.createElement(AntdIconLight_default, _extends110({}, props, {
   ref,
-  icon: ShopOutlined_default
+  icon: SafetyCertificateOutlined_default
 }));
-var RefIcon47 = /* @__PURE__ */ React462.forwardRef(ShopOutlined2);
+var RefIcon47 = /* @__PURE__ */ React462.forwardRef(SafetyCertificateOutlined2);
 if (false) {
-  RefIcon47.displayName = "ShopOutlined";
+  RefIcon47.displayName = "SafetyCertificateOutlined";
 }
-var ShopOutlined_default2 = RefIcon47;
+var SafetyCertificateOutlined_default2 = RefIcon47;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
 var React463 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShoppingOutlined.js
-var ShoppingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32zm-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400v-16zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96v456z" } }] }, "name": "shopping", "theme": "outlined" };
-var ShoppingOutlined_default = ShoppingOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SettingOutlined.js
+var SettingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z" } }] }, "name": "setting", "theme": "outlined" };
+var SettingOutlined_default = SettingOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
 function _extends111() {
   _extends111 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75539,24 +75539,24 @@ function _extends111() {
   };
   return _extends111.apply(this, arguments);
 }
-var ShoppingOutlined2 = (props, ref) => /* @__PURE__ */ React463.createElement(AntdIconLight_default, _extends111({}, props, {
+var SettingOutlined2 = (props, ref) => /* @__PURE__ */ React463.createElement(AntdIconLight_default, _extends111({}, props, {
   ref,
-  icon: ShoppingOutlined_default
+  icon: SettingOutlined_default
 }));
-var RefIcon48 = /* @__PURE__ */ React463.forwardRef(ShoppingOutlined2);
+var RefIcon48 = /* @__PURE__ */ React463.forwardRef(SettingOutlined2);
 if (false) {
-  RefIcon48.displayName = "ShoppingOutlined";
+  RefIcon48.displayName = "SettingOutlined";
 }
-var ShoppingOutlined_default2 = RefIcon48;
+var SettingOutlined_default2 = RefIcon48;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
 var React464 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SyncOutlined.js
-var SyncOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z" } }] }, "name": "sync", "theme": "outlined" };
-var SyncOutlined_default = SyncOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShopOutlined.js
+var ShopOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M882 272.1V144c0-17.7-14.3-32-32-32H174c-17.7 0-32 14.3-32 32v128.1c-16.7 1-30 14.9-30 31.9v131.7a177 177 0 0014.4 70.4c4.3 10.2 9.6 19.8 15.6 28.9v345c0 17.6 14.3 32 32 32h676c17.7 0 32-14.3 32-32V535a175 175 0 0015.6-28.9c9.5-22.3 14.4-46 14.4-70.4V304c0-17-13.3-30.9-30-31.9zM214 184h596v88H214v-88zm362 656.1H448V736h128v104.1zm234 0H640V704c0-17.7-14.3-32-32-32H416c-17.7 0-32 14.3-32 32v136.1H214V597.9c2.9 1.4 5.9 2.8 9 4 22.3 9.4 46 14.1 70.4 14.1s48-4.7 70.4-14.1c13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 3-1.3 6-2.6 9-4v242.2zm30-404.4c0 59.8-49 108.3-109.3 108.3-40.8 0-76.4-22.1-95.2-54.9-2.9-5-8.1-8.1-13.9-8.1h-.6c-5.7 0-11 3.1-13.9 8.1A109.24 109.24 0 01512 544c-40.7 0-76.2-22-95-54.7-3-5.1-8.4-8.3-14.3-8.3s-11.4 3.2-14.3 8.3a109.63 109.63 0 01-95.1 54.7C233 544 184 495.5 184 435.7v-91.2c0-.3.2-.5.5-.5h655c.3 0 .5.2.5.5v91.2z" } }] }, "name": "shop", "theme": "outlined" };
+var ShopOutlined_default = ShopOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
 function _extends112() {
   _extends112 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75571,24 +75571,24 @@ function _extends112() {
   };
   return _extends112.apply(this, arguments);
 }
-var SyncOutlined2 = (props, ref) => /* @__PURE__ */ React464.createElement(AntdIconLight_default, _extends112({}, props, {
+var ShopOutlined2 = (props, ref) => /* @__PURE__ */ React464.createElement(AntdIconLight_default, _extends112({}, props, {
   ref,
-  icon: SyncOutlined_default
+  icon: ShopOutlined_default
 }));
-var RefIcon49 = /* @__PURE__ */ React464.forwardRef(SyncOutlined2);
+var RefIcon49 = /* @__PURE__ */ React464.forwardRef(ShopOutlined2);
 if (false) {
-  RefIcon49.displayName = "SyncOutlined";
+  RefIcon49.displayName = "ShopOutlined";
 }
-var SyncOutlined_default2 = RefIcon49;
+var ShopOutlined_default2 = RefIcon49;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
 var React465 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ThunderboltOutlined.js
-var ThunderboltOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7zM378.2 732.5l60.3-241H281.1l189.6-327.4h224.6L487 427.4h211L378.2 732.5z" } }] }, "name": "thunderbolt", "theme": "outlined" };
-var ThunderboltOutlined_default = ThunderboltOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShoppingOutlined.js
+var ShoppingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32zm-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400v-16zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96v456z" } }] }, "name": "shopping", "theme": "outlined" };
+var ShoppingOutlined_default = ShoppingOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
 function _extends113() {
   _extends113 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75603,24 +75603,24 @@ function _extends113() {
   };
   return _extends113.apply(this, arguments);
 }
-var ThunderboltOutlined2 = (props, ref) => /* @__PURE__ */ React465.createElement(AntdIconLight_default, _extends113({}, props, {
+var ShoppingOutlined2 = (props, ref) => /* @__PURE__ */ React465.createElement(AntdIconLight_default, _extends113({}, props, {
   ref,
-  icon: ThunderboltOutlined_default
+  icon: ShoppingOutlined_default
 }));
-var RefIcon50 = /* @__PURE__ */ React465.forwardRef(ThunderboltOutlined2);
+var RefIcon50 = /* @__PURE__ */ React465.forwardRef(ShoppingOutlined2);
 if (false) {
-  RefIcon50.displayName = "ThunderboltOutlined";
+  RefIcon50.displayName = "ShoppingOutlined";
 }
-var ThunderboltOutlined_default2 = RefIcon50;
+var ShoppingOutlined_default2 = RefIcon50;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
 var React466 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/UserOutlined.js
-var UserOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z" } }] }, "name": "user", "theme": "outlined" };
-var UserOutlined_default = UserOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SyncOutlined.js
+var SyncOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z" } }] }, "name": "sync", "theme": "outlined" };
+var SyncOutlined_default = SyncOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
 function _extends114() {
   _extends114 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75635,24 +75635,24 @@ function _extends114() {
   };
   return _extends114.apply(this, arguments);
 }
-var UserOutlined2 = (props, ref) => /* @__PURE__ */ React466.createElement(AntdIconLight_default, _extends114({}, props, {
+var SyncOutlined2 = (props, ref) => /* @__PURE__ */ React466.createElement(AntdIconLight_default, _extends114({}, props, {
   ref,
-  icon: UserOutlined_default
+  icon: SyncOutlined_default
 }));
-var RefIcon51 = /* @__PURE__ */ React466.forwardRef(UserOutlined2);
+var RefIcon51 = /* @__PURE__ */ React466.forwardRef(SyncOutlined2);
 if (false) {
-  RefIcon51.displayName = "UserOutlined";
+  RefIcon51.displayName = "SyncOutlined";
 }
-var UserOutlined_default2 = RefIcon51;
+var SyncOutlined_default2 = RefIcon51;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
 var React467 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/WarningOutlined.js
-var WarningOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M464 720a48 48 0 1096 0 48 48 0 10-96 0zm16-304v184c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V416c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8zm475.7 440l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zm-783.5-27.9L512 239.9l339.8 588.2H172.2z" } }] }, "name": "warning", "theme": "outlined" };
-var WarningOutlined_default = WarningOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ThunderboltOutlined.js
+var ThunderboltOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7zM378.2 732.5l60.3-241H281.1l189.6-327.4h224.6L487 427.4h211L378.2 732.5z" } }] }, "name": "thunderbolt", "theme": "outlined" };
+var ThunderboltOutlined_default = ThunderboltOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
 function _extends115() {
   _extends115 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75667,22 +75667,88 @@ function _extends115() {
   };
   return _extends115.apply(this, arguments);
 }
-var WarningOutlined2 = (props, ref) => /* @__PURE__ */ React467.createElement(AntdIconLight_default, _extends115({}, props, {
+var ThunderboltOutlined2 = (props, ref) => /* @__PURE__ */ React467.createElement(AntdIconLight_default, _extends115({}, props, {
+  ref,
+  icon: ThunderboltOutlined_default
+}));
+var RefIcon52 = /* @__PURE__ */ React467.forwardRef(ThunderboltOutlined2);
+if (false) {
+  RefIcon52.displayName = "ThunderboltOutlined";
+}
+var ThunderboltOutlined_default2 = RefIcon52;
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
+var React468 = __toESM(require_react());
+
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/UserOutlined.js
+var UserOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z" } }] }, "name": "user", "theme": "outlined" };
+var UserOutlined_default = UserOutlined;
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
+function _extends116() {
+  _extends116 = Object.assign ? Object.assign.bind() : function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends116.apply(this, arguments);
+}
+var UserOutlined2 = (props, ref) => /* @__PURE__ */ React468.createElement(AntdIconLight_default, _extends116({}, props, {
+  ref,
+  icon: UserOutlined_default
+}));
+var RefIcon53 = /* @__PURE__ */ React468.forwardRef(UserOutlined2);
+if (false) {
+  RefIcon53.displayName = "UserOutlined";
+}
+var UserOutlined_default2 = RefIcon53;
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+var React469 = __toESM(require_react());
+
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/WarningOutlined.js
+var WarningOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M464 720a48 48 0 1096 0 48 48 0 10-96 0zm16-304v184c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V416c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8zm475.7 440l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zm-783.5-27.9L512 239.9l339.8 588.2H172.2z" } }] }, "name": "warning", "theme": "outlined" };
+var WarningOutlined_default = WarningOutlined;
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+function _extends117() {
+  _extends117 = Object.assign ? Object.assign.bind() : function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends117.apply(this, arguments);
+}
+var WarningOutlined2 = (props, ref) => /* @__PURE__ */ React469.createElement(AntdIconLight_default, _extends117({}, props, {
   ref,
   icon: WarningOutlined_default
 }));
-var RefIcon52 = /* @__PURE__ */ React467.forwardRef(WarningOutlined2);
+var RefIcon54 = /* @__PURE__ */ React469.forwardRef(WarningOutlined2);
 if (false) {
-  RefIcon52.displayName = "WarningOutlined";
+  RefIcon54.displayName = "WarningOutlined";
 }
-var WarningOutlined_default2 = RefIcon52;
+var WarningOutlined_default2 = RefIcon54;
 
 // upcraft-shopify/src/client/src/App.jsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var { Header: Header3, Content: Content4 } = layout_default2;
+var { Header: Header3, Content: Content4, Sider: Sider2 } = layout_default2;
 var { Title: Title3, Text: Text2, Paragraph: Paragraph3 } = typography_default;
 var API_BASE = "/api";
 function App() {
+  const [collapsed, setCollapsed] = (0, import_react150.useState)(false);
+  const [sidebarSearch, setSidebarSearch] = (0, import_react150.useState)("");
   const [token2, setToken] = (0, import_react150.useState)(localStorage.getItem("upcraft_token") || "");
   const [user, setUser] = (0, import_react150.useState)(null);
   const [loginForm, setLoginForm] = (0, import_react150.useState)({ username: "admin", password: "Upcraft2026!" });
@@ -76706,1323 +76772,1589 @@ function App() {
     }
   ];
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(config_provider_default, { theme: antdTheme, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(layout_default2, { style: { minHeight: "100vh", background: "#090d16" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Header3, { style: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      padding: "0 20px",
-      background: "#090d16",
-      borderBottom: "1px solid #1e293b",
-      position: "sticky",
-      top: 0,
-      zIndex: 100,
-      height: 64,
-      lineHeight: "normal",
-      gap: 16
-    }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-            width: 36,
-            height: 36,
-            borderRadius: 9,
-            background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            fontSize: 18,
-            boxShadow: "0 2px 10px rgba(37, 99, 235, 0.35)",
-            flexShrink: 0
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShopOutlined_default2, {}) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 800, color: "#f8fafc", fontSize: 15, letterSpacing: -0.3, whiteSpace: "nowrap" }, children: "Upcraft Shopify" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "geekblue", style: { fontSize: 10, margin: 0, padding: "1px 6px", fontWeight: 600, borderRadius: 4 }, children: "API 2026-10" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 20, background: "#1e293b", flexShrink: 0 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
-          display: "flex",
-          alignItems: "center",
-          gap: 8,
-          fontSize: 11,
-          color: "#94a3b8",
-          background: "#0f172a",
-          padding: "4px 10px",
-          borderRadius: 6,
-          border: "1px solid #1e293b",
-          whiteSpace: "nowrap",
-          flexShrink: 0
-        }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace", color: "#cbd5e1" }, children: config?.store_domain || "upcraft-cod-demo.myshopify.com" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#475569" }, children: "\u2022" }),
-          config?.mock_mode ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#10b981", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#10b981", display: "inline-block" } }),
-            "Mock Simulator"
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#38bdf8", display: "inline-block" } }),
-            "Live Store API"
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 20, background: "#1e293b", flexShrink: 0 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 4, flexShrink: 0 }, children: [
-          { key: "drafts", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, {}), label: "Draft Orders" },
-          {
-            key: "bulk",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
-            label: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { display: "flex", alignItems: "center", gap: 6 }, children: [
-              "Bulk Orders",
-              bulkQueue.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
-                background: "#2563eb",
-                color: "#fff",
-                fontSize: 10,
-                fontWeight: 700,
-                padding: "1px 6px",
-                borderRadius: 9999,
-                lineHeight: "14px"
-              }, children: bulkQueue.length })
-            ] })
-          },
-          { key: "history", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HistoryOutlined_default2, {}), label: "Bulk Jobs History" },
-          { key: "audit", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, {}), label: "Audit Trail" },
-          { key: "settings", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SettingOutlined_default2, {}), label: "Store & COD Policy" }
-        ].map((tab) => {
-          const isActive2 = activeTab === tab.key;
-          return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-            "button",
-            {
-              onClick: () => setActiveTab(tab.key),
-              style: {
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      Sider2,
+      {
+        collapsible: true,
+        collapsed,
+        trigger: null,
+        width: 260,
+        collapsedWidth: 80,
+        style: {
+          background: "#090d16",
+          borderRight: "1px solid #1e293b",
+          height: "100vh",
+          position: "sticky",
+          top: 0,
+          left: 0,
+          zIndex: 100
+        },
+        children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", overflowY: "auto" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+              padding: collapsed ? "18px 12px" : "18px 16px",
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              borderBottom: "1px solid #1e293b"
+            }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+                width: 38,
+                height: 38,
+                borderRadius: 10,
+                background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
                 display: "flex",
                 alignItems: "center",
-                gap: 8,
-                padding: "8px 14px",
-                borderRadius: 8,
-                border: "none",
-                background: isActive2 ? "#1e293b" : "transparent",
-                color: isActive2 ? "#38bdf8" : "#94a3b8",
-                fontWeight: isActive2 ? 600 : 500,
-                fontSize: 13,
-                cursor: "pointer",
-                transition: "all 0.15s ease"
-              },
-              children: [
-                tab.icon,
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: tab.label })
-              ]
-            },
-            tab.key
-          );
-        }) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 12 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dropdown_default3, { menu: { items: userMenuItems }, placement: "bottomRight", trigger: ["click"], children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
-        display: "flex",
-        alignItems: "center",
-        gap: 10,
-        padding: "6px 12px",
-        borderRadius: 8,
-        background: "#0f172a",
-        border: "1px solid #1e293b",
-        cursor: "pointer"
-      }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(avatar_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserOutlined_default2, {}), style: { backgroundColor: "#1e293b", color: "#38bdf8" }, size: 28 }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "left", lineHeight: 1.2 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontSize: 12, fontWeight: 600 }, children: user.fullName }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5 }, children: user.role })
-        ] })
-      ] }) }) })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Content4, { style: { padding: "24px", maxWidth: 1400, margin: "0 auto", width: "100%", paddingBottom: 110 }, children: [
-      activeTab === "drafts" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 20, style: { width: "100%" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 16], children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Total Open Drafts" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, { style: { color: "#38bdf8", fontSize: 16 } })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1 }, children: pageInfo.totalOpenCount || drafts.length }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Fetched via GraphQL API" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Verified COD Ready" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981", fontSize: 16 } })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#10b981", lineHeight: 1.1 }, children: drafts.filter((d) => d.isCodEligible).length }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: [
-              'Tagged with "',
-              config?.cod_marker_value || "COD",
-              '"'
-            ] })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Flagged Anomalies" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarningOutlined_default2, { style: { color: "#f59e0b", fontSize: 16 } })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f59e0b", lineHeight: 1.1 }, children: drafts.filter((d) => d.flags && d.flags.length > 0).length }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Missing phone or high value" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(15, 23, 42, 0.95))", borderColor: "rgba(37, 99, 235, 0.35)" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 12, fontWeight: 600, color: "#38bdf8" }, children: "Selected for Bulk" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "blue", style: { margin: 0, fontWeight: 700, borderRadius: 4 }, children: [
-                selectedMap.size,
-                " / 70"
+                justifyContent: "center",
+                color: "#fff",
+                fontSize: 16,
+                fontWeight: 800,
+                boxShadow: "0 4px 14px rgba(37, 99, 235, 0.4)",
+                flexShrink: 0
+              }, children: "UP" }),
+              !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { lineHeight: 1.2, overflow: "hidden" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6 }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 800, color: "#f8fafc", fontSize: 16, letterSpacing: -0.3 }, children: "Upcraft.Tech" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#10b981", display: "inline-block" } })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#64748b", marginTop: 2, display: "flex", alignItems: "center", gap: 6 }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Shopify COD" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "geekblue", style: { fontSize: 9, margin: 0, padding: "0 4px", lineHeight: "14px", borderRadius: 3 }, children: "API 2026-10" })
+                ] })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1, fontFamily: "monospace" }, children: [
-              "\u20B9",
-              selectedTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 11, color: "#94a3b8", display: "block", marginTop: 4 }, children: "Retained across pagination" })
-          ] }) })
+            !collapsed ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { padding: "12px 14px 6px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+              background: "#0f172a",
+              border: "1px solid #1e293b",
+              borderRadius: 8,
+              padding: "8px 10px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 8
+            }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, overflow: "hidden" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShopOutlined_default2, { style: { color: "#38bdf8", fontSize: 14 } }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: 11 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#e2e8f0", fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis" }, children: config?.store_domain?.split(".")[0] || "upcraft-store" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: config?.mock_mode ? "#10b981" : "#38bdf8", fontSize: 10, display: "flex", alignItems: "center", gap: 4 }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 5, height: 5, borderRadius: "50%", background: config?.mock_mode ? "#10b981" : "#38bdf8" } }),
+                  config?.mock_mode ? "Mock Mode" : "Live Store API"
+                ] })
+              ] })
+            ] }) }) }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { padding: "12px 0", textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: `${config?.store_domain || "Shopify Store"} (${config?.mock_mode ? "Mock Mode" : "Live API"})`, placement: "right", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+              width: 36,
+              height: 36,
+              borderRadius: 8,
+              background: "#0f172a",
+              border: "1px solid #1e293b",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#38bdf8"
+            }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShopOutlined_default2, {}) }) }) }),
+            !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { padding: "6px 14px 6px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              input_default,
+              {
+                size: "small",
+                placeholder: "Search navigation...",
+                prefix: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SearchOutlined_default2, { style: { color: "#64748b", fontSize: 12 } }),
+                value: sidebarSearch,
+                onChange: (e3) => setSidebarSearch(e3.target.value),
+                allowClear: true,
+                style: {
+                  background: "#090d16",
+                  borderColor: "#1e293b",
+                  borderRadius: 8,
+                  fontSize: 12,
+                  color: "#f8fafc"
+                }
+              }
+            ) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "8px 10px", display: "flex", flexDirection: "column", gap: 14 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: "#64748b",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  padding: "4px 10px",
+                  marginBottom: 4
+                }, children: "Overview" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
+                  { key: "drafts", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, {}), label: "Draft Orders", badge: null },
+                  {
+                    key: "bulk",
+                    icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+                    label: "Bulk Orders",
+                    badge: bulkQueue.length > 0 ? bulkQueue.length : null
+                  }
+                ].filter((item) => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map((item) => {
+                  const isActive2 = activeTab === item.key;
+                  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: collapsed ? item.label : "", placement: "right", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                    "button",
+                    {
+                      onClick: () => setActiveTab(item.key),
+                      style: {
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: collapsed ? "center" : "space-between",
+                        width: "100%",
+                        padding: collapsed ? "10px 0" : "9px 12px",
+                        borderRadius: 10,
+                        border: "none",
+                        background: isActive2 ? "#2563eb" : "transparent",
+                        color: isActive2 ? "#ffffff" : "#94a3b8",
+                        fontWeight: isActive2 ? 600 : 500,
+                        fontSize: 13,
+                        cursor: "pointer",
+                        transition: "all 0.15s ease",
+                        boxShadow: isActive2 ? "0 4px 14px rgba(37, 99, 235, 0.35)" : "none"
+                      },
+                      onMouseEnter: (e3) => {
+                        if (!isActive2) e3.currentTarget.style.background = "#1e293b";
+                      },
+                      onMouseLeave: (e3) => {
+                        if (!isActive2) e3.currentTarget.style.background = "transparent";
+                      },
+                      children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10 }, children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 16, display: "flex", color: isActive2 ? "#ffffff" : "#94a3b8" }, children: item.icon }),
+                          !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })
+                        ] }),
+                        !collapsed && item.badge !== null && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
+                          background: isActive2 ? "rgba(255,255,255,0.25)" : "#1e293b",
+                          color: isActive2 ? "#ffffff" : "#38bdf8",
+                          fontSize: 11,
+                          fontWeight: 700,
+                          padding: "1px 7px",
+                          borderRadius: 9999
+                        }, children: item.badge })
+                      ]
+                    }
+                  ) }, item.key);
+                }) })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: "#64748b",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  padding: "4px 10px",
+                  marginBottom: 4
+                }, children: "Operations" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
+                  { key: "history", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HistoryOutlined_default2, {}), label: "Bulk Jobs History", badge: null },
+                  { key: "audit", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, {}), label: "Audit Trail", badge: null }
+                ].filter((item) => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map((item) => {
+                  const isActive2 = activeTab === item.key;
+                  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: collapsed ? item.label : "", placement: "right", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                    "button",
+                    {
+                      onClick: () => setActiveTab(item.key),
+                      style: {
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: collapsed ? "center" : "space-between",
+                        width: "100%",
+                        padding: collapsed ? "10px 0" : "9px 12px",
+                        borderRadius: 10,
+                        border: "none",
+                        background: isActive2 ? "#2563eb" : "transparent",
+                        color: isActive2 ? "#ffffff" : "#94a3b8",
+                        fontWeight: isActive2 ? 600 : 500,
+                        fontSize: 13,
+                        cursor: "pointer",
+                        transition: "all 0.15s ease",
+                        boxShadow: isActive2 ? "0 4px 14px rgba(37, 99, 235, 0.35)" : "none"
+                      },
+                      onMouseEnter: (e3) => {
+                        if (!isActive2) e3.currentTarget.style.background = "#1e293b";
+                      },
+                      onMouseLeave: (e3) => {
+                        if (!isActive2) e3.currentTarget.style.background = "transparent";
+                      },
+                      children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10 }, children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 16, display: "flex", color: isActive2 ? "#ffffff" : "#94a3b8" }, children: item.icon }),
+                        !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })
+                      ] })
+                    }
+                  ) }, item.key);
+                }) })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: "#64748b",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  padding: "4px 10px",
+                  marginBottom: 4
+                }, children: "System" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
+                  { key: "settings", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SettingOutlined_default2, {}), label: "Store & COD Policy", badge: null }
+                ].filter((item) => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map((item) => {
+                  const isActive2 = activeTab === item.key;
+                  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: collapsed ? item.label : "", placement: "right", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                    "button",
+                    {
+                      onClick: () => setActiveTab(item.key),
+                      style: {
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: collapsed ? "center" : "space-between",
+                        width: "100%",
+                        padding: collapsed ? "10px 0" : "9px 12px",
+                        borderRadius: 10,
+                        border: "none",
+                        background: isActive2 ? "#2563eb" : "transparent",
+                        color: isActive2 ? "#ffffff" : "#94a3b8",
+                        fontWeight: isActive2 ? 600 : 500,
+                        fontSize: 13,
+                        cursor: "pointer",
+                        transition: "all 0.15s ease",
+                        boxShadow: isActive2 ? "0 4px 14px rgba(37, 99, 235, 0.35)" : "none"
+                      },
+                      onMouseEnter: (e3) => {
+                        if (!isActive2) e3.currentTarget.style.background = "#1e293b";
+                      },
+                      onMouseLeave: (e3) => {
+                        if (!isActive2) e3.currentTarget.style.background = "transparent";
+                      },
+                      children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10 }, children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 16, display: "flex", color: isActive2 ? "#ffffff" : "#94a3b8" }, children: item.icon }),
+                        !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })
+                      ] })
+                    }
+                  ) }, item.key);
+                }) })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+            padding: "12px 10px",
+            borderTop: "1px solid #1e293b",
+            display: "flex",
+            flexDirection: "column",
+            gap: 8
+          }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dropdown_default3, { menu: { items: userMenuItems }, placement: "topRight", trigger: ["click"], children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+              display: "flex",
+              alignItems: "center",
+              justifyContent: collapsed ? "center" : "space-between",
+              padding: "8px 10px",
+              borderRadius: 8,
+              background: "#0f172a",
+              border: "1px solid #1e293b",
+              cursor: "pointer"
+            }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                  avatar_default,
+                  {
+                    style: { backgroundColor: "#2563eb", color: "#fff", fontWeight: 700 },
+                    size: 28,
+                    children: user.fullName ? user.fullName[0].toUpperCase() : "U"
+                  }
+                ),
+                !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { lineHeight: 1.2, textAlign: "left", overflow: "hidden" }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontSize: 12, fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: user.fullName }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, color: "#64748b", textTransform: "uppercase" }, children: user.role })
+                ] })
+              ] }),
+              !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoutOutlined_default2, { style: { color: "#64748b", fontSize: 12 } })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              "button",
+              {
+                onClick: () => setCollapsed(!collapsed),
+                style: {
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: collapsed ? "center" : "flex-start",
+                  gap: 8,
+                  padding: "7px 10px",
+                  background: "transparent",
+                  border: "none",
+                  color: "#64748b",
+                  fontSize: 12,
+                  cursor: "pointer",
+                  borderRadius: 6
+                },
+                onMouseEnter: (e3) => e3.currentTarget.style.color = "#94a3b8",
+                onMouseLeave: (e3) => e3.currentTarget.style.color = "#64748b",
+                children: [
+                  collapsed ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MenuUnfoldOutlined_default2, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MenuFoldOutlined_default2, {}),
+                  !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Collapse Sidebar" })
+                ]
+              }
+            )
+          ] })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(layout_default2, { style: { background: "#090d16" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Header3, { style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0 24px",
+        background: "#090d16",
+        borderBottom: "1px solid #1e293b",
+        position: "sticky",
+        top: 0,
+        zIndex: 90,
+        height: 60,
+        lineHeight: "normal"
+      }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#64748b", fontSize: 13 }, children: "Shopify" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#334155" }, children: "/" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#f8fafc", fontSize: 14, fontWeight: 700 }, children: [
+            activeTab === "drafts" && "Draft Orders",
+            activeTab === "bulk" && "Bulk Order Staging Queue",
+            activeTab === "history" && "Bulk Jobs History",
+            activeTab === "audit" && "Operational Audit Trail",
+            activeTab === "settings" && "Store & COD Policy Settings"
+          ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, bodyStyle: { padding: 14 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 12], align: "middle", justify: "space-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, md: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            input_default,
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            fontSize: 11,
+            color: "#94a3b8",
+            background: "#0f172a",
+            padding: "4px 10px",
+            borderRadius: 6,
+            border: "1px solid #1e293b",
+            whiteSpace: "nowrap"
+          }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace", color: "#cbd5e1" }, children: config?.store_domain || "upcraft-cod-demo.myshopify.com" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#475569" }, children: "\u2022" }),
+            config?.mock_mode ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#10b981", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#10b981", display: "inline-block" } }),
+              "Mock Simulator"
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#38bdf8", display: "inline-block" } }),
+              "Live Store API"
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            button_default,
             {
-              placeholder: "Search draft #, customer, phone, email, or tag...",
-              prefix: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SearchOutlined_default2, { style: { color: "#64748b" } }),
-              allowClear: true,
-              value: searchQuery,
-              onChange: (e3) => setSearchQuery(e3.target.value),
-              style: { borderRadius: 6, background: "#090d16", borderColor: "#1e293b" }
+              size: "small",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SyncOutlined_default2, { spin: loadingDrafts }),
+              onClick: () => {
+                if (activeTab === "drafts") fetchDrafts();
+                else if (activeTab === "history") fetchJobsHistory();
+                else if (activeTab === "audit") fetchAuditLogs();
+                else if (activeTab === "settings") fetchConfig();
+              },
+              style: { background: "#0f172a", borderColor: "#1e293b", color: "#94a3b8" },
+              children: "Refresh"
             }
-          ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { xs: 24, md: 16, style: { display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: 8 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Content4, { style: { padding: "24px", maxWidth: 1400, margin: "0 auto", width: "100%", paddingBottom: 110 }, children: [
+        activeTab === "drafts" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 20, style: { width: "100%" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 16], children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Total Open Drafts" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, { style: { color: "#38bdf8", fontSize: 16 } })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1 }, children: pageInfo.totalOpenCount || drafts.length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Fetched via GraphQL API" })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Verified COD Ready" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981", fontSize: 16 } })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#10b981", lineHeight: 1.1 }, children: drafts.filter((d) => d.isCodEligible).length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: [
+                'Tagged with "',
+                config?.cod_marker_value || "COD",
+                '"'
+              ] })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Flagged Anomalies" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarningOutlined_default2, { style: { color: "#f59e0b", fontSize: 16 } })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f59e0b", lineHeight: 1.1 }, children: drafts.filter((d) => d.flags && d.flags.length > 0).length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Missing phone or high value" })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(15, 23, 42, 0.95))", borderColor: "rgba(37, 99, 235, 0.35)" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 12, fontWeight: 600, color: "#38bdf8" }, children: "Selected for Bulk" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "blue", style: { margin: 0, fontWeight: 700, borderRadius: 4 }, children: [
+                  selectedMap.size,
+                  " / 70"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1, fontFamily: "monospace" }, children: [
+                "\u20B9",
+                selectedTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 11, color: "#94a3b8", display: "block", marginTop: 4 }, children: "Retained across pagination" })
+            ] }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, bodyStyle: { padding: 14 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 12], align: "middle", justify: "space-between", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, md: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              input_default,
+              {
+                placeholder: "Search draft #, customer, phone, email, or tag...",
+                prefix: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SearchOutlined_default2, { style: { color: "#64748b" } }),
+                allowClear: true,
+                value: searchQuery,
+                onChange: (e3) => setSearchQuery(e3.target.value),
+                style: { borderRadius: 6, background: "#090d16", borderColor: "#1e293b" }
+              }
+            ) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { xs: 24, md: 16, style: { display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: 8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                segmented_default,
+                {
+                  value: activeFilter,
+                  onChange: setActiveFilter,
+                  options: [
+                    { label: `All (${drafts.length})`, value: "ALL" },
+                    { label: `COD Ready (${drafts.filter((d) => d.isCodEligible).length})`, value: "COD_ONLY" },
+                    { label: `Non-COD (${drafts.filter((d) => !d.isCodEligible).length})`, value: "NON_COD" },
+                    { label: `Flagged (${drafts.filter((d) => d.flags?.length > 0).length})`, value: "FLAGGED" }
+                  ],
+                  style: { background: "#090d16", padding: 3 }
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckOutlined_default2, {}), onClick: selectAllOnPage, style: { borderRadius: 6 }, children: "Select Page" }),
+              selectedMap.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                button_default,
+                {
+                  type: "primary",
+                  icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
+                  onClick: addSelectedToBulk,
+                  style: { borderRadius: 6, background: "#2563eb", borderColor: "#2563eb" },
+                  children: [
+                    "Add to Bulk (",
+                    selectedMap.size,
+                    ")"
+                  ]
+                }
+              ),
+              selectedMap.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(button_default, { danger: true, onClick: clearSelection, style: { borderRadius: 6 }, children: [
+                "Clear (",
+                selectedMap.size,
+                ")"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SyncOutlined_default2, { spin: loadingDrafts }), onClick: () => fetchDrafts(), style: { borderRadius: 6 }, children: "Refresh" })
+            ] })
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b", overflow: "hidden" }, bodyStyle: { padding: 0 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            table_default,
+            {
+              rowKey: "id",
+              loading: loadingDrafts,
+              columns: draftColumns,
+              dataSource: filteredDrafts,
+              expandable: { expandedRowRender },
+              rowSelection: {
+                selectedRowKeys: Array.from(selectedMap.keys()),
+                onChange: onSelectChange,
+                preserveSelectedRowKeys: true,
+                getCheckboxProps: (record) => ({
+                  disabled: !record.isCodEligible,
+                  name: record.name
+                })
+              },
+              pagination: {
+                pageSize,
+                showSizeChanger: true,
+                pageSizeOptions: ["25", "50", "75"],
+                onShowSizeChange: (_, size) => setPageSize(size),
+                showTotal: (total) => `Total ${total} open drafts`
+              },
+              scroll: { x: 1140 }
+            }
+          ) })
+        ] }),
+        activeTab === "bulk" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 16], children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Staged in Bulk Queue" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, { style: { color: "#38bdf8", fontSize: 16 } })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1 }, children: [
+                bulkQueue.length,
+                " ",
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 14, color: "#64748b", fontWeight: 500 }, children: [
+                  "/ ",
+                  config?.max_batch_size || 70,
+                  " cap"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Saved across browser sessions" })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Ready to Convert" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981", fontSize: 16 } })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#10b981", lineHeight: 1.1 }, children: bulkReadyDrafts.length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "100% address & COD verified" })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Needs Attention" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarningOutlined_default2, { style: { color: bulkBrokenDrafts.length > 0 ? "#f59e0b" : "#64748b", fontSize: 16 } })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: bulkBrokenDrafts.length > 0 ? "#f59e0b" : "#94a3b8", lineHeight: 1.1 }, children: bulkBrokenDrafts.length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Missing phone, address, or tag" })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.95))", borderColor: "rgba(16, 185, 129, 0.35)" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 12, fontWeight: 600, color: "#34d399" }, children: "Ready Batch Value" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "green", style: { margin: 0, fontWeight: 700, borderRadius: 4 }, children: [
+                  bulkReadyDrafts.length,
+                  " Orders"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1, fontFamily: "monospace" }, children: [
+                "\u20B9",
+                bulkReadyTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 11, color: "#94a3b8", display: "block", marginTop: 4 }, children: "Eligible for batch confirmation" })
+            ] }) })
+          ] }),
+          bulkBrokenDrafts.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            alert_default,
+            {
+              type: "warning",
+              showIcon: true,
+              message: `${bulkBrokenDrafts.length} draft order(s) require address or tag fix before conversion`,
+              description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12 }, children: [
+                "Click the ",
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { color: "#fdba74" }, children: "Fix" }),
+                " button on any incomplete draft below to provide missing details (phone, city, state, or pincode). Updates sync directly to Shopify and immediately mark the draft as Ready to Convert."
+              ] }),
+              style: { background: "rgba(245, 158, 11, 0.08)", borderColor: "rgba(245, 158, 11, 0.3)" }
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, bodyStyle: { padding: 14 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 12], align: "middle", justify: "space-between", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, md: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               segmented_default,
               {
-                value: activeFilter,
-                onChange: setActiveFilter,
+                value: bulkFilter,
+                onChange: setBulkFilter,
                 options: [
-                  { label: `All (${drafts.length})`, value: "ALL" },
-                  { label: `COD Ready (${drafts.filter((d) => d.isCodEligible).length})`, value: "COD_ONLY" },
-                  { label: `Non-COD (${drafts.filter((d) => !d.isCodEligible).length})`, value: "NON_COD" },
-                  { label: `Flagged (${drafts.filter((d) => d.flags?.length > 0).length})`, value: "FLAGGED" }
+                  { label: `All Staged (${bulkQueue.length})`, value: "ALL" },
+                  { label: `Ready to Convert (${bulkReadyDrafts.length})`, value: "READY" },
+                  { label: `Needs Attention (${bulkBrokenDrafts.length})`, value: "NEEDS_FIX" }
                 ],
                 style: { background: "#090d16", padding: 3 }
               }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckOutlined_default2, {}), onClick: selectAllOnPage, style: { borderRadius: 6 }, children: "Select Page" }),
-            selectedMap.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              button_default,
-              {
-                type: "primary",
-                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
-                onClick: addSelectedToBulk,
-                style: { borderRadius: 6, background: "#2563eb", borderColor: "#2563eb" },
-                children: [
-                  "Add to Bulk (",
-                  selectedMap.size,
-                  ")"
-                ]
-              }
-            ),
-            selectedMap.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(button_default, { danger: true, onClick: clearSelection, style: { borderRadius: 6 }, children: [
-              "Clear (",
-              selectedMap.size,
-              ")"
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SyncOutlined_default2, { spin: loadingDrafts }), onClick: () => fetchDrafts(), style: { borderRadius: 6 }, children: "Refresh" })
-          ] })
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b", overflow: "hidden" }, bodyStyle: { padding: 0 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          table_default,
-          {
-            rowKey: "id",
-            loading: loadingDrafts,
-            columns: draftColumns,
-            dataSource: filteredDrafts,
-            expandable: { expandedRowRender },
-            rowSelection: {
-              selectedRowKeys: Array.from(selectedMap.keys()),
-              onChange: onSelectChange,
-              preserveSelectedRowKeys: true,
-              getCheckboxProps: (record) => ({
-                disabled: !record.isCodEligible,
-                name: record.name
-              })
-            },
-            pagination: {
-              pageSize,
-              showSizeChanger: true,
-              pageSizeOptions: ["25", "50", "75"],
-              onShowSizeChange: (_, size) => setPageSize(size),
-              showTotal: (total) => `Total ${total} open drafts`
-            },
-            scroll: { x: 1140 }
-          }
-        ) })
-      ] }),
-      activeTab === "bulk" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 16], children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Staged in Bulk Queue" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, { style: { color: "#38bdf8", fontSize: 16 } })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1 }, children: [
-              bulkQueue.length,
-              " ",
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 14, color: "#64748b", fontWeight: 500 }, children: [
-                "/ ",
-                config?.max_batch_size || 70,
-                " cap"
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Saved across browser sessions" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Ready to Convert" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981", fontSize: 16 } })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#10b981", lineHeight: 1.1 }, children: bulkReadyDrafts.length }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "100% address & COD verified" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Needs Attention" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarningOutlined_default2, { style: { color: bulkBrokenDrafts.length > 0 ? "#f59e0b" : "#64748b", fontSize: 16 } })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: bulkBrokenDrafts.length > 0 ? "#f59e0b" : "#94a3b8", lineHeight: 1.1 }, children: bulkBrokenDrafts.length }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Missing phone, address, or tag" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.95))", borderColor: "rgba(16, 185, 129, 0.35)" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 12, fontWeight: 600, color: "#34d399" }, children: "Ready Batch Value" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "green", style: { margin: 0, fontWeight: 700, borderRadius: 4 }, children: [
-                bulkReadyDrafts.length,
-                " Orders"
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1, fontFamily: "monospace" }, children: [
-              "\u20B9",
-              bulkReadyTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 11, color: "#94a3b8", display: "block", marginTop: 4 }, children: "Eligible for batch confirmation" })
-          ] }) })
-        ] }),
-        bulkBrokenDrafts.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          alert_default,
-          {
-            type: "warning",
-            showIcon: true,
-            message: `${bulkBrokenDrafts.length} draft order(s) require address or tag fix before conversion`,
-            description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12 }, children: [
-              "Click the ",
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { color: "#fdba74" }, children: "Fix" }),
-              " button on any incomplete draft below to provide missing details (phone, city, state, or pincode). Updates sync directly to Shopify and immediately mark the draft as Ready to Convert."
-            ] }),
-            style: { background: "rgba(245, 158, 11, 0.08)", borderColor: "rgba(245, 158, 11, 0.3)" }
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, bodyStyle: { padding: 14 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 12], align: "middle", justify: "space-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, md: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            segmented_default,
-            {
-              value: bulkFilter,
-              onChange: setBulkFilter,
-              options: [
-                { label: `All Staged (${bulkQueue.length})`, value: "ALL" },
-                { label: `Ready to Convert (${bulkReadyDrafts.length})`, value: "READY" },
-                { label: `Needs Attention (${bulkBrokenDrafts.length})`, value: "NEEDS_FIX" }
-              ],
-              style: { background: "#090d16", padding: 3 }
-            }
-          ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { xs: 24, md: 12, style: { display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: 8 }, children: [
-            bulkQueue.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { danger: true, icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeleteOutlined_default2, {}), onClick: clearBulkQueue, style: { borderRadius: 6 }, children: "Clear Queue" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              button_default,
-              {
-                type: "primary",
-                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
-                disabled: bulkReadyDrafts.length === 0,
-                onClick: () => {
-                  setReviewDrafts(bulkReadyDrafts);
-                  setShowReviewModal(true);
-                  setConfirmPhrase("");
-                },
-                style: {
-                  borderRadius: 6,
-                  fontWeight: 700,
-                  background: bulkReadyDrafts.length > 0 ? "linear-gradient(135deg, #10b981, #059669)" : void 0,
-                  borderColor: bulkReadyDrafts.length > 0 ? "#10b981" : void 0
-                },
-                children: [
-                  "Convert Ready Orders (",
-                  bulkReadyDrafts.length,
-                  ")"
-                ]
-              }
-            )
-          ] })
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b", overflow: "hidden" }, bodyStyle: { padding: bulkQueue.length === 0 ? 40 : 0 }, children: bulkQueue.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          empty_default2,
-          {
-            image: empty_default2.PRESENTED_IMAGE_SIMPLE,
-            description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontSize: 15, fontWeight: 600, marginBottom: 6 }, children: "No Drafts in Bulk Order Queue" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#94a3b8", fontSize: 13, maxWidth: 460, margin: "0 auto 16px" }, children: [
-                "Switch to the ",
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Draft Orders" }),
-                " tab and click ",
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "+ Bulk" }),
-                " on any draft order to stage it here. You can inspect delivery completeness, fix missing fields in-place, and run bulk batch confirmation safely."
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { type: "primary", onClick: () => setActiveTab("drafts"), children: "Go to Draft Orders" })
+            ) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { xs: 24, md: 12, style: { display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: 8 }, children: [
+              bulkQueue.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { danger: true, icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeleteOutlined_default2, {}), onClick: clearBulkQueue, style: { borderRadius: 6 }, children: "Clear Queue" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                button_default,
+                {
+                  type: "primary",
+                  icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+                  disabled: bulkReadyDrafts.length === 0,
+                  onClick: () => {
+                    setReviewDrafts(bulkReadyDrafts);
+                    setShowReviewModal(true);
+                    setConfirmPhrase("");
+                  },
+                  style: {
+                    borderRadius: 6,
+                    fontWeight: 700,
+                    background: bulkReadyDrafts.length > 0 ? "linear-gradient(135deg, #10b981, #059669)" : void 0,
+                    borderColor: bulkReadyDrafts.length > 0 ? "#10b981" : void 0
+                  },
+                  children: [
+                    "Convert Ready Orders (",
+                    bulkReadyDrafts.length,
+                    ")"
+                  ]
+                }
+              )
             ] })
-          }
-        ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          table_default,
-          {
-            rowKey: "id",
-            columns: bulkColumns,
-            dataSource: filteredBulkDrafts,
-            expandable: { expandedRowRender },
-            pagination: {
-              pageSize: 25,
-              showTotal: (total) => `Total ${total} staged drafts`
-            },
-            scroll: { x: 1140 }
-          }
-        ) })
-      ] }),
-      activeTab === "history" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        card_default,
-        {
-          title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, fontSize: 16 }, children: "Bulk Confirmation Jobs History" }),
-          extra: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SyncOutlined_default2, { spin: loadingHistory }), onClick: fetchJobsHistory, children: "Refresh" }),
-          style: { background: "#0f172a", borderColor: "#1e293b" },
-          bodyStyle: { padding: 0 },
-          children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b", overflow: "hidden" }, bodyStyle: { padding: bulkQueue.length === 0 ? 40 : 0 }, children: bulkQueue.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            empty_default2,
+            {
+              image: empty_default2.PRESENTED_IMAGE_SIMPLE,
+              description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontSize: 15, fontWeight: 600, marginBottom: 6 }, children: "No Drafts in Bulk Order Queue" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#94a3b8", fontSize: 13, maxWidth: 460, margin: "0 auto 16px" }, children: [
+                  "Switch to the ",
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Draft Orders" }),
+                  " tab and click ",
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "+ Bulk" }),
+                  " on any draft order to stage it here. You can inspect delivery completeness, fix missing fields in-place, and run bulk batch confirmation safely."
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { type: "primary", onClick: () => setActiveTab("drafts"), children: "Go to Draft Orders" })
+              ] })
+            }
+          ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             table_default,
             {
               rowKey: "id",
-              loading: loadingHistory,
-              dataSource: jobsHistory,
-              columns: [
-                {
-                  title: "Job ID",
-                  dataIndex: "id",
-                  render: (text) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { code: true, copyable: true, style: { color: "#38bdf8" }, children: [
-                    text.slice(0, 8),
-                    "..."
-                  ] })
-                },
-                { title: "Operator", dataIndex: "created_by" },
-                {
-                  title: "Status",
-                  dataIndex: "status",
-                  render: (status) => {
-                    const colors = {
-                      COMPLETED: "success",
-                      RUNNING: "processing",
-                      PARTIALLY_FAILED: "warning",
-                      FAILED: "error",
-                      CANCELLED: "default"
-                    };
-                    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: colors[status] || "default", style: { fontWeight: 600 }, children: status });
-                  }
-                },
-                { title: "Requested", dataIndex: "requested_count", align: "center", render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: c }) },
-                {
-                  title: "Succeeded",
-                  dataIndex: "success_count",
-                  align: "center",
-                  render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#10b981", fontWeight: 700 }, children: c })
-                },
-                {
-                  title: "Failed",
-                  dataIndex: "failed_count",
-                  align: "center",
-                  render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#ef4444", fontWeight: 700 }, children: c })
-                },
-                {
-                  title: "Unknown",
-                  dataIndex: "unknown_count",
-                  align: "center",
-                  render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#f59e0b", fontWeight: 700 }, children: c })
-                },
-                {
-                  title: "Date & Time",
-                  dataIndex: "created_at",
-                  render: (d) => new Date(d).toLocaleString()
-                },
-                {
-                  title: "Actions",
-                  key: "actions",
-                  render: (_, record) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                      button_default,
-                      {
-                        size: "small",
-                        icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOutlined_default2, {}),
-                        onClick: async () => {
-                          const res = await authFetch(`${API_BASE}/bulk-jobs/${record.id}`);
-                          const data = await res.json();
-                          if (data.success) {
-                            setActiveJob(data.data);
-                            setShowJobModal(true);
-                          }
-                        },
-                        children: "Inspect"
-                      }
-                    ),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                      button_default,
-                      {
-                        size: "small",
-                        icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DownloadOutlined_default2, {}),
-                        href: `${API_BASE}/bulk-jobs/${record.id}/export?token=${token2}`,
-                        children: "CSV"
-                      }
-                    )
-                  ] })
-                }
-              ]
-            }
-          )
-        }
-      ),
-      activeTab === "audit" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        card_default,
-        {
-          title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, fontSize: 16 }, children: "Security & Operations Audit Trail" }),
-          extra: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SyncOutlined_default2, { spin: loadingAudit }), onClick: fetchAuditLogs, children: "Refresh" }),
-          style: { background: "#0f172a", borderColor: "#1e293b" },
-          bodyStyle: { padding: 0 },
-          children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            table_default,
-            {
-              rowKey: "id",
-              loading: loadingAudit,
-              dataSource: auditLogs,
-              columns: [
-                {
-                  title: "Timestamp",
-                  dataIndex: "created_at",
-                  render: (d) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace", fontSize: 12, color: "#94a3b8" }, children: new Date(d).toLocaleString() })
-                },
-                {
-                  title: "Actor",
-                  dataIndex: "actor",
-                  render: (actor) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "blue", style: { fontWeight: 600 }, children: actor })
-                },
-                {
-                  title: "Action",
-                  dataIndex: "action",
-                  render: (action) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#38bdf8", fontWeight: 600 }, children: action })
-                },
-                {
-                  title: "Target",
-                  key: "target",
-                  render: (_, r3) => `${r3.target_type} (${r3.target_id ? r3.target_id.slice(0, 8) : "N/A"})`
-                },
-                {
-                  title: "IP Address",
-                  dataIndex: "ip_address",
-                  render: (ip) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#64748b" }, children: ip || "127.0.0.1" })
-                }
-              ]
-            }
-          )
-        }
-      ),
-      activeTab === "settings" && config && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, fontSize: 16 }, children: "Shopify Admin API & COD Safety Rules" }), style: { maxWidth: 840, background: "#0f172a", borderColor: "#1e293b" }, children: [
-        configFeedback && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          alert_default,
-          {
-            message: configFeedback.message,
-            type: configFeedback.success ? "success" : "error",
-            showIcon: true,
-            style: { marginBottom: 20 }
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default, { layout: "vertical", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Store Domain", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_default,
-              {
-                value: config.store_domain,
-                onChange: (e3) => setConfig({ ...config, store_domain: e3.target.value }),
-                placeholder: "your-store.myshopify.com"
-              }
-            ) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "API Version (Pinned)", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { value: config.api_version, disabled: true, style: { fontFamily: "monospace" } }) }) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default.Item, { label: "Admin Access Token (Direct)", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_default.Password,
-              {
-                placeholder: config.has_token ? "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022 (Configured)" : "shpat_...",
-                onChange: (e3) => setConfig({ ...config, access_token: e3.target.value })
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11 }, children: "Paste direct access token if available, OR use Partner App Client ID & Secret below." })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Shopify App Client ID", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_default,
-              {
-                value: config.client_id || "",
-                onChange: (e3) => setConfig({ ...config, client_id: e3.target.value }),
-                placeholder: "e.g. 2335c041e96357e5a313cfdd0dbe2983",
-                style: { fontFamily: "monospace" }
-              }
-            ) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Shopify App Client Secret", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_default.Password,
-              {
-                value: config.client_secret || "",
-                onChange: (e3) => setConfig({ ...config, client_secret: e3.target.value }),
-                placeholder: "Paste Client secret"
-              }
-            ) }) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(divider_default, { style: { borderColor: "#1e293b" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "COD Marker Tag", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_default,
-              {
-                value: config.cod_marker_value,
-                onChange: (e3) => setConfig({ ...config, cod_marker_value: e3.target.value }),
-                style: { fontFamily: "monospace" }
-              }
-            ) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Max Batch Limit", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_number_default,
-              {
-                min: 1,
-                max: 70,
-                value: config.max_batch_size,
-                onChange: (v) => setConfig({ ...config, max_batch_size: v }),
-                style: { width: "100%" }
-              }
-            ) }) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Throttling Rate Limit Delay (ms)", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_number_default,
-              {
-                min: 100,
-                max: 2e3,
-                step: 50,
-                value: config.rate_limit_delay_ms,
-                onChange: (v) => setConfig({ ...config, rate_limit_delay_ms: v }),
-                style: { width: "100%" }
-              }
-            ) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Mock Simulator Mode", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: 6 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                switch_default,
-                {
-                  checked: config.mock_mode,
-                  onChange: (c) => setConfig({ ...config, mock_mode: c })
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { marginLeft: 12, fontSize: 12 }, children: config.mock_mode ? "Enabled (Zero-risk virtual store)" : "Disabled (Live Store Admin API)" })
-            ] }) }) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { style: { marginTop: 16 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              button_default,
-              {
-                type: "primary",
-                onClick: async () => {
-                  try {
-                    const res = await authFetch(`${API_BASE}/config`, {
-                      method: "PUT",
-                      body: JSON.stringify(config)
-                    });
-                    const json = await res.json();
-                    if (json.success) {
-                      message_default.success("Store configuration updated!");
-                      setConfigFeedback({ success: true, message: "Settings saved successfully!" });
-                    }
-                  } catch (e3) {
-                    message_default.error(e3.message);
-                  }
-                },
-                children: "Save Changes"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              button_default,
-              {
-                loading: testingConnection,
-                onClick: async () => {
-                  setTestingConnection(true);
-                  try {
-                    const res = await authFetch(`${API_BASE}/config/test-connection`, { method: "POST" });
-                    const json = await res.json();
-                    setConfigFeedback(json);
-                    if (json.success) {
-                      message_default.success(json.message);
-                    } else {
-                      message_default.error(json.message);
-                    }
-                  } catch (e3) {
-                    message_default.error(e3.message);
-                  } finally {
-                    setTestingConnection(false);
-                  }
-                },
-                children: "Test Shopify Connection"
-              }
-            ),
-            config.client_id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              button_default,
-              {
-                style: { background: "#059669", borderColor: "#059669", color: "#fff" },
-                onClick: () => {
-                  window.location.href = `/api/shopify/install?shop=${encodeURIComponent(config.store_domain)}`;
-                },
-                children: "Authorize via Shopify App (1-Click)"
-              }
-            )
-          ] })
-        ] })
-      ] })
-    ] }),
-    selectedMap.size > 0 && activeTab === "drafts" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
-      position: "fixed",
-      bottom: 24,
-      left: "50%",
-      transform: "translateX(-50%)",
-      background: "rgba(15, 23, 42, 0.95)",
-      backdropFilter: "blur(12px)",
-      border: "1px solid #2563eb",
-      boxShadow: "0 20px 35px -5px rgba(0,0,0,0.7), 0 0 20px rgba(37, 99, 235, 0.4)",
-      borderRadius: 9999,
-      padding: "10px 24px",
-      display: "flex",
-      alignItems: "center",
-      gap: 24,
-      zIndex: 1e3
-    }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-          width: 32,
-          height: 32,
-          borderRadius: "50%",
-          background: "#2563eb",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontWeight: 700,
-          color: "#fff",
-          fontSize: 13
-        }, children: selectedMap.size }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#f8fafc", fontSize: 13, fontWeight: 700 }, children: [
-            selectedMap.size,
-            " of 70 drafts selected"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#38bdf8", fontFamily: "monospace", fontWeight: 600 }, children: [
-            "Total: \u20B9",
-            selectedTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { size: 8, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { size: "middle", onClick: clearSelection, style: { borderRadius: 9999 }, children: "Clear" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-          button_default,
-          {
-            type: "default",
-            size: "middle",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
-            onClick: addSelectedToBulk,
-            style: { borderRadius: 9999, borderColor: "#3b82f6", color: "#60a5fa" },
-            children: [
-              "+ Add to Bulk (",
-              selectedMap.size,
-              ")"
-            ]
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-          button_default,
-          {
-            type: "primary",
-            size: "middle",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRightOutlined_default2, {}),
-            style: {
-              background: "linear-gradient(135deg, #10b981, #059669)",
-              borderColor: "#10b981",
-              fontWeight: 700,
-              borderRadius: 9999,
-              boxShadow: "0 4px 12px rgba(16, 185, 129, 0.35)"
-            },
-            onClick: () => {
-              setReviewDrafts(Array.from(selectedMap.values()));
-              setShowReviewModal(true);
-              setConfirmPhrase("");
-            },
-            children: [
-              "Review & Confirm (",
-              selectedMap.size,
-              ")"
-            ]
-          }
-        )
-      ] })
-    ] }),
-    (() => {
-      const targetReviewList = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
-      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        modal_default,
-        {
-          title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, { style: { color: "#f59e0b" } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: "Review Bulk COD Confirmation" })
-          ] }),
-          open: showReviewModal,
-          width: 680,
-          onCancel: () => {
-            setShowReviewModal(false);
-            setReviewDrafts([]);
-          },
-          footer: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { onClick: () => {
-              setShowReviewModal(false);
-              setReviewDrafts([]);
-            }, children: "Cancel" }, "cancel"),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              button_default,
-              {
-                type: "primary",
-                danger: true,
-                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
-                disabled: confirmPhrase.trim() !== `CONFIRM ${targetReviewList.length} ORDERS`,
-                onClick: handleCreateAndStartJob,
-                style: { fontWeight: 700 },
-                children: [
-                  "Execute Bulk Confirmation (",
-                  targetReviewList.length,
-                  ")"
-                ]
+              columns: bulkColumns,
+              dataSource: filteredBulkDrafts,
+              expandable: { expandedRowRender },
+              pagination: {
+                pageSize: 25,
+                showTotal: (total) => `Total ${total} staged drafts`
               },
-              "execute"
-            )
-          ],
-          children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              alert_default,
-              {
-                type: "warning",
-                showIcon: true,
-                message: "Operational Safety Gate",
-                description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12 }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 4 }, children: [
-                    "Converting ",
-                    targetReviewList.length,
-                    " draft orders executes Shopify's ",
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { code: true, children: "draftOrderComplete" }),
-                    " mutation. This ",
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "commits store inventory" }),
-                    " and creates regular orders."
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#f8fafc" }, children: "Orders remain UNPAID / PAYMENT DUE until cash is physically received." })
-                ] })
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              scroll: { x: 1140 }
+            }
+          ) })
+        ] }),
+        activeTab === "history" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          card_default,
+          {
+            title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, fontSize: 16 }, children: "Bulk Confirmation Jobs History" }),
+            extra: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SyncOutlined_default2, { spin: loadingHistory }), onClick: fetchJobsHistory, children: "Refresh" }),
+            style: { background: "#0f172a", borderColor: "#1e293b" },
+            bodyStyle: { padding: 0 },
+            children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               table_default,
               {
-                size: "small",
                 rowKey: "id",
-                dataSource: targetReviewList,
-                pagination: { pageSize: 5 },
+                loading: loadingHistory,
+                dataSource: jobsHistory,
                 columns: [
-                  { title: "Draft #", dataIndex: "name", render: (t2) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, code: true, style: { color: "#38bdf8" }, children: t2 }) },
-                  { title: "Customer", render: (_, r3) => `${r3.customer?.firstName || ""} ${r3.customer?.lastName || ""}` },
                   {
-                    title: "Amount",
-                    align: "right",
-                    render: (_, r3) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontFamily: "monospace", fontWeight: 600, color: "#34d399" }, children: [
-                      "\u20B9",
-                      parseFloat(r3.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)
+                    title: "Job ID",
+                    dataIndex: "id",
+                    render: (text) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { code: true, copyable: true, style: { color: "#38bdf8" }, children: [
+                      text.slice(0, 8),
+                      "..."
+                    ] })
+                  },
+                  { title: "Operator", dataIndex: "created_by" },
+                  {
+                    title: "Status",
+                    dataIndex: "status",
+                    render: (status) => {
+                      const colors = {
+                        COMPLETED: "success",
+                        RUNNING: "processing",
+                        PARTIALLY_FAILED: "warning",
+                        FAILED: "error",
+                        CANCELLED: "default"
+                      };
+                      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: colors[status] || "default", style: { fontWeight: 600 }, children: status });
+                    }
+                  },
+                  { title: "Requested", dataIndex: "requested_count", align: "center", render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: c }) },
+                  {
+                    title: "Succeeded",
+                    dataIndex: "success_count",
+                    align: "center",
+                    render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#10b981", fontWeight: 700 }, children: c })
+                  },
+                  {
+                    title: "Failed",
+                    dataIndex: "failed_count",
+                    align: "center",
+                    render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#ef4444", fontWeight: 700 }, children: c })
+                  },
+                  {
+                    title: "Unknown",
+                    dataIndex: "unknown_count",
+                    align: "center",
+                    render: (c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#f59e0b", fontWeight: 700 }, children: c })
+                  },
+                  {
+                    title: "Date & Time",
+                    dataIndex: "created_at",
+                    render: (d) => new Date(d).toLocaleString()
+                  },
+                  {
+                    title: "Actions",
+                    key: "actions",
+                    render: (_, record) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                        button_default,
+                        {
+                          size: "small",
+                          icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOutlined_default2, {}),
+                          onClick: async () => {
+                            const res = await authFetch(`${API_BASE}/bulk-jobs/${record.id}`);
+                            const data = await res.json();
+                            if (data.success) {
+                              setActiveJob(data.data);
+                              setShowJobModal(true);
+                            }
+                          },
+                          children: "Inspect"
+                        }
+                      ),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                        button_default,
+                        {
+                          size: "small",
+                          icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DownloadOutlined_default2, {}),
+                          href: `${API_BASE}/bulk-jobs/${record.id}/export?token=${token2}`,
+                          children: "CSV"
+                        }
+                      )
                     ] })
                   }
                 ]
               }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { style: { background: "#090d16", borderColor: "#1e293b" }, size: "small", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 6, style: { width: "100%" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { strong: true, style: { fontSize: 12 }, children: [
-                "Accidental Submit Prevention: Type ",
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { code: true, style: { color: "#f59e0b", fontWeight: 700 }, children: [
-                  "CONFIRM ",
-                  targetReviewList.length,
-                  " ORDERS"
-                ] }),
-                " to unlock:"
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                input_default,
-                {
-                  placeholder: `CONFIRM ${targetReviewList.length} ORDERS`,
-                  value: confirmPhrase,
-                  onChange: (e3) => setConfirmPhrase(e3.target.value),
-                  style: { fontFamily: "monospace", fontWeight: 600 },
-                  size: "large"
-                }
-              )
-            ] }) })
-          ] })
-        }
-      );
-    })(),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-      modal_default,
-      {
-        title: activeJob ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, { style: { color: "#38bdf8" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700 }, children: [
-            "Bulk Job #",
-            activeJob.id.slice(0, 8),
-            " Execution Monitor"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: activeJob.status === "RUNNING" ? "processing" : "success", style: { fontWeight: 600 }, children: activeJob.status })
-        ] }) : "Job Progress",
-        open: showJobModal,
-        width: 720,
-        onCancel: () => setShowJobModal(false),
-        footer: [
-          activeJob?.status === "RUNNING" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { danger: true, onClick: handleCancelJob, children: "Cancel Remaining Drafts" }, "cancel"),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            button_default,
-            {
-              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DownloadOutlined_default2, {}),
-              href: `${API_BASE}/bulk-jobs/${activeJob?.id}/export?token=${token2}`,
-              children: "Export CSV Report"
-            },
-            "export"
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { type: "primary", onClick: () => setShowJobModal(false), children: "Close View" }, "dismiss")
-        ],
-        children: activeJob && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: 12 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Batch Progress" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { strong: true, children: [
-                activeJob.success_count + activeJob.failed_count + activeJob.unknown_count,
-                " of ",
-                activeJob.requested_count,
-                " processed"
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              progress_default2,
+            )
+          }
+        ),
+        activeTab === "audit" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          card_default,
+          {
+            title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, fontSize: 16 }, children: "Security & Operations Audit Trail" }),
+            extra: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SyncOutlined_default2, { spin: loadingAudit }), onClick: fetchAuditLogs, children: "Refresh" }),
+            style: { background: "#0f172a", borderColor: "#1e293b" },
+            bodyStyle: { padding: 0 },
+            children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              table_default,
               {
-                percent: Math.round((activeJob.success_count + activeJob.failed_count + activeJob.unknown_count) / activeJob.requested_count * 100),
-                status: activeJob.status === "RUNNING" ? "active" : "normal",
-                strokeColor: { "0%": "#2563eb", "100%": "#10b981" }
+                rowKey: "id",
+                loading: loadingAudit,
+                dataSource: auditLogs,
+                columns: [
+                  {
+                    title: "Timestamp",
+                    dataIndex: "created_at",
+                    render: (d) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace", fontSize: 12, color: "#94a3b8" }, children: new Date(d).toLocaleString() })
+                  },
+                  {
+                    title: "Actor",
+                    dataIndex: "actor",
+                    render: (actor) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "blue", style: { fontWeight: 600 }, children: actor })
+                  },
+                  {
+                    title: "Action",
+                    dataIndex: "action",
+                    render: (action) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#38bdf8", fontWeight: 600 }, children: action })
+                  },
+                  {
+                    title: "Target",
+                    key: "target",
+                    render: (_, r3) => `${r3.target_type} (${r3.target_id ? r3.target_id.slice(0, 8) : "N/A"})`
+                  },
+                  {
+                    title: "IP Address",
+                    dataIndex: "ip_address",
+                    render: (ip) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#64748b" }, children: ip || "127.0.0.1" })
+                  }
+                ]
               }
             )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "#0b1329", borderColor: "#1e293b" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11 }, children: "Total" }), value: activeJob.requested_count, valueStyle: { fontSize: 18, fontWeight: 700 } }) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "rgba(16, 185, 129, 0.1)", borderColor: "rgba(16, 185, 129, 0.3)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { color: "#10b981", fontSize: 11 }, children: "Succeeded" }), value: activeJob.success_count, valueStyle: { color: "#10b981", fontSize: 18, fontWeight: 700 } }) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "rgba(239, 68, 68, 0.1)", borderColor: "rgba(239, 68, 68, 0.3)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { color: "#ef4444", fontSize: 11 }, children: "Failed" }), value: activeJob.failed_count, valueStyle: { color: "#ef4444", fontSize: 18, fontWeight: 700 } }) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "rgba(245, 158, 11, 0.1)", borderColor: "rgba(245, 158, 11, 0.3)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { color: "#f59e0b", fontSize: 11 }, children: "Unknown" }), value: activeJob.unknown_count, valueStyle: { color: "#f59e0b", fontSize: 18, fontWeight: 700 } }) }) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            card_default,
-            {
-              size: "small",
-              title: "Live Mutation Log Stream",
-              style: { background: "#090d16", borderColor: "#1e293b", maxHeight: 260, overflowY: "auto" },
-              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                list_default,
-                {
-                  size: "small",
-                  dataSource: activeJob.items || [],
-                  renderItem: (item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                    list_default.Item,
-                    {
-                      actions: [
-                        item.status === "SUCCEEDED" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", style: { fontWeight: 600 }, children: [
-                          "Created ",
-                          item.shopify_order_name
-                        ] }) : item.status === "PROCESSING" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "processing", children: "Processing..." }) : item.status === "UNKNOWN" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", children: "UNKNOWN" }),
-                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { size: "small", type: "link", onClick: () => handleReconcileItem(item.id), children: "Reconcile" })
-                        ] }) : item.status === "FAILED" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: item.error_code || "Failed" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "default", children: "Pending" })
-                      ],
-                      children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { code: true, style: { color: "#38bdf8" }, children: item.draft_order_name }),
-                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: item.customer_name })
-                      ] })
-                    }
-                  )
-                }
-              )
-            }
-          )
-        ] })
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-      modal_default,
-      {
-        title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: "Single Draft Test Successful" })
-        ] }),
-        open: !!singleTestModal,
-        onOk: () => setSingleTestModal(null),
-        onCancel: () => setSingleTestModal(null),
-        children: singleTestModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 14, style: { width: "100%" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph3, { style: { margin: 0, fontSize: 13, color: "#cbd5e1" }, children: "Single draft order completed successfully. Verified financial and gateway parameters:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { background: "#0b1329", borderColor: "#1e293b" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [12, 10], children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Created Order Name:" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#10b981", fontSize: 14 }, children: singleTestModal.order?.name }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Financial Status:" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", style: { fontWeight: 600 }, children: singleTestModal.order?.displayFinancialStatus }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Payment Gateway:" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#f8fafc" }, children: singleTestModal.order?.paymentGatewayNames?.join(", ") }) })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          }
+        ),
+        activeTab === "settings" && config && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, fontSize: 16 }, children: "Shopify Admin API & COD Safety Rules" }), style: { maxWidth: 840, background: "#0f172a", borderColor: "#1e293b" }, children: [
+          configFeedback && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             alert_default,
             {
-              type: "success",
+              message: configFeedback.message,
+              type: configFeedback.success ? "success" : "error",
               showIcon: true,
-              message: "Confirmed: COD Gateway and UNPAID financial status validated. Safe for bulk execution."
+              style: { marginBottom: 20 }
             }
-          )
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default, { layout: "vertical", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Store Domain", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_default,
+                {
+                  value: config.store_domain,
+                  onChange: (e3) => setConfig({ ...config, store_domain: e3.target.value }),
+                  placeholder: "your-store.myshopify.com"
+                }
+              ) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "API Version (Pinned)", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { value: config.api_version, disabled: true, style: { fontFamily: "monospace" } }) }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default.Item, { label: "Admin Access Token (Direct)", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_default.Password,
+                {
+                  placeholder: config.has_token ? "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022 (Configured)" : "shpat_...",
+                  onChange: (e3) => setConfig({ ...config, access_token: e3.target.value })
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11 }, children: "Paste direct access token if available, OR use Partner App Client ID & Secret below." })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Shopify App Client ID", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_default,
+                {
+                  value: config.client_id || "",
+                  onChange: (e3) => setConfig({ ...config, client_id: e3.target.value }),
+                  placeholder: "e.g. 2335c041e96357e5a313cfdd0dbe2983",
+                  style: { fontFamily: "monospace" }
+                }
+              ) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Shopify App Client Secret", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_default.Password,
+                {
+                  value: config.client_secret || "",
+                  onChange: (e3) => setConfig({ ...config, client_secret: e3.target.value }),
+                  placeholder: "Paste Client secret"
+                }
+              ) }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(divider_default, { style: { borderColor: "#1e293b" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "COD Marker Tag", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_default,
+                {
+                  value: config.cod_marker_value,
+                  onChange: (e3) => setConfig({ ...config, cod_marker_value: e3.target.value }),
+                  style: { fontFamily: "monospace" }
+                }
+              ) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Max Batch Limit", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_number_default,
+                {
+                  min: 1,
+                  max: 70,
+                  value: config.max_batch_size,
+                  onChange: (v) => setConfig({ ...config, max_batch_size: v }),
+                  style: { width: "100%" }
+                }
+              ) }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 16, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Throttling Rate Limit Delay (ms)", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_number_default,
+                {
+                  min: 100,
+                  max: 2e3,
+                  step: 50,
+                  value: config.rate_limit_delay_ms,
+                  onChange: (v) => setConfig({ ...config, rate_limit_delay_ms: v }),
+                  style: { width: "100%" }
+                }
+              ) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Mock Simulator Mode", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: 6 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                  switch_default,
+                  {
+                    checked: config.mock_mode,
+                    onChange: (c) => setConfig({ ...config, mock_mode: c })
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { marginLeft: 12, fontSize: 12 }, children: config.mock_mode ? "Enabled (Zero-risk virtual store)" : "Disabled (Live Store Admin API)" })
+              ] }) }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { style: { marginTop: 16 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                button_default,
+                {
+                  type: "primary",
+                  onClick: async () => {
+                    try {
+                      const res = await authFetch(`${API_BASE}/config`, {
+                        method: "PUT",
+                        body: JSON.stringify(config)
+                      });
+                      const json = await res.json();
+                      if (json.success) {
+                        message_default.success("Store configuration updated!");
+                        setConfigFeedback({ success: true, message: "Settings saved successfully!" });
+                      }
+                    } catch (e3) {
+                      message_default.error(e3.message);
+                    }
+                  },
+                  children: "Save Changes"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                button_default,
+                {
+                  loading: testingConnection,
+                  onClick: async () => {
+                    setTestingConnection(true);
+                    try {
+                      const res = await authFetch(`${API_BASE}/config/test-connection`, { method: "POST" });
+                      const json = await res.json();
+                      setConfigFeedback(json);
+                      if (json.success) {
+                        message_default.success(json.message);
+                      } else {
+                        message_default.error(json.message);
+                      }
+                    } catch (e3) {
+                      message_default.error(e3.message);
+                    } finally {
+                      setTestingConnection(false);
+                    }
+                  },
+                  children: "Test Shopify Connection"
+                }
+              ),
+              config.client_id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                button_default,
+                {
+                  style: { background: "#059669", borderColor: "#059669", color: "#fff" },
+                  onClick: () => {
+                    window.location.href = `/api/shopify/install?shop=${encodeURIComponent(config.store_domain)}`;
+                  },
+                  children: "Authorize via Shopify App (1-Click)"
+                }
+              )
+            ] })
+          ] })
         ] })
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-      modal_default,
-      {
-        title: viewDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileTextOutlined_default2, { style: { color: "#38bdf8" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700 }, children: [
-            "Draft Order ",
-            viewDraftModal.name,
-            " \u2014 Full Details"
-          ] }),
-          viewDraftModal.isCodEligible ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "success", children: "COD Ready" }) : !viewDraftModal.isAddressComplete ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "Incomplete Delivery Address" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", children: "Non-COD" })
+      ] }),
+      selectedMap.size > 0 && activeTab === "drafts" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+        position: "fixed",
+        bottom: 24,
+        left: "50%",
+        transform: "translateX(-50%)",
+        background: "rgba(15, 23, 42, 0.95)",
+        backdropFilter: "blur(12px)",
+        border: "1px solid #2563eb",
+        boxShadow: "0 20px 35px -5px rgba(0,0,0,0.7), 0 0 20px rgba(37, 99, 235, 0.4)",
+        borderRadius: 9999,
+        padding: "10px 24px",
+        display: "flex",
+        alignItems: "center",
+        gap: 24,
+        zIndex: 1e3
+      }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+            width: 32,
+            height: 32,
+            borderRadius: "50%",
+            background: "#2563eb",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: 700,
+            color: "#fff",
+            fontSize: 13
+          }, children: selectedMap.size }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#f8fafc", fontSize: 13, fontWeight: 700 }, children: [
+              selectedMap.size,
+              " of 70 drafts selected"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#38bdf8", fontFamily: "monospace", fontWeight: 600 }, children: [
+              "Total: \u20B9",
+              selectedTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })
+            ] })
+          ] })
         ] }),
-        open: !!viewDraftModal,
-        onCancel: () => setViewDraftModal(null),
-        width: 760,
-        footer: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { onClick: () => setViewDraftModal(null), children: "Close" }, "close"),
-          viewDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { size: 8, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { size: "middle", onClick: clearSelection, style: { borderRadius: 9999 }, children: "Clear" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            button_default,
+            {
+              type: "default",
+              size: "middle",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
+              onClick: addSelectedToBulk,
+              style: { borderRadius: 9999, borderColor: "#3b82f6", color: "#60a5fa" },
+              children: [
+                "+ Add to Bulk (",
+                selectedMap.size,
+                ")"
+              ]
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             button_default,
             {
               type: "primary",
-              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, {}),
-              onClick: () => openEditModal(viewDraftModal),
-              children: "Edit / Fix Address"
-            },
-            "edit"
+              size: "middle",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRightOutlined_default2, {}),
+              style: {
+                background: "linear-gradient(135deg, #10b981, #059669)",
+                borderColor: "#10b981",
+                fontWeight: 700,
+                borderRadius: 9999,
+                boxShadow: "0 4px 12px rgba(16, 185, 129, 0.35)"
+              },
+              onClick: () => {
+                setReviewDrafts(Array.from(selectedMap.values()));
+                setShowReviewModal(true);
+                setConfirmPhrase("");
+              },
+              children: [
+                "Review & Confirm (",
+                selectedMap.size,
+                ")"
+              ]
+            }
           )
-        ],
-        children: viewDraftModal && (() => {
-          const ship = viewDraftModal.shippingAddress || {};
-          const cust = viewDraftModal.customer || {};
-          const phone = viewDraftModal.phone || cust.phone || ship.phone;
-          const items = viewDraftModal.lineItems?.nodes || [];
-          const subtotal = viewDraftModal.subtotalPriceSet?.shopMoney?.amount || viewDraftModal.totalPriceSet?.shopMoney?.amount || "0";
-          const total = viewDraftModal.totalPriceSet?.shopMoney?.amount || "0";
-          return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%", marginTop: 8 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              card_default,
-              {
-                size: "small",
-                title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: "Delivery Readiness & Validation Checklist" }),
-                style: { background: "#0b1329", borderColor: "#1e293b" },
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [10, 10], children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: phone ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
-                      "\u2713 Phone: ",
-                      phone
-                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing Phone" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.address1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "success", children: "\u2713 Address Line 1" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing Address 1" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.city ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
-                      "\u2713 City: ",
-                      ship.city
-                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing City" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.province ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
-                      "\u2713 State: ",
-                      ship.province
-                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing State" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.zip ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
-                      "\u2713 Pincode: ",
-                      ship.zip
-                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing Pincode" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: viewDraftModal.tags?.includes(config?.cod_marker_value || "COD") ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "success", children: "\u2713 COD Tag Present" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", children: "\u2717 Missing COD Tag" }) })
-                  ] }),
-                  !viewDraftModal.isAddressComplete && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                    alert_default,
+        ] })
+      ] }),
+      (() => {
+        const targetReviewList = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          modal_default,
+          {
+            title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, { style: { color: "#f59e0b" } }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: "Review Bulk COD Confirmation" })
+            ] }),
+            open: showReviewModal,
+            width: 680,
+            onCancel: () => {
+              setShowReviewModal(false);
+              setReviewDrafts([]);
+            },
+            footer: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { onClick: () => {
+                setShowReviewModal(false);
+                setReviewDrafts([]);
+              }, children: "Cancel" }, "cancel"),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                button_default,
+                {
+                  type: "primary",
+                  danger: true,
+                  icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+                  disabled: confirmPhrase.trim() !== `CONFIRM ${targetReviewList.length} ORDERS`,
+                  onClick: handleCreateAndStartJob,
+                  style: { fontWeight: 700 },
+                  children: [
+                    "Execute Bulk Confirmation (",
+                    targetReviewList.length,
+                    ")"
+                  ]
+                },
+                "execute"
+              )
+            ],
+            children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                alert_default,
+                {
+                  type: "warning",
+                  showIcon: true,
+                  message: "Operational Safety Gate",
+                  description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12 }, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 4 }, children: [
+                      "Converting ",
+                      targetReviewList.length,
+                      " draft orders executes Shopify's ",
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { code: true, children: "draftOrderComplete" }),
+                      " mutation. This ",
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "commits store inventory" }),
+                      " and creates regular orders."
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#f8fafc" }, children: "Orders remain UNPAID / PAYMENT DUE until cash is physically received." })
+                  ] })
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                table_default,
+                {
+                  size: "small",
+                  rowKey: "id",
+                  dataSource: targetReviewList,
+                  pagination: { pageSize: 5 },
+                  columns: [
+                    { title: "Draft #", dataIndex: "name", render: (t2) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, code: true, style: { color: "#38bdf8" }, children: t2 }) },
+                    { title: "Customer", render: (_, r3) => `${r3.customer?.firstName || ""} ${r3.customer?.lastName || ""}` },
                     {
-                      type: "warning",
-                      showIcon: true,
-                      style: { marginTop: 12 },
-                      message: `Cannot convert into order: missing ${viewDraftModal.missingFields?.filter((f) => f !== "COD Tag").join(", ")}. Use 'Edit / Fix Address' to complete details.`
+                      title: "Amount",
+                      align: "right",
+                      render: (_, r3) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontFamily: "monospace", fontWeight: 600, color: "#34d399" }, children: [
+                        "\u20B9",
+                        parseFloat(r3.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)
+                      ] })
                     }
-                  )
-                ]
-              }
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { style: { background: "#090d16", borderColor: "#1e293b" }, size: "small", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 6, style: { width: "100%" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { strong: true, style: { fontSize: 12 }, children: [
+                  "Accidental Submit Prevention: Type ",
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { code: true, style: { color: "#f59e0b", fontWeight: 700 }, children: [
+                    "CONFIRM ",
+                    targetReviewList.length,
+                    " ORDERS"
+                  ] }),
+                  " to unlock:"
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                  input_default,
+                  {
+                    placeholder: `CONFIRM ${targetReviewList.length} ORDERS`,
+                    value: confirmPhrase,
+                    onChange: (e3) => setConfirmPhrase(e3.target.value),
+                    style: { fontFamily: "monospace", fontWeight: 600 },
+                    size: "large"
+                  }
+                )
+              ] }) })
+            ] })
+          }
+        );
+      })(),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        modal_default,
+        {
+          title: activeJob ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, { style: { color: "#38bdf8" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700 }, children: [
+              "Bulk Job #",
+              activeJob.id.slice(0, 8),
+              " Execution Monitor"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: activeJob.status === "RUNNING" ? "processing" : "success", style: { fontWeight: 600 }, children: activeJob.status })
+          ] }) : "Job Progress",
+          open: showJobModal,
+          width: 720,
+          onCancel: () => setShowJobModal(false),
+          footer: [
+            activeJob?.status === "RUNNING" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { danger: true, onClick: handleCancelJob, children: "Cancel Remaining Drafts" }, "cancel"),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              button_default,
+              {
+                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DownloadOutlined_default2, {}),
+                href: `${API_BASE}/bulk-jobs/${activeJob?.id}/export?token=${token2}`,
+                children: "Export CSV Report"
+              },
+              "export"
             ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { type: "primary", onClick: () => setShowJobModal(false), children: "Close View" }, "dismiss")
+          ],
+          children: activeJob && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: 12 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Batch Progress" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { strong: true, children: [
+                  activeJob.success_count + activeJob.failed_count + activeJob.unknown_count,
+                  " of ",
+                  activeJob.requested_count,
+                  " processed"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                progress_default2,
+                {
+                  percent: Math.round((activeJob.success_count + activeJob.failed_count + activeJob.unknown_count) / activeJob.requested_count * 100),
+                  status: activeJob.status === "RUNNING" ? "active" : "normal",
+                  strokeColor: { "0%": "#2563eb", "100%": "#10b981" }
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "#0b1329", borderColor: "#1e293b" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11 }, children: "Total" }), value: activeJob.requested_count, valueStyle: { fontSize: 18, fontWeight: 700 } }) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "rgba(16, 185, 129, 0.1)", borderColor: "rgba(16, 185, 129, 0.3)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { color: "#10b981", fontSize: 11 }, children: "Succeeded" }), value: activeJob.success_count, valueStyle: { color: "#10b981", fontSize: 18, fontWeight: 700 } }) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "rgba(239, 68, 68, 0.1)", borderColor: "rgba(239, 68, 68, 0.3)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { color: "#ef4444", fontSize: 11 }, children: "Failed" }), value: activeJob.failed_count, valueStyle: { color: "#ef4444", fontSize: 18, fontWeight: 700 } }) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { textAlign: "center", background: "rgba(245, 158, 11, 0.1)", borderColor: "rgba(245, 158, 11, 0.3)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(statistic_default2, { title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { color: "#f59e0b", fontSize: 11 }, children: "Unknown" }), value: activeJob.unknown_count, valueStyle: { color: "#f59e0b", fontSize: 18, fontWeight: 700 } }) }) })
+            ] }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               card_default,
               {
                 size: "small",
-                title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: "Customer & Shipping Details" }),
-                style: { background: "#0b1329", borderColor: "#1e293b" },
-                extra: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { size: "small", type: "link", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, {}), onClick: () => openEditModal(viewDraftModal), children: "Edit Address" }),
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 12], children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Recipient Name:" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 600, color: "#f8fafc", fontSize: 13 }, children: ship.name || `${cust.firstName || ""} ${cust.lastName || ""}`.trim() || "Guest Customer" })
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Contact Phone:" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 600, color: phone ? "#38bdf8" : "#ef4444", fontSize: 13 }, children: phone || "Not Provided (Required)" })
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Email Address:" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#cbd5e1", fontSize: 13 }, children: viewDraftModal.email || cust.email || "None" })
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Delivery Location:" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#cbd5e1", fontSize: 13 }, children: [
-                      ship.city ? `${ship.city}, ` : "",
-                      ship.province || "",
-                      ship.zip ? ` - ${ship.zip}` : "",
-                      ship.country ? `, ${ship.country}` : ""
-                    ] })
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 24, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Street Address:" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#f8fafc", fontSize: 13, marginTop: 2, background: "#070b14", padding: "8px 12px", borderRadius: 6, border: "1px solid #1e293b" }, children: [
-                      ship.address1 || "None",
-                      ship.address2 ? `, ${ship.address2}` : ""
-                    ] })
-                  ] })
-                ] })
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              card_default,
-              {
-                size: "small",
-                title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: [
-                  "Line Items (",
-                  items.length,
-                  ")"
-                ] }),
-                style: { background: "#0b1329", borderColor: "#1e293b" },
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                    table_default,
-                    {
-                      size: "small",
-                      pagination: false,
-                      dataSource: items,
-                      rowKey: "id",
-                      columns: [
-                        {
-                          title: "Product Title",
-                          dataIndex: "title",
-                          key: "title",
-                          render: (t2, r3) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600, color: "#f8fafc" }, children: t2 || r3.name }),
-                            r3.sku && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { type: "secondary", style: { fontSize: 11, marginLeft: 8 }, children: [
-                              "(SKU: ",
-                              r3.sku,
-                              ")"
-                            ] }),
-                            r3.variantTitle && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#64748b" }, children: [
-                              "Variant: ",
-                              r3.variantTitle
-                            ] })
-                          ] })
-                        },
-                        {
-                          title: "Unit Price",
-                          dataIndex: ["originalUnitPriceSet", "shopMoney", "amount"],
-                          key: "price",
-                          align: "right",
-                          width: 100,
-                          render: (val) => `\u20B9${parseFloat(val || 0).toLocaleString("en-IN", { minimumFractionDigits: 2 })}`
-                        },
-                        {
-                          title: "Qty",
-                          dataIndex: "quantity",
-                          key: "qty",
-                          align: "center",
-                          width: 60
-                        },
-                        {
-                          title: "Total",
-                          key: "lineTotal",
-                          align: "right",
-                          width: 110,
-                          render: (_, r3) => {
-                            const unit3 = parseFloat(r3.originalUnitPriceSet?.shopMoney?.amount || 0);
-                            const lineTot = unit3 * (r3.quantity || 1);
-                            return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontFamily: "monospace", fontWeight: 600, color: "#34d399" }, children: [
-                              "\u20B9",
-                              lineTot.toLocaleString("en-IN", { minimumFractionDigits: 2 })
-                            ] });
-                          }
-                        }
-                      ]
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(divider_default, { style: { margin: "12px 0", borderColor: "#1e293b" } }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(row_default2, { justify: "end", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 10, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 4, fontSize: 12 }, children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Subtotal:" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { children: [
-                        "\u20B9",
-                        parseFloat(subtotal).toLocaleString("en-IN", { minimumFractionDigits: 2 })
-                      ] })
-                    ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: 12 }, children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Estimated Tax:" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { children: [
-                        "\u20B9",
-                        parseFloat(viewDraftModal.totalTaxSet?.shopMoney?.amount || 0).toLocaleString("en-IN", { minimumFractionDigits: 2 })
-                      ] })
-                    ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", fontSize: 14, fontWeight: 700, color: "#34d399" }, children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total Due (COD):" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
-                        "\u20B9",
-                        parseFloat(total).toLocaleString("en-IN", { minimumFractionDigits: 2 })
-                      ] })
-                    ] })
-                  ] }) })
-                ]
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              card_default,
-              {
-                size: "small",
-                title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: "Order Tags & Notes" }),
-                style: { background: "#0b1329", borderColor: "#1e293b" },
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 8 }, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, marginRight: 8 }, children: "Tags:" }),
-                    viewDraftModal.tags?.length > 0 ? viewDraftModal.tags.map((t2) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "blue", children: t2 }, t2)) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontStyle: "italic", fontSize: 12 }, children: "No tags assigned" })
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, marginRight: 8 }, children: "Order Note:" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 12, color: viewDraftModal.note ? "#f8fafc" : "#64748b" }, children: viewDraftModal.note || "None" })
-                  ] })
-                ]
+                title: "Live Mutation Log Stream",
+                style: { background: "#090d16", borderColor: "#1e293b", maxHeight: 260, overflowY: "auto" },
+                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                  list_default,
+                  {
+                    size: "small",
+                    dataSource: activeJob.items || [],
+                    renderItem: (item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                      list_default.Item,
+                      {
+                        actions: [
+                          item.status === "SUCCEEDED" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", style: { fontWeight: 600 }, children: [
+                            "Created ",
+                            item.shopify_order_name
+                          ] }) : item.status === "PROCESSING" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "processing", children: "Processing..." }) : item.status === "UNKNOWN" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", children: "UNKNOWN" }),
+                            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { size: "small", type: "link", onClick: () => handleReconcileItem(item.id), children: "Reconcile" })
+                          ] }) : item.status === "FAILED" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: item.error_code || "Failed" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "default", children: "Pending" })
+                        ],
+                        children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { code: true, style: { color: "#38bdf8" }, children: item.draft_order_name }),
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: item.customer_name })
+                        ] })
+                      }
+                    )
+                  }
+                )
               }
             )
-          ] });
-        })()
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-      modal_default,
-      {
-        title: editDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, { style: { color: "#f59e0b" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700 }, children: [
-            "Edit Delivery & Contact Details \u2014 ",
-            editDraftModal.name
           ] })
-        ] }),
-        open: !!editDraftModal,
-        onCancel: () => setEditDraftModal(null),
-        width: 600,
-        confirmLoading: savingDraft,
-        okText: "Save & Sync to Shopify",
-        onOk: handleSaveDraft,
-        children: editDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default, { form: editForm, layout: "vertical", style: { marginTop: 12 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            alert_default,
-            {
-              type: "info",
-              showIcon: true,
-              message: "Updates sync in real-time with your live Shopify store. Once required delivery fields are filled, this draft unlocks for conversion.",
-              style: { marginBottom: 16 }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "First Name", name: "firstName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient first name" }) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Last Name", name: "lastName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient last name" }) }) })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        modal_default,
+        {
+          title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: "Single Draft Test Successful" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              form_default.Item,
+          open: !!singleTestModal,
+          onOk: () => setSingleTestModal(null),
+          onCancel: () => setSingleTestModal(null),
+          children: singleTestModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 14, style: { width: "100%" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph3, { style: { margin: 0, fontSize: 13, color: "#cbd5e1" }, children: "Single draft order completed successfully. Verified financial and gateway parameters:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { size: "small", style: { background: "#0b1329", borderColor: "#1e293b" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [12, 10], children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Created Order Name:" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#10b981", fontSize: 14 }, children: singleTestModal.order?.name }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Financial Status:" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", style: { fontWeight: 600 }, children: singleTestModal.order?.displayFinancialStatus }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Payment Gateway:" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#f8fafc" }, children: singleTestModal.order?.paymentGatewayNames?.join(", ") }) })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              alert_default,
               {
-                label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Contact Phone (Required)" }),
-                name: "phone",
-                rules: [{ required: true, message: "Customer phone number is required for COD delivery" }],
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. +91 87901 62162" })
+                type: "success",
+                showIcon: true,
+                message: "Confirmed: COD Gateway and UNPAID financial status validated. Safe for bulk execution."
               }
-            ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Customer Email", name: "email", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. customer@example.com" }) }) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            form_default.Item,
-            {
-              label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Address Line 1 (Required)" }),
-              name: "address1",
-              rules: [{ required: true, message: "Street address / House number is required" }],
-              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Flat/House no., Building, Street, Area" })
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Address Line 2 (Optional)", name: "address2", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Landmark, Apartment, Suite, etc." }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              form_default.Item,
-              {
-                label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "City (Required)" }),
-                name: "city",
-                rules: [{ required: true, message: "City / Town is required" }],
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. Jojawar / Marwar" })
-              }
-            ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              form_default.Item,
-              {
-                label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "State (Required)" }),
-                name: "province",
-                rules: [{ required: true, message: "State / Province is required" }],
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. Rajasthan" })
-              }
-            ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              form_default.Item,
-              {
-                label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Pincode (Required)" }),
-                name: "zip",
-                rules: [{ required: true, message: "Pincode is required" }],
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. 306022" })
-              }
-            ) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Country", name: "country", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "India" }) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "COD Marker Tag", name: "addCodTag", valuePropName: "checked", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, marginTop: 4 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(switch_default, {}),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { style: { fontSize: 12 }, children: [
-                "Tag as COD (",
-                config?.cod_marker_value || "COD",
-                ")"
-              ] })
-            ] }) }) })
+            )
           ] })
-        ] })
-      }
-    )
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        modal_default,
+        {
+          title: viewDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileTextOutlined_default2, { style: { color: "#38bdf8" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700 }, children: [
+              "Draft Order ",
+              viewDraftModal.name,
+              " \u2014 Full Details"
+            ] }),
+            viewDraftModal.isCodEligible ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "success", children: "COD Ready" }) : !viewDraftModal.isAddressComplete ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "Incomplete Delivery Address" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", children: "Non-COD" })
+          ] }),
+          open: !!viewDraftModal,
+          onCancel: () => setViewDraftModal(null),
+          width: 760,
+          footer: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { onClick: () => setViewDraftModal(null), children: "Close" }, "close"),
+            viewDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              button_default,
+              {
+                type: "primary",
+                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, {}),
+                onClick: () => openEditModal(viewDraftModal),
+                children: "Edit / Fix Address"
+              },
+              "edit"
+            )
+          ],
+          children: viewDraftModal && (() => {
+            const ship = viewDraftModal.shippingAddress || {};
+            const cust = viewDraftModal.customer || {};
+            const phone = viewDraftModal.phone || cust.phone || ship.phone;
+            const items = viewDraftModal.lineItems?.nodes || [];
+            const subtotal = viewDraftModal.subtotalPriceSet?.shopMoney?.amount || viewDraftModal.totalPriceSet?.shopMoney?.amount || "0";
+            const total = viewDraftModal.totalPriceSet?.shopMoney?.amount || "0";
+            return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%", marginTop: 8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                card_default,
+                {
+                  size: "small",
+                  title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: "Delivery Readiness & Validation Checklist" }),
+                  style: { background: "#0b1329", borderColor: "#1e293b" },
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [10, 10], children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: phone ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
+                        "\u2713 Phone: ",
+                        phone
+                      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing Phone" }) }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.address1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "success", children: "\u2713 Address Line 1" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing Address 1" }) }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.city ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
+                        "\u2713 City: ",
+                        ship.city
+                      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing City" }) }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.province ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
+                        "\u2713 State: ",
+                        ship.province
+                      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing State" }) }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: ship.zip ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", children: [
+                        "\u2713 Pincode: ",
+                        ship.zip
+                      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", children: "\u2717 Missing Pincode" }) }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: viewDraftModal.tags?.includes(config?.cod_marker_value || "COD") ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "success", children: "\u2713 COD Tag Present" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "warning", children: "\u2717 Missing COD Tag" }) })
+                    ] }),
+                    !viewDraftModal.isAddressComplete && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                      alert_default,
+                      {
+                        type: "warning",
+                        showIcon: true,
+                        style: { marginTop: 12 },
+                        message: `Cannot convert into order: missing ${viewDraftModal.missingFields?.filter((f) => f !== "COD Tag").join(", ")}. Use 'Edit / Fix Address' to complete details.`
+                      }
+                    )
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                card_default,
+                {
+                  size: "small",
+                  title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: "Customer & Shipping Details" }),
+                  style: { background: "#0b1329", borderColor: "#1e293b" },
+                  extra: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { size: "small", type: "link", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, {}), onClick: () => openEditModal(viewDraftModal), children: "Edit Address" }),
+                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 12], children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Recipient Name:" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 600, color: "#f8fafc", fontSize: 13 }, children: ship.name || `${cust.firstName || ""} ${cust.lastName || ""}`.trim() || "Guest Customer" })
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Contact Phone:" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 600, color: phone ? "#38bdf8" : "#ef4444", fontSize: 13 }, children: phone || "Not Provided (Required)" })
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Email Address:" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#cbd5e1", fontSize: 13 }, children: viewDraftModal.email || cust.email || "None" })
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 12, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Delivery Location:" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#cbd5e1", fontSize: 13 }, children: [
+                        ship.city ? `${ship.city}, ` : "",
+                        ship.province || "",
+                        ship.zip ? ` - ${ship.zip}` : "",
+                        ship.country ? `, ${ship.country}` : ""
+                      ] })
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 24, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12 }, children: "Street Address:" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#f8fafc", fontSize: 13, marginTop: 2, background: "#070b14", padding: "8px 12px", borderRadius: 6, border: "1px solid #1e293b" }, children: [
+                        ship.address1 || "None",
+                        ship.address2 ? `, ${ship.address2}` : ""
+                      ] })
+                    ] })
+                  ] })
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                card_default,
+                {
+                  size: "small",
+                  title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: [
+                    "Line Items (",
+                    items.length,
+                    ")"
+                  ] }),
+                  style: { background: "#0b1329", borderColor: "#1e293b" },
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                      table_default,
+                      {
+                        size: "small",
+                        pagination: false,
+                        dataSource: items,
+                        rowKey: "id",
+                        columns: [
+                          {
+                            title: "Product Title",
+                            dataIndex: "title",
+                            key: "title",
+                            render: (t2, r3) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600, color: "#f8fafc" }, children: t2 || r3.name }),
+                              r3.sku && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { type: "secondary", style: { fontSize: 11, marginLeft: 8 }, children: [
+                                "(SKU: ",
+                                r3.sku,
+                                ")"
+                              ] }),
+                              r3.variantTitle && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#64748b" }, children: [
+                                "Variant: ",
+                                r3.variantTitle
+                              ] })
+                            ] })
+                          },
+                          {
+                            title: "Unit Price",
+                            dataIndex: ["originalUnitPriceSet", "shopMoney", "amount"],
+                            key: "price",
+                            align: "right",
+                            width: 100,
+                            render: (val) => `\u20B9${parseFloat(val || 0).toLocaleString("en-IN", { minimumFractionDigits: 2 })}`
+                          },
+                          {
+                            title: "Qty",
+                            dataIndex: "quantity",
+                            key: "qty",
+                            align: "center",
+                            width: 60
+                          },
+                          {
+                            title: "Total",
+                            key: "lineTotal",
+                            align: "right",
+                            width: 110,
+                            render: (_, r3) => {
+                              const unit3 = parseFloat(r3.originalUnitPriceSet?.shopMoney?.amount || 0);
+                              const lineTot = unit3 * (r3.quantity || 1);
+                              return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontFamily: "monospace", fontWeight: 600, color: "#34d399" }, children: [
+                                "\u20B9",
+                                lineTot.toLocaleString("en-IN", { minimumFractionDigits: 2 })
+                              ] });
+                            }
+                          }
+                        ]
+                      }
+                    ),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(divider_default, { style: { margin: "12px 0", borderColor: "#1e293b" } }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(row_default2, { justify: "end", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { span: 10, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 4, fontSize: 12 }, children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Subtotal:" }),
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { children: [
+                          "\u20B9",
+                          parseFloat(subtotal).toLocaleString("en-IN", { minimumFractionDigits: 2 })
+                        ] })
+                      ] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: 12 }, children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", children: "Estimated Tax:" }),
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { children: [
+                          "\u20B9",
+                          parseFloat(viewDraftModal.totalTaxSet?.shopMoney?.amount || 0).toLocaleString("en-IN", { minimumFractionDigits: 2 })
+                        ] })
+                      ] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", fontSize: 14, fontWeight: 700, color: "#34d399" }, children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total Due (COD):" }),
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
+                          "\u20B9",
+                          parseFloat(total).toLocaleString("en-IN", { minimumFractionDigits: 2 })
+                        ] })
+                      ] })
+                    ] }) })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                card_default,
+                {
+                  size: "small",
+                  title: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, fontWeight: 700, color: "#94a3b8" }, children: "Order Tags & Notes" }),
+                  style: { background: "#0b1329", borderColor: "#1e293b" },
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 8 }, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, marginRight: 8 }, children: "Tags:" }),
+                      viewDraftModal.tags?.length > 0 ? viewDraftModal.tags.map((t2) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "blue", children: t2 }, t2)) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontStyle: "italic", fontSize: 12 }, children: "No tags assigned" })
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, marginRight: 8 }, children: "Order Note:" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 12, color: viewDraftModal.note ? "#f8fafc" : "#64748b" }, children: viewDraftModal.note || "None" })
+                    ] })
+                  ]
+                }
+              )
+            ] });
+          })()
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        modal_default,
+        {
+          title: editDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, { style: { color: "#f59e0b" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700 }, children: [
+              "Edit Delivery & Contact Details \u2014 ",
+              editDraftModal.name
+            ] })
+          ] }),
+          open: !!editDraftModal,
+          onCancel: () => setEditDraftModal(null),
+          width: 600,
+          confirmLoading: savingDraft,
+          okText: "Save & Sync to Shopify",
+          onOk: handleSaveDraft,
+          children: editDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default, { form: editForm, layout: "vertical", style: { marginTop: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              alert_default,
+              {
+                type: "info",
+                showIcon: true,
+                message: "Updates sync in real-time with your live Shopify store. Once required delivery fields are filled, this draft unlocks for conversion.",
+                style: { marginBottom: 16 }
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "First Name", name: "firstName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient first name" }) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Last Name", name: "lastName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient last name" }) }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                form_default.Item,
+                {
+                  label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Contact Phone (Required)" }),
+                  name: "phone",
+                  rules: [{ required: true, message: "Customer phone number is required for COD delivery" }],
+                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. +91 87901 62162" })
+                }
+              ) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Customer Email", name: "email", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. customer@example.com" }) }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              form_default.Item,
+              {
+                label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Address Line 1 (Required)" }),
+                name: "address1",
+                rules: [{ required: true, message: "Street address / House number is required" }],
+                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Flat/House no., Building, Street, Area" })
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Address Line 2 (Optional)", name: "address2", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Landmark, Apartment, Suite, etc." }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                form_default.Item,
+                {
+                  label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "City (Required)" }),
+                  name: "city",
+                  rules: [{ required: true, message: "City / Town is required" }],
+                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. Jojawar / Marwar" })
+                }
+              ) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                form_default.Item,
+                {
+                  label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "State (Required)" }),
+                  name: "province",
+                  rules: [{ required: true, message: "State / Province is required" }],
+                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. Rajasthan" })
+                }
+              ) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                form_default.Item,
+                {
+                  label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Pincode (Required)" }),
+                  name: "zip",
+                  rules: [{ required: true, message: "Pincode is required" }],
+                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. 306022" })
+                }
+              ) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Country", name: "country", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "India" }) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "COD Marker Tag", name: "addCodTag", valuePropName: "checked", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, marginTop: 4 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(switch_default, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { style: { fontSize: 12 }, children: [
+                  "Tag as COD (",
+                  config?.cod_marker_value || "COD",
+                  ")"
+                ] })
+              ] }) }) })
+            ] })
+          ] })
+        }
+      )
+    ] })
   ] }) });
 }
 

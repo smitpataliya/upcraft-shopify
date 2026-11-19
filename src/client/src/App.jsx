@@ -14,15 +14,19 @@ import {
   PhoneOutlined, EnvironmentOutlined, GlobalOutlined, FilterOutlined,
   CloseCircleOutlined, ExclamationCircleOutlined, EditOutlined,
   InfoCircleOutlined, FileTextOutlined, CompassOutlined,
-  PlusOutlined, DeleteOutlined
+  PlusOutlined, DeleteOutlined, MenuFoldOutlined, MenuUnfoldOutlined
 } from '@ant-design/icons';
 
-const { Header, Content } = Layout;
+const { Header, Content, Sider } = Layout;
 const { Title, Text, Paragraph } = Typography;
 
 const API_BASE = '/api';
 
 export default function App() {
+  // Navigation layout state
+  const [collapsed, setCollapsed] = useState(false);
+  const [sidebarSearch, setSidebarSearch] = useState('');
+
   // Auth state
   const [token, setToken] = useState(localStorage.getItem('upcraft_token') || '');
   const [user, setUser] = useState(null);
@@ -1170,163 +1174,459 @@ export default function App() {
   return (
     <ConfigProvider theme={antdTheme}>
       <Layout style={{ minHeight: '100vh', background: '#090d16' }}>
-        {/* Ant Design Header - Horizontal Row Layout */}
-        <Header style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 20px',
-          background: '#090d16',
-          borderBottom: '1px solid #1e293b',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-          height: 64,
-          lineHeight: 'normal',
-          gap: 16
-        }}>
-          {/* Brand & Navigation Tabs - Full Left-Aligned Horizontal Row */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            {/* Logo + Title + Tag in single row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+        {/* Left Sidebar (AppSidebar style matching upcraft-admin-panel) */}
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          trigger={null}
+          width={260}
+          collapsedWidth={80}
+          style={{
+            background: '#090d16',
+            borderRight: '1px solid #1e293b',
+            height: '100vh',
+            position: 'sticky',
+            top: 0,
+            left: 0,
+            zIndex: 100
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+            {/* Top Area: Logo, Store Chip, Navigation Items */}
+            <div style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
+              {/* Brand Header */}
               <div style={{
-                width: 36,
-                height: 36,
-                borderRadius: 9,
-                background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+                padding: collapsed ? '18px 12px' : '18px 16px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fff',
-                fontSize: 18,
-                boxShadow: '0 2px 10px rgba(37, 99, 235, 0.35)',
-                flexShrink: 0
+                gap: 12,
+                borderBottom: '1px solid #1e293b'
               }}>
-                <ShopOutlined />
+                <div style={{
+                  width: 38,
+                  height: 38,
+                  borderRadius: 10,
+                  background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  fontSize: 16,
+                  fontWeight: 800,
+                  boxShadow: '0 4px 14px rgba(37, 99, 235, 0.4)',
+                  flexShrink: 0
+                }}>
+                  UP
+                </div>
+                {!collapsed && (
+                  <div style={{ lineHeight: 1.2, overflow: 'hidden' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontWeight: 800, color: '#f8fafc', fontSize: 16, letterSpacing: -0.3 }}>
+                        Upcraft.Tech
+                      </span>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+                    </div>
+                    <div style={{ fontSize: 11, color: '#64748b', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span>Shopify COD</span>
+                      <Tag color="geekblue" style={{ fontSize: 9, margin: 0, padding: '0 4px', lineHeight: '14px', borderRadius: 3 }}>
+                        API 2026-10
+                      </Tag>
+                    </div>
+                  </div>
+                )}
               </div>
-              <span style={{ fontWeight: 800, color: '#f8fafc', fontSize: 15, letterSpacing: -0.3, whiteSpace: 'nowrap' }}>
-                Upcraft Shopify
-              </span>
-              <Tag color="geekblue" style={{ fontSize: 10, margin: 0, padding: '1px 6px', fontWeight: 600, borderRadius: 4 }}>
-                API 2026-10
-              </Tag>
-            </div>
 
-            {/* Subtle Divider */}
-            <div style={{ width: 1, height: 20, background: '#1e293b', flexShrink: 0 }} />
-
-            {/* Store Domain & Live Mode Chip (Single Row) */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
-              fontSize: 11,
-              color: '#94a3b8',
-              background: '#0f172a',
-              padding: '4px 10px',
-              borderRadius: 6,
-              border: '1px solid #1e293b',
-              whiteSpace: 'nowrap',
-              flexShrink: 0
-            }}>
-              <span style={{ fontFamily: 'monospace', color: '#cbd5e1' }}>{config?.store_domain || 'upcraft-cod-demo.myshopify.com'}</span>
-              <span style={{ color: '#475569' }}>•</span>
-              {config?.mock_mode ? (
-                <span style={{ color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
-                  Mock Simulator
-                </span>
+              {/* Store Domain Switcher / Pill */}
+              {!collapsed ? (
+                <div style={{ padding: '12px 14px 6px' }}>
+                  <div style={{
+                    background: '#0f172a',
+                    border: '1px solid #1e293b',
+                    borderRadius: 8,
+                    padding: '8px 10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 8
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' }}>
+                      <ShopOutlined style={{ color: '#38bdf8', fontSize: 14 }} />
+                      <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 11 }}>
+                        <div style={{ color: '#e2e8f0', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {config?.store_domain?.split('.')[0] || 'upcraft-store'}
+                        </div>
+                        <div style={{ color: config?.mock_mode ? '#10b981' : '#38bdf8', fontSize: 10, display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: config?.mock_mode ? '#10b981' : '#38bdf8' }} />
+                          {config?.mock_mode ? 'Mock Mode' : 'Live Store API'}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ) : (
-                <span style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#38bdf8', display: 'inline-block' }} />
-                  Live Store API
-                </span>
-              )}
-            </div>
-
-            {/* Subtle Divider */}
-            <div style={{ width: 1, height: 20, background: '#1e293b', flexShrink: 0 }} />
-
-            {/* Navigation Tabs - Horizontal Row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
-              {[
-                { key: 'drafts', icon: <ShoppingOutlined />, label: 'Draft Orders' },
-                {
-                  key: 'bulk',
-                  icon: <ThunderboltOutlined />,
-                  label: (
-                    <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      Bulk Orders
-                      {bulkQueue.length > 0 && (
-                        <span style={{
-                          background: '#2563eb',
-                          color: '#fff',
-                          fontSize: 10,
-                          fontWeight: 700,
-                          padding: '1px 6px',
-                          borderRadius: 9999,
-                          lineHeight: '14px'
-                        }}>
-                          {bulkQueue.length}
-                        </span>
-                      )}
-                    </span>
-                  )
-                },
-                { key: 'history', icon: <HistoryOutlined />, label: 'Bulk Jobs History' },
-                { key: 'audit', icon: <SafetyCertificateOutlined />, label: 'Audit Trail' },
-                { key: 'settings', icon: <SettingOutlined />, label: 'Store & COD Policy' }
-              ].map(tab => {
-                const isActive = activeTab === tab.key;
-                return (
-                  <button
-                    key={tab.key}
-                    onClick={() => setActiveTab(tab.key)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      padding: '8px 14px',
+                <div style={{ padding: '12px 0', textAlign: 'center' }}>
+                  <Tooltip title={`${config?.store_domain || 'Shopify Store'} (${config?.mock_mode ? 'Mock Mode' : 'Live API'})`} placement="right">
+                    <div style={{
+                      width: 36,
+                      height: 36,
                       borderRadius: 8,
-                      border: 'none',
-                      background: isActive ? '#1e293b' : 'transparent',
-                      color: isActive ? '#38bdf8' : '#94a3b8',
-                      fontWeight: isActive ? 600 : 500,
-                      fontSize: 13,
-                      cursor: 'pointer',
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    {tab.icon}
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+                      background: '#0f172a',
+                      border: '1px solid #1e293b',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#38bdf8'
+                    }}>
+                      <ShopOutlined />
+                    </div>
+                  </Tooltip>
+                </div>
+              )}
 
-          {/* User Profile Right */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" trigger={['click']}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '6px 12px',
-                borderRadius: 8,
-                background: '#0f172a',
-                border: '1px solid #1e293b',
-                cursor: 'pointer'
-              }}>
-                <Avatar icon={<UserOutlined />} style={{ backgroundColor: '#1e293b', color: '#38bdf8' }} size={28} />
-                <div style={{ textAlign: 'left', lineHeight: 1.2 }}>
-                  <div style={{ color: '#f8fafc', fontSize: 12, fontWeight: 600 }}>{user.fullName}</div>
-                  <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', letterSpacing: 0.5 }}>{user.role}</div>
+              {/* Nav Search Input */}
+              {!collapsed && (
+                <div style={{ padding: '6px 14px 6px' }}>
+                  <Input
+                    size="small"
+                    placeholder="Search navigation..."
+                    prefix={<SearchOutlined style={{ color: '#64748b', fontSize: 12 }} />}
+                    value={sidebarSearch}
+                    onChange={e => setSidebarSearch(e.target.value)}
+                    allowClear
+                    style={{
+                      background: '#090d16',
+                      borderColor: '#1e293b',
+                      borderRadius: 8,
+                      fontSize: 12,
+                      color: '#f8fafc'
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Grouped Sidebar Navigation Items */}
+              <div style={{ padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {/* Section: OVERVIEW */}
+                <div>
+                  {!collapsed && (
+                    <div style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#64748b',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '4px 10px',
+                      marginBottom: 4
+                    }}>
+                      Overview
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {[
+                      { key: 'drafts', icon: <ShoppingOutlined />, label: 'Draft Orders', badge: null },
+                      {
+                        key: 'bulk',
+                        icon: <ThunderboltOutlined />,
+                        label: 'Bulk Orders',
+                        badge: bulkQueue.length > 0 ? bulkQueue.length : null
+                      }
+                    ].filter(item => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map(item => {
+                      const isActive = activeTab === item.key;
+                      return (
+                        <Tooltip key={item.key} title={collapsed ? item.label : ''} placement="right">
+                          <button
+                            onClick={() => setActiveTab(item.key)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: collapsed ? 'center' : 'space-between',
+                              width: '100%',
+                              padding: collapsed ? '10px 0' : '9px 12px',
+                              borderRadius: 10,
+                              border: 'none',
+                              background: isActive ? '#2563eb' : 'transparent',
+                              color: isActive ? '#ffffff' : '#94a3b8',
+                              fontWeight: isActive ? 600 : 500,
+                              fontSize: 13,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isActive ? '0 4px 14px rgba(37, 99, 235, 0.35)' : 'none'
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = '#1e293b'; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                              <span style={{ fontSize: 16, display: 'flex', color: isActive ? '#ffffff' : '#94a3b8' }}>{item.icon}</span>
+                              {!collapsed && <span>{item.label}</span>}
+                            </div>
+                            {!collapsed && item.badge !== null && (
+                              <span style={{
+                                background: isActive ? 'rgba(255,255,255,0.25)' : '#1e293b',
+                                color: isActive ? '#ffffff' : '#38bdf8',
+                                fontSize: 11,
+                                fontWeight: 700,
+                                padding: '1px 7px',
+                                borderRadius: 9999
+                              }}>
+                                {item.badge}
+                              </span>
+                            )}
+                          </button>
+                        </Tooltip>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section: OPERATIONS */}
+                <div>
+                  {!collapsed && (
+                    <div style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#64748b',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '4px 10px',
+                      marginBottom: 4
+                    }}>
+                      Operations
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {[
+                      { key: 'history', icon: <HistoryOutlined />, label: 'Bulk Jobs History', badge: null },
+                      { key: 'audit', icon: <SafetyCertificateOutlined />, label: 'Audit Trail', badge: null }
+                    ].filter(item => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map(item => {
+                      const isActive = activeTab === item.key;
+                      return (
+                        <Tooltip key={item.key} title={collapsed ? item.label : ''} placement="right">
+                          <button
+                            onClick={() => setActiveTab(item.key)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: collapsed ? 'center' : 'space-between',
+                              width: '100%',
+                              padding: collapsed ? '10px 0' : '9px 12px',
+                              borderRadius: 10,
+                              border: 'none',
+                              background: isActive ? '#2563eb' : 'transparent',
+                              color: isActive ? '#ffffff' : '#94a3b8',
+                              fontWeight: isActive ? 600 : 500,
+                              fontSize: 13,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isActive ? '0 4px 14px rgba(37, 99, 235, 0.35)' : 'none'
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = '#1e293b'; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                              <span style={{ fontSize: 16, display: 'flex', color: isActive ? '#ffffff' : '#94a3b8' }}>{item.icon}</span>
+                              {!collapsed && <span>{item.label}</span>}
+                            </div>
+                          </button>
+                        </Tooltip>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section: CONFIGURATION */}
+                <div>
+                  {!collapsed && (
+                    <div style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#64748b',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '4px 10px',
+                      marginBottom: 4
+                    }}>
+                      System
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {[
+                      { key: 'settings', icon: <SettingOutlined />, label: 'Store & COD Policy', badge: null }
+                    ].filter(item => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map(item => {
+                      const isActive = activeTab === item.key;
+                      return (
+                        <Tooltip key={item.key} title={collapsed ? item.label : ''} placement="right">
+                          <button
+                            onClick={() => setActiveTab(item.key)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: collapsed ? 'center' : 'space-between',
+                              width: '100%',
+                              padding: collapsed ? '10px 0' : '9px 12px',
+                              borderRadius: 10,
+                              border: 'none',
+                              background: isActive ? '#2563eb' : 'transparent',
+                              color: isActive ? '#ffffff' : '#94a3b8',
+                              fontWeight: isActive ? 600 : 500,
+                              fontSize: 13,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isActive ? '0 4px 14px rgba(37, 99, 235, 0.35)' : 'none'
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = '#1e293b'; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                              <span style={{ fontSize: 16, display: 'flex', color: isActive ? '#ffffff' : '#94a3b8' }}>{item.icon}</span>
+                              {!collapsed && <span>{item.label}</span>}
+                            </div>
+                          </button>
+                        </Tooltip>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </Dropdown>
+            </div>
+
+            {/* Bottom Section: User Profile & Collapse Toggle */}
+            <div style={{
+              padding: '12px 10px',
+              borderTop: '1px solid #1e293b',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 8
+            }}>
+              <Dropdown menu={{ items: userMenuItems }} placement="topRight" trigger={['click']}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: collapsed ? 'center' : 'space-between',
+                  padding: '8px 10px',
+                  borderRadius: 8,
+                  background: '#0f172a',
+                  border: '1px solid #1e293b',
+                  cursor: 'pointer'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Avatar
+                      style={{ backgroundColor: '#2563eb', color: '#fff', fontWeight: 700 }}
+                      size={28}
+                    >
+                      {user.fullName ? user.fullName[0].toUpperCase() : 'U'}
+                    </Avatar>
+                    {!collapsed && (
+                      <div style={{ lineHeight: 1.2, textAlign: 'left', overflow: 'hidden' }}>
+                        <div style={{ color: '#f8fafc', fontSize: 12, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                          {user.fullName}
+                        </div>
+                        <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase' }}>
+                          {user.role}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {!collapsed && <LogoutOutlined style={{ color: '#64748b', fontSize: 12 }} />}
+                </div>
+              </Dropdown>
+
+              <button
+                onClick={() => setCollapsed(!collapsed)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: collapsed ? 'center' : 'flex-start',
+                  gap: 8,
+                  padding: '7px 10px',
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#64748b',
+                  fontSize: 12,
+                  cursor: 'pointer',
+                  borderRadius: 6
+                }}
+                onMouseEnter={e => e.currentTarget.style.color = '#94a3b8'}
+                onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+              >
+                {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                {!collapsed && <span>Collapse Sidebar</span>}
+              </button>
+            </div>
           </div>
-        </Header>
+        </Sider>
+
+        {/* Main Content Layout with Top Header */}
+        <Layout style={{ background: '#090d16' }}>
+          <Header style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 24px',
+            background: '#090d16',
+            borderBottom: '1px solid #1e293b',
+            position: 'sticky',
+            top: 0,
+            zIndex: 90,
+            height: 60,
+            lineHeight: 'normal'
+          }}>
+            {/* Breadcrumb Left */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ color: '#64748b', fontSize: 13 }}>Shopify</span>
+              <span style={{ color: '#334155' }}>/</span>
+              <span style={{ color: '#f8fafc', fontSize: 14, fontWeight: 700 }}>
+                {activeTab === 'drafts' && 'Draft Orders'}
+                {activeTab === 'bulk' && 'Bulk Order Staging Queue'}
+                {activeTab === 'history' && 'Bulk Jobs History'}
+                {activeTab === 'audit' && 'Operational Audit Trail'}
+                {activeTab === 'settings' && 'Store & COD Policy Settings'}
+              </span>
+            </div>
+
+            {/* Header Right: Store Status Chip & Refresh */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: 11,
+                color: '#94a3b8',
+                background: '#0f172a',
+                padding: '4px 10px',
+                borderRadius: 6,
+                border: '1px solid #1e293b',
+                whiteSpace: 'nowrap'
+              }}>
+                <span style={{ fontFamily: 'monospace', color: '#cbd5e1' }}>{config?.store_domain || 'upcraft-cod-demo.myshopify.com'}</span>
+                <span style={{ color: '#475569' }}>•</span>
+                {config?.mock_mode ? (
+                  <span style={{ color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+                    Mock Simulator
+                  </span>
+                ) : (
+                  <span style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#38bdf8', display: 'inline-block' }} />
+                    Live Store API
+                  </span>
+                )}
+              </div>
+
+              <Button
+                size="small"
+                icon={<SyncOutlined spin={loadingDrafts} />}
+                onClick={() => {
+                  if (activeTab === 'drafts') fetchDrafts();
+                  else if (activeTab === 'history') fetchJobsHistory();
+                  else if (activeTab === 'audit') fetchAuditLogs();
+                  else if (activeTab === 'settings') fetchConfig();
+                }}
+                style={{ background: '#0f172a', borderColor: '#1e293b', color: '#94a3b8' }}
+              >
+                Refresh
+              </Button>
+            </div>
+          </Header>
 
         {/* Content Area */}
         <Content style={{ padding: '24px', maxWidth: 1400, margin: '0 auto', width: '100%', paddingBottom: 110 }}>
@@ -2594,6 +2894,7 @@ export default function App() {
             </Form>
           )}
         </Modal>
+        </Layout>
       </Layout>
     </ConfigProvider>
   );
