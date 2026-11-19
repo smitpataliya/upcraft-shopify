@@ -73574,20 +73574,14 @@ var theme = {
 };
 var theme_default3 = theme;
 
-// upcraft-admin-panel/node_modules/antd/es/typography/Link.js
-var React447 = __toESM(require_react());
-
-// upcraft-admin-panel/node_modules/antd/es/typography/Base/index.js
-var React446 = __toESM(require_react());
-
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EditOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/DeleteOutlined.js
 var React436 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/EditOutlined.js
-var EditOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" } }] }, "name": "edit", "theme": "outlined" };
-var EditOutlined_default = EditOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/DeleteOutlined.js
+var DeleteOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z" } }] }, "name": "delete", "theme": "outlined" };
+var DeleteOutlined_default = DeleteOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EditOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/DeleteOutlined.js
 function _extends96() {
   _extends96 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -73602,27 +73596,30 @@ function _extends96() {
   };
   return _extends96.apply(this, arguments);
 }
-var EditOutlined2 = (props, ref) => /* @__PURE__ */ React436.createElement(AntdIconLight_default, _extends96({}, props, {
+var DeleteOutlined2 = (props, ref) => /* @__PURE__ */ React436.createElement(AntdIconLight_default, _extends96({}, props, {
   ref,
-  icon: EditOutlined_default
+  icon: DeleteOutlined_default
 }));
-var RefIcon33 = /* @__PURE__ */ React436.forwardRef(EditOutlined2);
+var RefIcon33 = /* @__PURE__ */ React436.forwardRef(DeleteOutlined2);
 if (false) {
-  RefIcon33.displayName = "EditOutlined";
+  RefIcon33.displayName = "DeleteOutlined";
 }
-var EditOutlined_default2 = RefIcon33;
+var DeleteOutlined_default2 = RefIcon33;
 
-// upcraft-admin-panel/node_modules/antd/es/typography/Editable.js
-var React438 = __toESM(require_react());
+// upcraft-admin-panel/node_modules/antd/es/typography/Link.js
+var React448 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnterOutlined.js
+// upcraft-admin-panel/node_modules/antd/es/typography/Base/index.js
+var React447 = __toESM(require_react());
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EditOutlined.js
 var React437 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/EnterOutlined.js
-var EnterOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M864 170h-60c-4.4 0-8 3.6-8 8v518H310v-73c0-6.7-7.8-10.5-13-6.3l-141.9 112a8 8 0 000 12.6l141.9 112c5.3 4.2 13 .4 13-6.3v-75h498c35.3 0 64-28.7 64-64V178c0-4.4-3.6-8-8-8z" } }] }, "name": "enter", "theme": "outlined" };
-var EnterOutlined_default = EnterOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/EditOutlined.js
+var EditOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" } }] }, "name": "edit", "theme": "outlined" };
+var EditOutlined_default = EditOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnterOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EditOutlined.js
 function _extends97() {
   _extends97 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -73637,15 +73634,50 @@ function _extends97() {
   };
   return _extends97.apply(this, arguments);
 }
-var EnterOutlined2 = (props, ref) => /* @__PURE__ */ React437.createElement(AntdIconLight_default, _extends97({}, props, {
+var EditOutlined2 = (props, ref) => /* @__PURE__ */ React437.createElement(AntdIconLight_default, _extends97({}, props, {
+  ref,
+  icon: EditOutlined_default
+}));
+var RefIcon34 = /* @__PURE__ */ React437.forwardRef(EditOutlined2);
+if (false) {
+  RefIcon34.displayName = "EditOutlined";
+}
+var EditOutlined_default2 = RefIcon34;
+
+// upcraft-admin-panel/node_modules/antd/es/typography/Editable.js
+var React439 = __toESM(require_react());
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnterOutlined.js
+var React438 = __toESM(require_react());
+
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/EnterOutlined.js
+var EnterOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M864 170h-60c-4.4 0-8 3.6-8 8v518H310v-73c0-6.7-7.8-10.5-13-6.3l-141.9 112a8 8 0 000 12.6l141.9 112c5.3 4.2 13 .4 13-6.3v-75h498c35.3 0 64-28.7 64-64V178c0-4.4-3.6-8-8-8z" } }] }, "name": "enter", "theme": "outlined" };
+var EnterOutlined_default = EnterOutlined;
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnterOutlined.js
+function _extends98() {
+  _extends98 = Object.assign ? Object.assign.bind() : function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends98.apply(this, arguments);
+}
+var EnterOutlined2 = (props, ref) => /* @__PURE__ */ React438.createElement(AntdIconLight_default, _extends98({}, props, {
   ref,
   icon: EnterOutlined_default
 }));
-var RefIcon34 = /* @__PURE__ */ React437.forwardRef(EnterOutlined2);
+var RefIcon35 = /* @__PURE__ */ React438.forwardRef(EnterOutlined2);
 if (false) {
-  RefIcon34.displayName = "EnterOutlined";
+  RefIcon35.displayName = "EnterOutlined";
 }
-var EnterOutlined_default2 = RefIcon34;
+var EnterOutlined_default2 = RefIcon35;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/style/mixins.js
 var getTitleStyle = (fontSize, lineHeight, color, token2) => {
@@ -74028,16 +74060,16 @@ var Editable = (props) => {
     onCancel,
     onEnd,
     component,
-    enterIcon = /* @__PURE__ */ React438.createElement(EnterOutlined_default2, null)
+    enterIcon = /* @__PURE__ */ React439.createElement(EnterOutlined_default2, null)
   } = props;
-  const ref = React438.useRef(null);
-  const inCompositionRef = React438.useRef(false);
-  const lastKeyCodeRef = React438.useRef(null);
-  const [current, setCurrent] = React438.useState(value);
-  React438.useEffect(() => {
+  const ref = React439.useRef(null);
+  const inCompositionRef = React439.useRef(false);
+  const lastKeyCodeRef = React439.useRef(null);
+  const [current, setCurrent] = React439.useState(value);
+  React439.useEffect(() => {
     setCurrent(value);
   }, [value]);
-  React438.useEffect(() => {
+  React439.useEffect(() => {
     if (ref.current?.resizableTextArea) {
       const {
         textArea
@@ -74096,13 +74128,13 @@ var Editable = (props) => {
     [`${prefixCls}-rtl`]: direction === "rtl",
     [`${prefixCls}-${component}`]: !!component
   }, className, classNames.root, hashId, cssVarCls);
-  return /* @__PURE__ */ React438.createElement("div", {
+  return /* @__PURE__ */ React439.createElement("div", {
     className: textAreaClassName,
     style: {
       ...styles.root,
       ...style2
     }
-  }, /* @__PURE__ */ React438.createElement(TextArea_default2, {
+  }, /* @__PURE__ */ React439.createElement(TextArea_default2, {
     ref,
     maxLength,
     value: current,
@@ -74124,7 +74156,7 @@ var Editable = (props) => {
 var Editable_default = Editable;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/hooks/useCopyClick.js
-var React439 = __toESM(require_react());
+var React440 = __toESM(require_react());
 
 // upcraft-admin-panel/node_modules/antd/es/_util/copy.js
 var execCopy = (text, isHtmlFormat) => {
@@ -74194,7 +74226,7 @@ var useCopyClick = ({
   children
 }) => {
   const [copied, setCopied] = useDelayState(false);
-  const [copyLoading, setCopyLoading] = React439.useState(false);
+  const [copyLoading, setCopyLoading] = React440.useState(false);
   const copyOptions = {};
   if (copyConfig.format) {
     copyOptions.format = copyConfig.format;
@@ -74228,10 +74260,10 @@ var useCopyClick = ({
 var useCopyClick_default = useCopyClick;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/hooks/useMergedConfig.js
-var React440 = __toESM(require_react());
+var React441 = __toESM(require_react());
 var useMergedConfig = (propConfig, templateConfig) => {
   const support = Boolean(propConfig);
-  return React440.useMemo(() => {
+  return React441.useMemo(() => {
     const config = {
       ...templateConfig,
       ...support && isPlainObject(propConfig) ? propConfig : null
@@ -74306,8 +74338,8 @@ var useTypographySemantic = (customizePrefixCls, classNames, styles, typographyD
 };
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Typography.js
-var React441 = __toESM(require_react());
-var InternalTypography = /* @__PURE__ */ React441.forwardRef((props, ref) => {
+var React442 = __toESM(require_react());
+var InternalTypography = /* @__PURE__ */ React442.forwardRef((props, ref) => {
   const {
     component: Component4 = "article",
     className,
@@ -74328,7 +74360,7 @@ var InternalTypography = /* @__PURE__ */ React441.forwardRef((props, ref) => {
     ...styles?.root,
     ...style2
   };
-  return /* @__PURE__ */ React441.createElement(Component4, {
+  return /* @__PURE__ */ React442.createElement(Component4, {
     ...restProps,
     className: componentClassName,
     style: mergedStyle,
@@ -74338,7 +74370,7 @@ var InternalTypography = /* @__PURE__ */ React441.forwardRef((props, ref) => {
 if (false) {
   InternalTypography.displayName = "InternalTypography";
 }
-var Typography = /* @__PURE__ */ React441.forwardRef((props, ref) => {
+var Typography = /* @__PURE__ */ React442.forwardRef((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -74349,7 +74381,7 @@ var Typography = /* @__PURE__ */ React441.forwardRef((props, ref) => {
     ...restProps
   } = props;
   const [mergedClassNames, mergedStyles, mergedPrefixCls, mergedDirection] = useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
-  return /* @__PURE__ */ React441.createElement(InternalTypography, {
+  return /* @__PURE__ */ React442.createElement(InternalTypography, {
     ref,
     className: clsx(className, rootClassName),
     direction: mergedDirection,
@@ -74365,18 +74397,18 @@ if (false) {
 var Typography_default = Typography;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Base/CopyBtn.js
-var React443 = __toESM(require_react());
+var React444 = __toESM(require_react());
 
 // upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/CopyOutlined.js
-var React442 = __toESM(require_react());
+var React443 = __toESM(require_react());
 
 // upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/CopyOutlined.js
 var CopyOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z" } }] }, "name": "copy", "theme": "outlined" };
 var CopyOutlined_default = CopyOutlined;
 
 // upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/CopyOutlined.js
-function _extends98() {
-  _extends98 = Object.assign ? Object.assign.bind() : function(target) {
+function _extends99() {
+  _extends99 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -74387,17 +74419,17 @@ function _extends98() {
     }
     return target;
   };
-  return _extends98.apply(this, arguments);
+  return _extends99.apply(this, arguments);
 }
-var CopyOutlined2 = (props, ref) => /* @__PURE__ */ React442.createElement(AntdIconLight_default, _extends98({}, props, {
+var CopyOutlined2 = (props, ref) => /* @__PURE__ */ React443.createElement(AntdIconLight_default, _extends99({}, props, {
   ref,
   icon: CopyOutlined_default
 }));
-var RefIcon35 = /* @__PURE__ */ React442.forwardRef(CopyOutlined2);
+var RefIcon36 = /* @__PURE__ */ React443.forwardRef(CopyOutlined2);
 if (false) {
-  RefIcon35.displayName = "CopyOutlined";
+  RefIcon36.displayName = "CopyOutlined";
 }
-var CopyOutlined_default2 = RefIcon35;
+var CopyOutlined_default2 = RefIcon36;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Base/util.js
 var toCopyConfigList = (val) => {
@@ -74453,9 +74485,9 @@ var CopyBtn = (props) => {
   const systemStr = copied ? copiedText : copyText;
   const copyTitle = getNode(tooltipNodes[copied ? 1 : 0], systemStr);
   const ariaLabel = typeof copyTitle === "string" ? copyTitle : systemStr;
-  return /* @__PURE__ */ React443.createElement(tooltip_default, {
+  return /* @__PURE__ */ React444.createElement(tooltip_default, {
     title: copyTitle
-  }, /* @__PURE__ */ React443.createElement("button", {
+  }, /* @__PURE__ */ React444.createElement("button", {
     type: "button",
     className: clsx(`${prefixCls}-copy`, className, {
       [`${prefixCls}-copy-success`]: copied,
@@ -74465,25 +74497,25 @@ var CopyBtn = (props) => {
     onClick: onCopy,
     "aria-label": ariaLabel,
     tabIndex
-  }, copied ? getNode(iconNodes[1], /* @__PURE__ */ React443.createElement(CheckOutlined_default2, null), true) : getNode(iconNodes[0], btnLoading ? /* @__PURE__ */ React443.createElement(LoadingOutlined_default2, null) : /* @__PURE__ */ React443.createElement(CopyOutlined_default2, null), true)));
+  }, copied ? getNode(iconNodes[1], /* @__PURE__ */ React444.createElement(CheckOutlined_default2, null), true) : getNode(iconNodes[0], btnLoading ? /* @__PURE__ */ React444.createElement(LoadingOutlined_default2, null) : /* @__PURE__ */ React444.createElement(CopyOutlined_default2, null), true)));
 };
 var CopyBtn_default = CopyBtn;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Base/Ellipsis.js
-var React444 = __toESM(require_react());
-var MeasureText = /* @__PURE__ */ React444.forwardRef(({
+var React445 = __toESM(require_react());
+var MeasureText = /* @__PURE__ */ React445.forwardRef(({
   style: style2,
   children
 }, ref) => {
-  const spanRef = React444.useRef(null);
-  React444.useImperativeHandle(ref, () => ({
+  const spanRef = React445.useRef(null);
+  React445.useImperativeHandle(ref, () => ({
     isExceed: () => {
       const span = spanRef.current;
       return span.scrollHeight > span.clientHeight;
     },
     getHeight: () => spanRef.current.clientHeight
   }));
-  return /* @__PURE__ */ React444.createElement("span", {
+  return /* @__PURE__ */ React445.createElement("span", {
     "aria-hidden": true,
     ref: spanRef,
     style: {
@@ -74541,19 +74573,19 @@ function EllipsisMeasure(props) {
     miscDeps,
     onEllipsis
   } = props;
-  const nodeList = React444.useMemo(() => toArray(text), [text]);
-  const nodeLen = React444.useMemo(() => getNodesLen(nodeList), [text]);
-  const fullContent = React444.useMemo(() => children(nodeList, false), [text].concat(_toConsumableArray(measureDeps)));
-  const [ellipsisCutIndex, setEllipsisCutIndex] = React444.useState(null);
-  const cutMidRef = React444.useRef(null);
-  const measureWhiteSpaceRef = React444.useRef(null);
-  const needEllipsisRef = React444.useRef(null);
-  const descRowsEllipsisRef = React444.useRef(null);
-  const symbolRowEllipsisRef = React444.useRef(null);
-  const [canEllipsis, setCanEllipsis] = React444.useState(false);
-  const [needEllipsis, setNeedEllipsis] = React444.useState(STATUS_MEASURE_NONE);
-  const [ellipsisHeight, setEllipsisHeight] = React444.useState(0);
-  const [parentWhiteSpace, setParentWhiteSpace] = React444.useState(null);
+  const nodeList = React445.useMemo(() => toArray(text), [text]);
+  const nodeLen = React445.useMemo(() => getNodesLen(nodeList), [text]);
+  const fullContent = React445.useMemo(() => children(nodeList, false), [text].concat(_toConsumableArray(measureDeps)));
+  const [ellipsisCutIndex, setEllipsisCutIndex] = React445.useState(null);
+  const cutMidRef = React445.useRef(null);
+  const measureWhiteSpaceRef = React445.useRef(null);
+  const needEllipsisRef = React445.useRef(null);
+  const descRowsEllipsisRef = React445.useRef(null);
+  const symbolRowEllipsisRef = React445.useRef(null);
+  const [canEllipsis, setCanEllipsis] = React445.useState(false);
+  const [needEllipsis, setNeedEllipsis] = React445.useState(STATUS_MEASURE_NONE);
+  const [ellipsisHeight, setEllipsisHeight] = React445.useState(0);
+  const [parentWhiteSpace, setParentWhiteSpace] = React445.useState(null);
   useLayoutEffect_default(() => {
     if (enableMeasure && width && nodeLen) {
       setNeedEllipsis(STATUS_MEASURE_PREPARE);
@@ -74596,7 +74628,7 @@ function EllipsisMeasure(props) {
       setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
   }, [ellipsisCutIndex, cutMidIndex]);
-  const finalContent = React444.useMemo(() => {
+  const finalContent = React445.useMemo(() => {
     if (!enableMeasure) {
       return children(nodeList, false);
     }
@@ -74605,7 +74637,7 @@ function EllipsisMeasure(props) {
       if ([STATUS_MEASURE_NO_NEED_ELLIPSIS, STATUS_MEASURE_NONE].includes(needEllipsis)) {
         return content;
       }
-      return /* @__PURE__ */ React444.createElement("span", {
+      return /* @__PURE__ */ React445.createElement("span", {
         style: {
           ...lineClipStyle,
           WebkitLineClamp: rows
@@ -74620,34 +74652,34 @@ function EllipsisMeasure(props) {
     padding: 0,
     whiteSpace: parentWhiteSpace === "nowrap" ? "normal" : "inherit"
   };
-  return /* @__PURE__ */ React444.createElement(React444.Fragment, null, finalContent, needEllipsis === STATUS_MEASURE_START && /* @__PURE__ */ React444.createElement(React444.Fragment, null, /* @__PURE__ */ React444.createElement(MeasureText, {
+  return /* @__PURE__ */ React445.createElement(React445.Fragment, null, finalContent, needEllipsis === STATUS_MEASURE_START && /* @__PURE__ */ React445.createElement(React445.Fragment, null, /* @__PURE__ */ React445.createElement(MeasureText, {
     style: {
       ...measureStyle,
       ...lineClipStyle,
       WebkitLineClamp: rows
     },
     ref: needEllipsisRef
-  }, fullContent), /* @__PURE__ */ React444.createElement(MeasureText, {
+  }, fullContent), /* @__PURE__ */ React445.createElement(MeasureText, {
     style: {
       ...measureStyle,
       ...lineClipStyle,
       WebkitLineClamp: rows - 1
     },
     ref: descRowsEllipsisRef
-  }, fullContent), /* @__PURE__ */ React444.createElement(MeasureText, {
+  }, fullContent), /* @__PURE__ */ React445.createElement(MeasureText, {
     style: {
       ...measureStyle,
       ...lineClipStyle,
       WebkitLineClamp: 1
     },
     ref: symbolRowEllipsisRef
-  }, children([], true))), needEllipsis === STATUS_MEASURE_NEED_ELLIPSIS && ellipsisCutIndex && ellipsisCutIndex[0] !== ellipsisCutIndex[1] && /* @__PURE__ */ React444.createElement(MeasureText, {
+  }, children([], true))), needEllipsis === STATUS_MEASURE_NEED_ELLIPSIS && ellipsisCutIndex && ellipsisCutIndex[0] !== ellipsisCutIndex[1] && /* @__PURE__ */ React445.createElement(MeasureText, {
     style: {
       ...measureStyle,
       top: 400
     },
     ref: cutMidRef
-  }, children(sliceNodes(nodeList, cutMidIndex), true)), needEllipsis === STATUS_MEASURE_PREPARE && /* @__PURE__ */ React444.createElement("span", {
+  }, children(sliceNodes(nodeList, cutMidIndex), true)), needEllipsis === STATUS_MEASURE_PREPARE && /* @__PURE__ */ React445.createElement("span", {
     style: {
       whiteSpace: "inherit"
     },
@@ -74656,7 +74688,7 @@ function EllipsisMeasure(props) {
 }
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Base/EllipsisTooltip.js
-var React445 = __toESM(require_react());
+var React446 = __toESM(require_react());
 var EllipsisTooltip = ({
   enableEllipsis,
   isEllipsis,
@@ -74667,7 +74699,7 @@ var EllipsisTooltip = ({
   if (!tooltipProps?.title || !enableEllipsis) {
     return children;
   }
-  return /* @__PURE__ */ React445.createElement(tooltip_default, {
+  return /* @__PURE__ */ React446.createElement(tooltip_default, {
     ...tooltipProps,
     disabled: !isEllipsis || disabled
   }, children);
@@ -74692,7 +74724,7 @@ function wrapperDecorations({
     if (!needed) {
       return;
     }
-    currentContent = /* @__PURE__ */ React446.createElement(tag, {}, currentContent);
+    currentContent = /* @__PURE__ */ React447.createElement(tag, {}, currentContent);
   }
   wrap("strong", strong);
   wrap("u", underline);
@@ -74705,7 +74737,7 @@ function wrapperDecorations({
 }
 var ELLIPSIS_STR = "...";
 var DECORATION_PROPS = ["delete", "mark", "code", "underline", "strong", "keyboard", "italic"];
-var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
+var Base = /* @__PURE__ */ React447.forwardRef((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -74728,8 +74760,8 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     ...restProps
   } = props;
   const [textLocale] = useLocale_default("Text");
-  const typographyRef = React446.useRef(null);
-  const editIconRef = React446.useRef(null);
+  const typographyRef = React447.useRef(null);
+  const editIconRef = React447.useRef(null);
   const [mergedClassNames, mergedStyles, prefixCls, direction] = useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
   const textProps = omit(restProps, DECORATION_PROPS);
   const [enableEdit, editConfig] = useMergedConfig_default(editable);
@@ -74773,11 +74805,11 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     copyConfig,
     children
   });
-  const [isLineClampSupport, setIsLineClampSupport] = React446.useState(false);
-  const [isTextOverflowSupport, setIsTextOverflowSupport] = React446.useState(false);
-  const [isJsEllipsis, setIsJsEllipsis] = React446.useState(false);
-  const [isNativeEllipsis, setIsNativeEllipsis] = React446.useState(false);
-  const [isNativeVisible, setIsNativeVisible] = React446.useState(true);
+  const [isLineClampSupport, setIsLineClampSupport] = React447.useState(false);
+  const [isTextOverflowSupport, setIsTextOverflowSupport] = React447.useState(false);
+  const [isJsEllipsis, setIsJsEllipsis] = React447.useState(false);
+  const [isNativeEllipsis, setIsNativeEllipsis] = React447.useState(false);
+  const [isNativeVisible, setIsNativeVisible] = React447.useState(true);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig_default(ellipsis, {
     expandable: false,
     symbol: (isExpanded) => isExpanded ? textLocale?.collapse : textLocale?.expand
@@ -74787,7 +74819,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
   const {
     rows = 1
   } = ellipsisConfig;
-  const needMeasureEllipsis = React446.useMemo(() => (
+  const needMeasureEllipsis = React447.useMemo(() => (
     // Disable ellipsis
     mergedEnableEllipsis && // Provide suffix
     (ellipsisConfig.suffix !== void 0 || ellipsisConfig.onEllipsis || // Can't use css ellipsis since we need to provide the place for button
@@ -74799,8 +74831,8 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
       setIsTextOverflowSupport(isStyleSupport("textOverflow"));
     }
   }, [needMeasureEllipsis, enableEllipsis]);
-  const [cssEllipsis, setCssEllipsis] = React446.useState(mergedEnableEllipsis);
-  const canUseCssEllipsis = React446.useMemo(() => {
+  const [cssEllipsis, setCssEllipsis] = React447.useState(mergedEnableEllipsis);
+  const canUseCssEllipsis = React447.useMemo(() => {
     if (needMeasureEllipsis) {
       return false;
     }
@@ -74821,9 +74853,9 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     setExpanded(info.expanded);
     ellipsisConfig.onExpand?.(e3, info);
   };
-  const [ellipsisWidth, setEllipsisWidth] = React446.useState(0);
+  const [ellipsisWidth, setEllipsisWidth] = React447.useState(0);
   const [isHoveringOperations, setIsHoveringOperations] = useDelayState(false);
-  const isHoveringTypographyRef = React446.useRef(false);
+  const isHoveringTypographyRef = React447.useRef(false);
   const onResize2 = ({
     offsetWidth
   }) => {
@@ -74835,19 +74867,19 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
       ellipsisConfig.onEllipsis?.(jsEllipsis);
     }
   };
-  const measureNativeEllipsis = React446.useCallback(() => {
+  const measureNativeEllipsis = React447.useCallback(() => {
     const textEle = typographyRef.current;
     if (enableEllipsis && needNativeEllipsisMeasure && textEle) {
       const currentEllipsis = isEleEllipsis(textEle);
       setIsNativeEllipsis((prev2) => prev2 === currentEllipsis ? prev2 : currentEllipsis);
     }
   }, [enableEllipsis, needNativeEllipsisMeasure]);
-  React446.useEffect(() => {
+  React447.useEffect(() => {
     if (isHoveringTypographyRef.current) {
       measureNativeEllipsis();
     }
   }, [measureNativeEllipsis, children, cssLineClamp, isNativeVisible, ellipsisWidth]);
-  React446.useEffect(() => {
+  React447.useEffect(() => {
     const textEle = typographyRef.current;
     if (typeof IntersectionObserver === "undefined" || !textEle || !needNativeEllipsisMeasure || !mergedEnableEllipsis) {
       return;
@@ -74860,14 +74892,14 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
       observer2.disconnect();
     };
   }, [needNativeEllipsisMeasure, mergedEnableEllipsis]);
-  const topAriaLabel = React446.useMemo(() => {
+  const topAriaLabel = React447.useMemo(() => {
     if (!enableEllipsis || cssEllipsis) {
       return void 0;
     }
     return [editConfig.text, children, title, tooltipProps.title].find(isValidText);
   }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis, editConfig.text]);
   if (editing) {
-    return /* @__PURE__ */ React446.createElement(Editable_default, {
+    return /* @__PURE__ */ React447.createElement(Editable_default, {
       value: editConfig.text ?? (typeof children === "string" ? children : ""),
       onSave: onEditChange,
       onCancel: onEditCancel,
@@ -74889,7 +74921,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
       expandable,
       symbol
     } = ellipsisConfig;
-    return expandable ? /* @__PURE__ */ React446.createElement("button", {
+    return expandable ? /* @__PURE__ */ React447.createElement("button", {
       type: "button",
       key: "expand",
       className: clsx(`${prefixCls}-${expanded ? "collapse" : "expand"}`, mergedClassNames.action),
@@ -74911,10 +74943,10 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     } = editConfig;
     const editTitle = toArray(tooltip)[0] || textLocale?.edit;
     const ariaLabel = typeof editTitle === "string" ? editTitle : "";
-    return triggerType.includes("icon") ? /* @__PURE__ */ React446.createElement(tooltip_default, {
+    return triggerType.includes("icon") ? /* @__PURE__ */ React447.createElement(tooltip_default, {
       key: "edit",
       title: tooltip === false ? "" : editTitle
-    }, /* @__PURE__ */ React446.createElement("button", {
+    }, /* @__PURE__ */ React447.createElement("button", {
       type: "button",
       ref: editIconRef,
       className: clsx(`${prefixCls}-edit`, mergedClassNames.action),
@@ -74922,7 +74954,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
       onClick: onEditClick,
       "aria-label": ariaLabel,
       tabIndex
-    }, icon || /* @__PURE__ */ React446.createElement(EditOutlined_default2, {
+    }, icon || /* @__PURE__ */ React447.createElement(EditOutlined_default2, {
       role: "button"
     }))) : null;
   };
@@ -74930,7 +74962,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     if (!enableCopy) {
       return null;
     }
-    return /* @__PURE__ */ React446.createElement(CopyBtn_default, {
+    return /* @__PURE__ */ React447.createElement(CopyBtn_default, {
       key: "copy",
       ...copyConfig,
       prefixCls,
@@ -74950,7 +74982,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     if (!expandNode && !editNode && !copyNode) {
       return null;
     }
-    return /* @__PURE__ */ React446.createElement("span", {
+    return /* @__PURE__ */ React447.createElement("span", {
       key: "operations",
       className: clsx(`${prefixCls}-actions`, mergedClassNames.actions, {
         [`${prefixCls}-actions-start`]: placement === "start"
@@ -74963,19 +74995,19 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
       })
     }, expandNode, editNode, copyNode);
   };
-  const renderEllipsis = (canEllipsis) => [canEllipsis && !expanded && /* @__PURE__ */ React446.createElement("span", {
+  const renderEllipsis = (canEllipsis) => [canEllipsis && !expanded && /* @__PURE__ */ React447.createElement("span", {
     "aria-hidden": true,
     key: "ellipsis"
   }, ELLIPSIS_STR), ellipsisConfig.suffix];
-  return /* @__PURE__ */ React446.createElement(es_default, {
+  return /* @__PURE__ */ React447.createElement(es_default, {
     onResize: onResize2,
     disabled: !mergedEnableEllipsis
-  }, (resizeRef) => /* @__PURE__ */ React446.createElement(EllipsisTooltip_default, {
+  }, (resizeRef) => /* @__PURE__ */ React447.createElement(EllipsisTooltip_default, {
     tooltipProps,
     enableEllipsis: mergedEnableEllipsis,
     isEllipsis: isMergedEllipsis,
     disabled: isHoveringOperations
-  }, /* @__PURE__ */ React446.createElement(InternalTypography, {
+  }, /* @__PURE__ */ React447.createElement(InternalTypography, {
     onMouseEnter: (e3) => {
       isHoveringTypographyRef.current = true;
       measureNativeEllipsis();
@@ -75012,7 +75044,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     "aria-label": topAriaLabel?.toString(),
     title,
     ...textProps
-  }, /* @__PURE__ */ React446.createElement(EllipsisMeasure, {
+  }, /* @__PURE__ */ React447.createElement(EllipsisMeasure, {
     enableMeasure: mergedEnableEllipsis && !cssEllipsis,
     text: children,
     rows,
@@ -75021,7 +75053,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
     expanded,
     measureDeps: [placement],
     miscDeps: [copied, expanded, copyLoading, enableEdit, enableCopy, placement, textLocale].concat(_toConsumableArray(DECORATION_PROPS.map((key) => props[key])))
-  }, (node2, canEllipsis) => wrapperDecorations(props, /* @__PURE__ */ React446.createElement(React446.Fragment, null, placement === "start" ? renderOperations(canEllipsis) : null, node2.length > 0 && canEllipsis && !expanded && topAriaLabel ? /* @__PURE__ */ React446.createElement("span", {
+  }, (node2, canEllipsis) => wrapperDecorations(props, /* @__PURE__ */ React447.createElement(React447.Fragment, null, placement === "start" ? renderOperations(canEllipsis) : null, node2.length > 0 && canEllipsis && !expanded && topAriaLabel ? /* @__PURE__ */ React447.createElement("span", {
     key: "show-content",
     "aria-hidden": true
   }, node2) : node2, renderEllipsis(canEllipsis), placement === "start" ? null : renderOperations(canEllipsis)))))));
@@ -75029,7 +75061,7 @@ var Base = /* @__PURE__ */ React446.forwardRef((props, ref) => {
 var Base_default = Base;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Link.js
-var Link = /* @__PURE__ */ React447.forwardRef((props, ref) => {
+var Link = /* @__PURE__ */ React448.forwardRef((props, ref) => {
   const {
     ellipsis,
     rel,
@@ -75046,7 +75078,7 @@ var Link = /* @__PURE__ */ React447.forwardRef((props, ref) => {
     ...restProps,
     rel: rel === void 0 && restProps.target === "_blank" ? "noopener noreferrer" : rel
   };
-  return /* @__PURE__ */ React447.createElement(Base_default, {
+  return /* @__PURE__ */ React448.createElement(Base_default, {
     ...mergedProps,
     ref,
     ellipsis: !!ellipsis,
@@ -75056,13 +75088,13 @@ var Link = /* @__PURE__ */ React447.forwardRef((props, ref) => {
 var Link_default = Link;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Paragraph.js
-var React448 = __toESM(require_react());
-var Paragraph2 = /* @__PURE__ */ React448.forwardRef((props, ref) => {
+var React449 = __toESM(require_react());
+var Paragraph2 = /* @__PURE__ */ React449.forwardRef((props, ref) => {
   const {
     children,
     ...restProps
   } = props;
-  return /* @__PURE__ */ React448.createElement(Base_default, {
+  return /* @__PURE__ */ React449.createElement(Base_default, {
     ref,
     ...restProps,
     component: "div"
@@ -75071,14 +75103,14 @@ var Paragraph2 = /* @__PURE__ */ React448.forwardRef((props, ref) => {
 var Paragraph_default2 = Paragraph2;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Text.js
-var React449 = __toESM(require_react());
-var Text = /* @__PURE__ */ React449.forwardRef((props, ref) => {
+var React450 = __toESM(require_react());
+var Text = /* @__PURE__ */ React450.forwardRef((props, ref) => {
   const {
     ellipsis,
     children,
     ...restProps
   } = props;
-  const mergedEllipsis = React449.useMemo(() => {
+  const mergedEllipsis = React450.useMemo(() => {
     if (isPlainObject(ellipsis)) {
       return omit(ellipsis, ["expandable", "rows"]);
     }
@@ -75088,7 +75120,7 @@ var Text = /* @__PURE__ */ React449.forwardRef((props, ref) => {
     const warning4 = devUseWarning("Typography.Text");
     false ? warning4(!isPlainObject(ellipsis) || !("expandable" in ellipsis) && !("rows" in ellipsis), "usage", "`ellipsis` do not support `expandable` or `rows` props.") : void 0;
   }
-  return /* @__PURE__ */ React449.createElement(Base_default, {
+  return /* @__PURE__ */ React450.createElement(Base_default, {
     ref,
     ...restProps,
     ellipsis: mergedEllipsis,
@@ -75098,9 +75130,9 @@ var Text = /* @__PURE__ */ React449.forwardRef((props, ref) => {
 var Text_default = Text;
 
 // upcraft-admin-panel/node_modules/antd/es/typography/Title.js
-var React450 = __toESM(require_react());
+var React451 = __toESM(require_react());
 var TITLE_ELE_LIST = [1, 2, 3, 4, 5];
-var Title2 = /* @__PURE__ */ React450.forwardRef((props, ref) => {
+var Title2 = /* @__PURE__ */ React451.forwardRef((props, ref) => {
   const {
     level = 1,
     children,
@@ -75111,7 +75143,7 @@ var Title2 = /* @__PURE__ */ React450.forwardRef((props, ref) => {
     false ? warning4(TITLE_ELE_LIST.includes(level), "usage", "Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.") : void 0;
   }
   const component = TITLE_ELE_LIST.includes(level) ? `h${level}` : `h1`;
-  return /* @__PURE__ */ React450.createElement(Base_default, {
+  return /* @__PURE__ */ React451.createElement(Base_default, {
     ref,
     ...restProps,
     component
@@ -75128,51 +75160,13 @@ Typography2.Paragraph = Paragraph_default2;
 var typography_default = Typography2;
 
 // upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
-var React451 = __toESM(require_react());
+var React452 = __toESM(require_react());
 
 // upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js
 var DownloadOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z" } }] }, "name": "download", "theme": "outlined" };
 var DownloadOutlined_default = DownloadOutlined;
 
 // upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
-function _extends99() {
-  _extends99 = Object.assign ? Object.assign.bind() : function(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  return _extends99.apply(this, arguments);
-}
-var DownloadOutlined2 = (props, ref) => /* @__PURE__ */ React451.createElement(AntdIconLight_default, _extends99({}, props, {
-  ref,
-  icon: DownloadOutlined_default
-}));
-var RefIcon36 = /* @__PURE__ */ React451.forwardRef(DownloadOutlined2);
-if (false) {
-  RefIcon36.displayName = "DownloadOutlined";
-}
-var DownloadOutlined_default2 = RefIcon36;
-
-// upcraft-admin-panel/node_modules/antd/es/index.js
-if (false) {
-  const majorVersion = getReactMajorVersion();
-  false ? warning_default2(majorVersion >= 18, "version", `antd v6 no longer supports React versions below 18. Please upgrade to React 18 or higher.`) : void 0;
-}
-
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ArrowRightOutlined.js
-var React452 = __toESM(require_react());
-
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ArrowRightOutlined.js
-var ArrowRightOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-.7 5.2-2L869 536.2a32.07 32.07 0 000-48.4z" } }] }, "name": "arrow-right", "theme": "outlined" };
-var ArrowRightOutlined_default = ArrowRightOutlined;
-
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ArrowRightOutlined.js
 function _extends100() {
   _extends100 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75187,24 +75181,30 @@ function _extends100() {
   };
   return _extends100.apply(this, arguments);
 }
-var ArrowRightOutlined2 = (props, ref) => /* @__PURE__ */ React452.createElement(AntdIconLight_default, _extends100({}, props, {
+var DownloadOutlined2 = (props, ref) => /* @__PURE__ */ React452.createElement(AntdIconLight_default, _extends100({}, props, {
   ref,
-  icon: ArrowRightOutlined_default
+  icon: DownloadOutlined_default
 }));
-var RefIcon37 = /* @__PURE__ */ React452.forwardRef(ArrowRightOutlined2);
+var RefIcon37 = /* @__PURE__ */ React452.forwardRef(DownloadOutlined2);
 if (false) {
-  RefIcon37.displayName = "ArrowRightOutlined";
+  RefIcon37.displayName = "DownloadOutlined";
 }
-var ArrowRightOutlined_default2 = RefIcon37;
+var DownloadOutlined_default2 = RefIcon37;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js
+// upcraft-admin-panel/node_modules/antd/es/index.js
+if (false) {
+  const majorVersion = getReactMajorVersion();
+  false ? warning_default2(majorVersion >= 18, "version", `antd v6 no longer supports React versions below 18. Please upgrade to React 18 or higher.`) : void 0;
+}
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ArrowRightOutlined.js
 var React453 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/CheckCircleOutlined.js
-var CheckCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z" } }, { "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }] }, "name": "check-circle", "theme": "outlined" };
-var CheckCircleOutlined_default = CheckCircleOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ArrowRightOutlined.js
+var ArrowRightOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-.7 5.2-2L869 536.2a32.07 32.07 0 000-48.4z" } }] }, "name": "arrow-right", "theme": "outlined" };
+var ArrowRightOutlined_default = ArrowRightOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ArrowRightOutlined.js
 function _extends101() {
   _extends101 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75219,24 +75219,24 @@ function _extends101() {
   };
   return _extends101.apply(this, arguments);
 }
-var CheckCircleOutlined2 = (props, ref) => /* @__PURE__ */ React453.createElement(AntdIconLight_default, _extends101({}, props, {
+var ArrowRightOutlined2 = (props, ref) => /* @__PURE__ */ React453.createElement(AntdIconLight_default, _extends101({}, props, {
   ref,
-  icon: CheckCircleOutlined_default
+  icon: ArrowRightOutlined_default
 }));
-var RefIcon38 = /* @__PURE__ */ React453.forwardRef(CheckCircleOutlined2);
+var RefIcon38 = /* @__PURE__ */ React453.forwardRef(ArrowRightOutlined2);
 if (false) {
-  RefIcon38.displayName = "CheckCircleOutlined";
+  RefIcon38.displayName = "ArrowRightOutlined";
 }
-var CheckCircleOutlined_default2 = RefIcon38;
+var ArrowRightOutlined_default2 = RefIcon38;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnvironmentOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js
 var React454 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/EnvironmentOutlined.js
-var EnvironmentOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 289.1a362.49 362.49 0 00-79.9-115.7 370.83 370.83 0 00-118.2-77.8C610.7 76.6 562.1 67 512 67c-50.1 0-98.7 9.6-144.5 28.5-44.3 18.3-84 44.5-118.2 77.8A363.6 363.6 0 00169.4 289c-19.5 45-29.4 92.8-29.4 142 0 70.6 16.9 140.9 50.1 208.7 26.7 54.5 64 107.6 111 158.1 80.3 86.2 164.5 138.9 188.4 153a43.9 43.9 0 0022.4 6.1c7.8 0 15.5-2 22.4-6.1 23.9-14.1 108.1-66.8 188.4-153 47-50.4 84.3-103.6 111-158.1C867.1 572 884 501.8 884 431.1c0-49.2-9.9-97-29.4-142zM512 880.2c-65.9-41.9-300-207.8-300-449.1 0-77.9 31.1-151.1 87.6-206.3C356.3 169.5 431.7 139 512 139s155.7 30.5 212.4 85.9C780.9 280 812 353.2 812 431.1c0 241.3-234.1 407.2-300 449.1zm0-617.2c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 551c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 439c0-29.9 11.7-58 32.8-79.2C454 338.6 482.1 327 512 327c29.9 0 58 11.6 79.2 32.8C612.4 381 624 409.1 624 439c0 29.9-11.6 58-32.8 79.2z" } }] }, "name": "environment", "theme": "outlined" };
-var EnvironmentOutlined_default = EnvironmentOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/CheckCircleOutlined.js
+var CheckCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z" } }, { "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }] }, "name": "check-circle", "theme": "outlined" };
+var CheckCircleOutlined_default = CheckCircleOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnvironmentOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js
 function _extends102() {
   _extends102 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75251,24 +75251,24 @@ function _extends102() {
   };
   return _extends102.apply(this, arguments);
 }
-var EnvironmentOutlined2 = (props, ref) => /* @__PURE__ */ React454.createElement(AntdIconLight_default, _extends102({}, props, {
+var CheckCircleOutlined2 = (props, ref) => /* @__PURE__ */ React454.createElement(AntdIconLight_default, _extends102({}, props, {
   ref,
-  icon: EnvironmentOutlined_default
+  icon: CheckCircleOutlined_default
 }));
-var RefIcon39 = /* @__PURE__ */ React454.forwardRef(EnvironmentOutlined2);
+var RefIcon39 = /* @__PURE__ */ React454.forwardRef(CheckCircleOutlined2);
 if (false) {
-  RefIcon39.displayName = "EnvironmentOutlined";
+  RefIcon39.displayName = "CheckCircleOutlined";
 }
-var EnvironmentOutlined_default2 = RefIcon39;
+var CheckCircleOutlined_default2 = RefIcon39;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/HistoryOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnvironmentOutlined.js
 var React455 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/HistoryOutlined.js
-var HistoryOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M536.1 273H488c-4.4 0-8 3.6-8 8v275.3c0 2.6 1.2 5 3.3 6.5l165.3 120.7c3.6 2.6 8.6 1.9 11.2-1.7l28.6-39c2.7-3.7 1.9-8.7-1.7-11.2L544.1 528.5V281c0-4.4-3.6-8-8-8zm219.8 75.2l156.8 38.3c5 1.2 9.9-2.6 9.9-7.7l.8-161.5c0-6.7-7.7-10.5-12.9-6.3L752.9 334.1a8 8 0 003 14.1zm167.7 301.1l-56.7-19.5a8 8 0 00-10.1 4.8c-1.9 5.1-3.9 10.1-6 15.1-17.8 42.1-43.3 80-75.9 112.5a353 353 0 01-112.5 75.9 352.18 352.18 0 01-137.7 27.8c-47.8 0-94.1-9.3-137.7-27.8a353 353 0 01-112.5-75.9c-32.5-32.5-58-70.4-75.9-112.5A353.44 353.44 0 01171 512c0-47.8 9.3-94.2 27.8-137.8 17.8-42.1 43.3-80 75.9-112.5a353 353 0 01112.5-75.9C430.6 167.3 477 158 524.8 158s94.1 9.3 137.7 27.8A353 353 0 01775 261.7c10.2 10.3 19.8 21 28.6 32.3l59.8-46.8C784.7 146.6 662.2 81.9 524.6 82 285 82.1 92.6 276.7 95 516.4 97.4 751.9 288.9 942 524.8 942c185.5 0 343.5-117.6 403.7-282.3 1.5-4.2-.7-8.9-4.9-10.4z" } }] }, "name": "history", "theme": "outlined" };
-var HistoryOutlined_default = HistoryOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/EnvironmentOutlined.js
+var EnvironmentOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 289.1a362.49 362.49 0 00-79.9-115.7 370.83 370.83 0 00-118.2-77.8C610.7 76.6 562.1 67 512 67c-50.1 0-98.7 9.6-144.5 28.5-44.3 18.3-84 44.5-118.2 77.8A363.6 363.6 0 00169.4 289c-19.5 45-29.4 92.8-29.4 142 0 70.6 16.9 140.9 50.1 208.7 26.7 54.5 64 107.6 111 158.1 80.3 86.2 164.5 138.9 188.4 153a43.9 43.9 0 0022.4 6.1c7.8 0 15.5-2 22.4-6.1 23.9-14.1 108.1-66.8 188.4-153 47-50.4 84.3-103.6 111-158.1C867.1 572 884 501.8 884 431.1c0-49.2-9.9-97-29.4-142zM512 880.2c-65.9-41.9-300-207.8-300-449.1 0-77.9 31.1-151.1 87.6-206.3C356.3 169.5 431.7 139 512 139s155.7 30.5 212.4 85.9C780.9 280 812 353.2 812 431.1c0 241.3-234.1 407.2-300 449.1zm0-617.2c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 551c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 439c0-29.9 11.7-58 32.8-79.2C454 338.6 482.1 327 512 327c29.9 0 58 11.6 79.2 32.8C612.4 381 624 409.1 624 439c0 29.9-11.6 58-32.8 79.2z" } }] }, "name": "environment", "theme": "outlined" };
+var EnvironmentOutlined_default = EnvironmentOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/HistoryOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/EnvironmentOutlined.js
 function _extends103() {
   _extends103 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75283,24 +75283,24 @@ function _extends103() {
   };
   return _extends103.apply(this, arguments);
 }
-var HistoryOutlined2 = (props, ref) => /* @__PURE__ */ React455.createElement(AntdIconLight_default, _extends103({}, props, {
+var EnvironmentOutlined2 = (props, ref) => /* @__PURE__ */ React455.createElement(AntdIconLight_default, _extends103({}, props, {
   ref,
-  icon: HistoryOutlined_default
+  icon: EnvironmentOutlined_default
 }));
-var RefIcon40 = /* @__PURE__ */ React455.forwardRef(HistoryOutlined2);
+var RefIcon40 = /* @__PURE__ */ React455.forwardRef(EnvironmentOutlined2);
 if (false) {
-  RefIcon40.displayName = "HistoryOutlined";
+  RefIcon40.displayName = "EnvironmentOutlined";
 }
-var HistoryOutlined_default2 = RefIcon40;
+var EnvironmentOutlined_default2 = RefIcon40;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LockOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/HistoryOutlined.js
 var React456 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/LockOutlined.js
-var LockOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 10-56 0z" } }] }, "name": "lock", "theme": "outlined" };
-var LockOutlined_default = LockOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/HistoryOutlined.js
+var HistoryOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M536.1 273H488c-4.4 0-8 3.6-8 8v275.3c0 2.6 1.2 5 3.3 6.5l165.3 120.7c3.6 2.6 8.6 1.9 11.2-1.7l28.6-39c2.7-3.7 1.9-8.7-1.7-11.2L544.1 528.5V281c0-4.4-3.6-8-8-8zm219.8 75.2l156.8 38.3c5 1.2 9.9-2.6 9.9-7.7l.8-161.5c0-6.7-7.7-10.5-12.9-6.3L752.9 334.1a8 8 0 003 14.1zm167.7 301.1l-56.7-19.5a8 8 0 00-10.1 4.8c-1.9 5.1-3.9 10.1-6 15.1-17.8 42.1-43.3 80-75.9 112.5a353 353 0 01-112.5 75.9 352.18 352.18 0 01-137.7 27.8c-47.8 0-94.1-9.3-137.7-27.8a353 353 0 01-112.5-75.9c-32.5-32.5-58-70.4-75.9-112.5A353.44 353.44 0 01171 512c0-47.8 9.3-94.2 27.8-137.8 17.8-42.1 43.3-80 75.9-112.5a353 353 0 01112.5-75.9C430.6 167.3 477 158 524.8 158s94.1 9.3 137.7 27.8A353 353 0 01775 261.7c10.2 10.3 19.8 21 28.6 32.3l59.8-46.8C784.7 146.6 662.2 81.9 524.6 82 285 82.1 92.6 276.7 95 516.4 97.4 751.9 288.9 942 524.8 942c185.5 0 343.5-117.6 403.7-282.3 1.5-4.2-.7-8.9-4.9-10.4z" } }] }, "name": "history", "theme": "outlined" };
+var HistoryOutlined_default = HistoryOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LockOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/HistoryOutlined.js
 function _extends104() {
   _extends104 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75315,24 +75315,24 @@ function _extends104() {
   };
   return _extends104.apply(this, arguments);
 }
-var LockOutlined2 = (props, ref) => /* @__PURE__ */ React456.createElement(AntdIconLight_default, _extends104({}, props, {
+var HistoryOutlined2 = (props, ref) => /* @__PURE__ */ React456.createElement(AntdIconLight_default, _extends104({}, props, {
   ref,
-  icon: LockOutlined_default
+  icon: HistoryOutlined_default
 }));
-var RefIcon41 = /* @__PURE__ */ React456.forwardRef(LockOutlined2);
+var RefIcon41 = /* @__PURE__ */ React456.forwardRef(HistoryOutlined2);
 if (false) {
-  RefIcon41.displayName = "LockOutlined";
+  RefIcon41.displayName = "HistoryOutlined";
 }
-var LockOutlined_default2 = RefIcon41;
+var HistoryOutlined_default2 = RefIcon41;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LogoutOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LockOutlined.js
 var React457 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/LogoutOutlined.js
-var LogoutOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M868 732h-70.3c-4.8 0-9.3 2.1-12.3 5.8-7 8.5-14.5 16.7-22.4 24.5a353.84 353.84 0 01-112.7 75.9A352.8 352.8 0 01512.4 866c-47.9 0-94.3-9.4-137.9-27.8a353.84 353.84 0 01-112.7-75.9 353.28 353.28 0 01-76-112.5C167.3 606.2 158 559.9 158 512s9.4-94.2 27.8-137.8c17.8-42.1 43.4-80 76-112.5s70.5-58.1 112.7-75.9c43.6-18.4 90-27.8 137.9-27.8 47.9 0 94.3 9.3 137.9 27.8 42.2 17.8 80.1 43.4 112.7 75.9 7.9 7.9 15.3 16.1 22.4 24.5 3 3.7 7.6 5.8 12.3 5.8H868c6.3 0 10.2-7 6.7-12.3C798 160.5 663.8 81.6 511.3 82 271.7 82.6 79.6 277.1 82 516.4 84.4 751.9 276.2 942 512.4 942c152.1 0 285.7-78.8 362.3-197.7 3.4-5.3-.4-12.3-6.7-12.3zm88.9-226.3L815 393.7c-5.3-4.2-13-.4-13 6.3v76H488c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h314v76c0 6.7 7.8 10.5 13 6.3l141.9-112a8 8 0 000-12.6z" } }] }, "name": "logout", "theme": "outlined" };
-var LogoutOutlined_default = LogoutOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/LockOutlined.js
+var LockOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 10-56 0z" } }] }, "name": "lock", "theme": "outlined" };
+var LockOutlined_default = LockOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LogoutOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LockOutlined.js
 function _extends105() {
   _extends105 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75347,24 +75347,24 @@ function _extends105() {
   };
   return _extends105.apply(this, arguments);
 }
-var LogoutOutlined2 = (props, ref) => /* @__PURE__ */ React457.createElement(AntdIconLight_default, _extends105({}, props, {
+var LockOutlined2 = (props, ref) => /* @__PURE__ */ React457.createElement(AntdIconLight_default, _extends105({}, props, {
   ref,
-  icon: LogoutOutlined_default
+  icon: LockOutlined_default
 }));
-var RefIcon42 = /* @__PURE__ */ React457.forwardRef(LogoutOutlined2);
+var RefIcon42 = /* @__PURE__ */ React457.forwardRef(LockOutlined2);
 if (false) {
-  RefIcon42.displayName = "LogoutOutlined";
+  RefIcon42.displayName = "LockOutlined";
 }
-var LogoutOutlined_default2 = RefIcon42;
+var LockOutlined_default2 = RefIcon42;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LogoutOutlined.js
 var React458 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/PhoneOutlined.js
-var PhoneOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M877.1 238.7L770.6 132.3c-13-13-30.4-20.3-48.8-20.3s-35.8 7.2-48.8 20.3L558.3 246.8c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l89.6 89.7a405.46 405.46 0 01-86.4 127.3c-36.7 36.9-79.6 66-127.2 86.6l-89.6-89.7c-13-13-30.4-20.3-48.8-20.3a68.2 68.2 0 00-48.8 20.3L132.3 673c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l106.4 106.4c22.2 22.2 52.8 34.9 84.2 34.9 6.5 0 12.8-.5 19.2-1.6 132.4-21.8 263.8-92.3 369.9-198.3C818 606 888.4 474.6 910.4 342.1c6.3-37.6-6.3-76.3-33.3-103.4zm-37.6 91.5c-19.5 117.9-82.9 235.5-178.4 331s-213 158.9-330.9 178.4c-14.8 2.5-30-2.5-40.8-13.2L184.9 721.9 295.7 611l119.8 120 .9.9 21.6-8a481.29 481.29 0 00285.7-285.8l8-21.6-120.8-120.7 110.8-110.9 104.5 104.5c10.8 10.8 15.8 26 13.3 40.8z" } }] }, "name": "phone", "theme": "outlined" };
-var PhoneOutlined_default = PhoneOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/LogoutOutlined.js
+var LogoutOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M868 732h-70.3c-4.8 0-9.3 2.1-12.3 5.8-7 8.5-14.5 16.7-22.4 24.5a353.84 353.84 0 01-112.7 75.9A352.8 352.8 0 01512.4 866c-47.9 0-94.3-9.4-137.9-27.8a353.84 353.84 0 01-112.7-75.9 353.28 353.28 0 01-76-112.5C167.3 606.2 158 559.9 158 512s9.4-94.2 27.8-137.8c17.8-42.1 43.4-80 76-112.5s70.5-58.1 112.7-75.9c43.6-18.4 90-27.8 137.9-27.8 47.9 0 94.3 9.3 137.9 27.8 42.2 17.8 80.1 43.4 112.7 75.9 7.9 7.9 15.3 16.1 22.4 24.5 3 3.7 7.6 5.8 12.3 5.8H868c6.3 0 10.2-7 6.7-12.3C798 160.5 663.8 81.6 511.3 82 271.7 82.6 79.6 277.1 82 516.4 84.4 751.9 276.2 942 512.4 942c152.1 0 285.7-78.8 362.3-197.7 3.4-5.3-.4-12.3-6.7-12.3zm88.9-226.3L815 393.7c-5.3-4.2-13-.4-13 6.3v76H488c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h314v76c0 6.7 7.8 10.5 13 6.3l141.9-112a8 8 0 000-12.6z" } }] }, "name": "logout", "theme": "outlined" };
+var LogoutOutlined_default = LogoutOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/LogoutOutlined.js
 function _extends106() {
   _extends106 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75379,24 +75379,24 @@ function _extends106() {
   };
   return _extends106.apply(this, arguments);
 }
-var PhoneOutlined2 = (props, ref) => /* @__PURE__ */ React458.createElement(AntdIconLight_default, _extends106({}, props, {
+var LogoutOutlined2 = (props, ref) => /* @__PURE__ */ React458.createElement(AntdIconLight_default, _extends106({}, props, {
   ref,
-  icon: PhoneOutlined_default
+  icon: LogoutOutlined_default
 }));
-var RefIcon43 = /* @__PURE__ */ React458.forwardRef(PhoneOutlined2);
+var RefIcon43 = /* @__PURE__ */ React458.forwardRef(LogoutOutlined2);
 if (false) {
-  RefIcon43.displayName = "PhoneOutlined";
+  RefIcon43.displayName = "LogoutOutlined";
 }
-var PhoneOutlined_default2 = RefIcon43;
+var LogoutOutlined_default2 = RefIcon43;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
 var React459 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SafetyCertificateOutlined.js
-var SafetyCertificateOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M866.9 169.9L527.1 54.1C523 52.7 517.5 52 512 52s-11 .7-15.1 2.1L157.1 169.9c-8.3 2.8-15.1 12.4-15.1 21.2v482.4c0 8.8 5.7 20.4 12.6 25.9L499.3 968c3.5 2.7 8 4.1 12.6 4.1s9.2-1.4 12.6-4.1l344.7-268.6c6.9-5.4 12.6-17 12.6-25.9V191.1c.2-8.8-6.6-18.3-14.9-21.2zM810 654.3L512 886.5 214 654.3V226.7l298-101.6 298 101.6v427.6zm-405.8-201c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.3 0-12.7-6.5-12.7h-55.2c-5.1 0-10 2.5-13 6.6L468.9 542.4l-64.7-89.1z" } }] }, "name": "safety-certificate", "theme": "outlined" };
-var SafetyCertificateOutlined_default = SafetyCertificateOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/PhoneOutlined.js
+var PhoneOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M877.1 238.7L770.6 132.3c-13-13-30.4-20.3-48.8-20.3s-35.8 7.2-48.8 20.3L558.3 246.8c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l89.6 89.7a405.46 405.46 0 01-86.4 127.3c-36.7 36.9-79.6 66-127.2 86.6l-89.6-89.7c-13-13-30.4-20.3-48.8-20.3a68.2 68.2 0 00-48.8 20.3L132.3 673c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l106.4 106.4c22.2 22.2 52.8 34.9 84.2 34.9 6.5 0 12.8-.5 19.2-1.6 132.4-21.8 263.8-92.3 369.9-198.3C818 606 888.4 474.6 910.4 342.1c6.3-37.6-6.3-76.3-33.3-103.4zm-37.6 91.5c-19.5 117.9-82.9 235.5-178.4 331s-213 158.9-330.9 178.4c-14.8 2.5-30-2.5-40.8-13.2L184.9 721.9 295.7 611l119.8 120 .9.9 21.6-8a481.29 481.29 0 00285.7-285.8l8-21.6-120.8-120.7 110.8-110.9 104.5 104.5c10.8 10.8 15.8 26 13.3 40.8z" } }] }, "name": "phone", "theme": "outlined" };
+var PhoneOutlined_default = PhoneOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/PhoneOutlined.js
 function _extends107() {
   _extends107 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75411,24 +75411,24 @@ function _extends107() {
   };
   return _extends107.apply(this, arguments);
 }
-var SafetyCertificateOutlined2 = (props, ref) => /* @__PURE__ */ React459.createElement(AntdIconLight_default, _extends107({}, props, {
+var PhoneOutlined2 = (props, ref) => /* @__PURE__ */ React459.createElement(AntdIconLight_default, _extends107({}, props, {
   ref,
-  icon: SafetyCertificateOutlined_default
+  icon: PhoneOutlined_default
 }));
-var RefIcon44 = /* @__PURE__ */ React459.forwardRef(SafetyCertificateOutlined2);
+var RefIcon44 = /* @__PURE__ */ React459.forwardRef(PhoneOutlined2);
 if (false) {
-  RefIcon44.displayName = "SafetyCertificateOutlined";
+  RefIcon44.displayName = "PhoneOutlined";
 }
-var SafetyCertificateOutlined_default2 = RefIcon44;
+var PhoneOutlined_default2 = RefIcon44;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
 var React460 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SettingOutlined.js
-var SettingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z" } }] }, "name": "setting", "theme": "outlined" };
-var SettingOutlined_default = SettingOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SafetyCertificateOutlined.js
+var SafetyCertificateOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M866.9 169.9L527.1 54.1C523 52.7 517.5 52 512 52s-11 .7-15.1 2.1L157.1 169.9c-8.3 2.8-15.1 12.4-15.1 21.2v482.4c0 8.8 5.7 20.4 12.6 25.9L499.3 968c3.5 2.7 8 4.1 12.6 4.1s9.2-1.4 12.6-4.1l344.7-268.6c6.9-5.4 12.6-17 12.6-25.9V191.1c.2-8.8-6.6-18.3-14.9-21.2zM810 654.3L512 886.5 214 654.3V226.7l298-101.6 298 101.6v427.6zm-405.8-201c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.3 0-12.7-6.5-12.7h-55.2c-5.1 0-10 2.5-13 6.6L468.9 542.4l-64.7-89.1z" } }] }, "name": "safety-certificate", "theme": "outlined" };
+var SafetyCertificateOutlined_default = SafetyCertificateOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SafetyCertificateOutlined.js
 function _extends108() {
   _extends108 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75443,24 +75443,24 @@ function _extends108() {
   };
   return _extends108.apply(this, arguments);
 }
-var SettingOutlined2 = (props, ref) => /* @__PURE__ */ React460.createElement(AntdIconLight_default, _extends108({}, props, {
+var SafetyCertificateOutlined2 = (props, ref) => /* @__PURE__ */ React460.createElement(AntdIconLight_default, _extends108({}, props, {
   ref,
-  icon: SettingOutlined_default
+  icon: SafetyCertificateOutlined_default
 }));
-var RefIcon45 = /* @__PURE__ */ React460.forwardRef(SettingOutlined2);
+var RefIcon45 = /* @__PURE__ */ React460.forwardRef(SafetyCertificateOutlined2);
 if (false) {
-  RefIcon45.displayName = "SettingOutlined";
+  RefIcon45.displayName = "SafetyCertificateOutlined";
 }
-var SettingOutlined_default2 = RefIcon45;
+var SafetyCertificateOutlined_default2 = RefIcon45;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
 var React461 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShopOutlined.js
-var ShopOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M882 272.1V144c0-17.7-14.3-32-32-32H174c-17.7 0-32 14.3-32 32v128.1c-16.7 1-30 14.9-30 31.9v131.7a177 177 0 0014.4 70.4c4.3 10.2 9.6 19.8 15.6 28.9v345c0 17.6 14.3 32 32 32h676c17.7 0 32-14.3 32-32V535a175 175 0 0015.6-28.9c9.5-22.3 14.4-46 14.4-70.4V304c0-17-13.3-30.9-30-31.9zM214 184h596v88H214v-88zm362 656.1H448V736h128v104.1zm234 0H640V704c0-17.7-14.3-32-32-32H416c-17.7 0-32 14.3-32 32v136.1H214V597.9c2.9 1.4 5.9 2.8 9 4 22.3 9.4 46 14.1 70.4 14.1s48-4.7 70.4-14.1c13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 3-1.3 6-2.6 9-4v242.2zm30-404.4c0 59.8-49 108.3-109.3 108.3-40.8 0-76.4-22.1-95.2-54.9-2.9-5-8.1-8.1-13.9-8.1h-.6c-5.7 0-11 3.1-13.9 8.1A109.24 109.24 0 01512 544c-40.7 0-76.2-22-95-54.7-3-5.1-8.4-8.3-14.3-8.3s-11.4 3.2-14.3 8.3a109.63 109.63 0 01-95.1 54.7C233 544 184 495.5 184 435.7v-91.2c0-.3.2-.5.5-.5h655c.3 0 .5.2.5.5v91.2z" } }] }, "name": "shop", "theme": "outlined" };
-var ShopOutlined_default = ShopOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SettingOutlined.js
+var SettingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z" } }] }, "name": "setting", "theme": "outlined" };
+var SettingOutlined_default = SettingOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SettingOutlined.js
 function _extends109() {
   _extends109 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75475,24 +75475,24 @@ function _extends109() {
   };
   return _extends109.apply(this, arguments);
 }
-var ShopOutlined2 = (props, ref) => /* @__PURE__ */ React461.createElement(AntdIconLight_default, _extends109({}, props, {
+var SettingOutlined2 = (props, ref) => /* @__PURE__ */ React461.createElement(AntdIconLight_default, _extends109({}, props, {
   ref,
-  icon: ShopOutlined_default
+  icon: SettingOutlined_default
 }));
-var RefIcon46 = /* @__PURE__ */ React461.forwardRef(ShopOutlined2);
+var RefIcon46 = /* @__PURE__ */ React461.forwardRef(SettingOutlined2);
 if (false) {
-  RefIcon46.displayName = "ShopOutlined";
+  RefIcon46.displayName = "SettingOutlined";
 }
-var ShopOutlined_default2 = RefIcon46;
+var SettingOutlined_default2 = RefIcon46;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
 var React462 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShoppingOutlined.js
-var ShoppingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32zm-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400v-16zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96v456z" } }] }, "name": "shopping", "theme": "outlined" };
-var ShoppingOutlined_default = ShoppingOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShopOutlined.js
+var ShopOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M882 272.1V144c0-17.7-14.3-32-32-32H174c-17.7 0-32 14.3-32 32v128.1c-16.7 1-30 14.9-30 31.9v131.7a177 177 0 0014.4 70.4c4.3 10.2 9.6 19.8 15.6 28.9v345c0 17.6 14.3 32 32 32h676c17.7 0 32-14.3 32-32V535a175 175 0 0015.6-28.9c9.5-22.3 14.4-46 14.4-70.4V304c0-17-13.3-30.9-30-31.9zM214 184h596v88H214v-88zm362 656.1H448V736h128v104.1zm234 0H640V704c0-17.7-14.3-32-32-32H416c-17.7 0-32 14.3-32 32v136.1H214V597.9c2.9 1.4 5.9 2.8 9 4 22.3 9.4 46 14.1 70.4 14.1s48-4.7 70.4-14.1c13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 3-1.3 6-2.6 9-4v242.2zm30-404.4c0 59.8-49 108.3-109.3 108.3-40.8 0-76.4-22.1-95.2-54.9-2.9-5-8.1-8.1-13.9-8.1h-.6c-5.7 0-11 3.1-13.9 8.1A109.24 109.24 0 01512 544c-40.7 0-76.2-22-95-54.7-3-5.1-8.4-8.3-14.3-8.3s-11.4 3.2-14.3 8.3a109.63 109.63 0 01-95.1 54.7C233 544 184 495.5 184 435.7v-91.2c0-.3.2-.5.5-.5h655c.3 0 .5.2.5.5v91.2z" } }] }, "name": "shop", "theme": "outlined" };
+var ShopOutlined_default = ShopOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShopOutlined.js
 function _extends110() {
   _extends110 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75507,24 +75507,24 @@ function _extends110() {
   };
   return _extends110.apply(this, arguments);
 }
-var ShoppingOutlined2 = (props, ref) => /* @__PURE__ */ React462.createElement(AntdIconLight_default, _extends110({}, props, {
+var ShopOutlined2 = (props, ref) => /* @__PURE__ */ React462.createElement(AntdIconLight_default, _extends110({}, props, {
   ref,
-  icon: ShoppingOutlined_default
+  icon: ShopOutlined_default
 }));
-var RefIcon47 = /* @__PURE__ */ React462.forwardRef(ShoppingOutlined2);
+var RefIcon47 = /* @__PURE__ */ React462.forwardRef(ShopOutlined2);
 if (false) {
-  RefIcon47.displayName = "ShoppingOutlined";
+  RefIcon47.displayName = "ShopOutlined";
 }
-var ShoppingOutlined_default2 = RefIcon47;
+var ShopOutlined_default2 = RefIcon47;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
 var React463 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SyncOutlined.js
-var SyncOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z" } }] }, "name": "sync", "theme": "outlined" };
-var SyncOutlined_default = SyncOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ShoppingOutlined.js
+var ShoppingOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32zm-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400v-16zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96v456z" } }] }, "name": "shopping", "theme": "outlined" };
+var ShoppingOutlined_default = ShoppingOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ShoppingOutlined.js
 function _extends111() {
   _extends111 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75539,24 +75539,24 @@ function _extends111() {
   };
   return _extends111.apply(this, arguments);
 }
-var SyncOutlined2 = (props, ref) => /* @__PURE__ */ React463.createElement(AntdIconLight_default, _extends111({}, props, {
+var ShoppingOutlined2 = (props, ref) => /* @__PURE__ */ React463.createElement(AntdIconLight_default, _extends111({}, props, {
   ref,
-  icon: SyncOutlined_default
+  icon: ShoppingOutlined_default
 }));
-var RefIcon48 = /* @__PURE__ */ React463.forwardRef(SyncOutlined2);
+var RefIcon48 = /* @__PURE__ */ React463.forwardRef(ShoppingOutlined2);
 if (false) {
-  RefIcon48.displayName = "SyncOutlined";
+  RefIcon48.displayName = "ShoppingOutlined";
 }
-var SyncOutlined_default2 = RefIcon48;
+var ShoppingOutlined_default2 = RefIcon48;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
 var React464 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ThunderboltOutlined.js
-var ThunderboltOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7zM378.2 732.5l60.3-241H281.1l189.6-327.4h224.6L487 427.4h211L378.2 732.5z" } }] }, "name": "thunderbolt", "theme": "outlined" };
-var ThunderboltOutlined_default = ThunderboltOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/SyncOutlined.js
+var SyncOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z" } }] }, "name": "sync", "theme": "outlined" };
+var SyncOutlined_default = SyncOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/SyncOutlined.js
 function _extends112() {
   _extends112 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75571,24 +75571,24 @@ function _extends112() {
   };
   return _extends112.apply(this, arguments);
 }
-var ThunderboltOutlined2 = (props, ref) => /* @__PURE__ */ React464.createElement(AntdIconLight_default, _extends112({}, props, {
+var SyncOutlined2 = (props, ref) => /* @__PURE__ */ React464.createElement(AntdIconLight_default, _extends112({}, props, {
   ref,
-  icon: ThunderboltOutlined_default
+  icon: SyncOutlined_default
 }));
-var RefIcon49 = /* @__PURE__ */ React464.forwardRef(ThunderboltOutlined2);
+var RefIcon49 = /* @__PURE__ */ React464.forwardRef(SyncOutlined2);
 if (false) {
-  RefIcon49.displayName = "ThunderboltOutlined";
+  RefIcon49.displayName = "SyncOutlined";
 }
-var ThunderboltOutlined_default2 = RefIcon49;
+var SyncOutlined_default2 = RefIcon49;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
 var React465 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/UserOutlined.js
-var UserOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z" } }] }, "name": "user", "theme": "outlined" };
-var UserOutlined_default = UserOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/ThunderboltOutlined.js
+var ThunderboltOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7zM378.2 732.5l60.3-241H281.1l189.6-327.4h224.6L487 427.4h211L378.2 732.5z" } }] }, "name": "thunderbolt", "theme": "outlined" };
+var ThunderboltOutlined_default = ThunderboltOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/ThunderboltOutlined.js
 function _extends113() {
   _extends113 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75603,24 +75603,24 @@ function _extends113() {
   };
   return _extends113.apply(this, arguments);
 }
-var UserOutlined2 = (props, ref) => /* @__PURE__ */ React465.createElement(AntdIconLight_default, _extends113({}, props, {
+var ThunderboltOutlined2 = (props, ref) => /* @__PURE__ */ React465.createElement(AntdIconLight_default, _extends113({}, props, {
   ref,
-  icon: UserOutlined_default
+  icon: ThunderboltOutlined_default
 }));
-var RefIcon50 = /* @__PURE__ */ React465.forwardRef(UserOutlined2);
+var RefIcon50 = /* @__PURE__ */ React465.forwardRef(ThunderboltOutlined2);
 if (false) {
-  RefIcon50.displayName = "UserOutlined";
+  RefIcon50.displayName = "ThunderboltOutlined";
 }
-var UserOutlined_default2 = RefIcon50;
+var ThunderboltOutlined_default2 = RefIcon50;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
 var React466 = __toESM(require_react());
 
-// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/WarningOutlined.js
-var WarningOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M464 720a48 48 0 1096 0 48 48 0 10-96 0zm16-304v184c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V416c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8zm475.7 440l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zm-783.5-27.9L512 239.9l339.8 588.2H172.2z" } }] }, "name": "warning", "theme": "outlined" };
-var WarningOutlined_default = WarningOutlined;
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/UserOutlined.js
+var UserOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z" } }] }, "name": "user", "theme": "outlined" };
+var UserOutlined_default = UserOutlined;
 
-// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/UserOutlined.js
 function _extends114() {
   _extends114 = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -75635,15 +75635,47 @@ function _extends114() {
   };
   return _extends114.apply(this, arguments);
 }
-var WarningOutlined2 = (props, ref) => /* @__PURE__ */ React466.createElement(AntdIconLight_default, _extends114({}, props, {
+var UserOutlined2 = (props, ref) => /* @__PURE__ */ React466.createElement(AntdIconLight_default, _extends114({}, props, {
+  ref,
+  icon: UserOutlined_default
+}));
+var RefIcon51 = /* @__PURE__ */ React466.forwardRef(UserOutlined2);
+if (false) {
+  RefIcon51.displayName = "UserOutlined";
+}
+var UserOutlined_default2 = RefIcon51;
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+var React467 = __toESM(require_react());
+
+// upcraft-admin-panel/node_modules/@ant-design/icons-svg/es/asn/WarningOutlined.js
+var WarningOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M464 720a48 48 0 1096 0 48 48 0 10-96 0zm16-304v184c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V416c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8zm475.7 440l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zm-783.5-27.9L512 239.9l339.8 588.2H172.2z" } }] }, "name": "warning", "theme": "outlined" };
+var WarningOutlined_default = WarningOutlined;
+
+// upcraft-admin-panel/node_modules/@ant-design/icons/es/icons/WarningOutlined.js
+function _extends115() {
+  _extends115 = Object.assign ? Object.assign.bind() : function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends115.apply(this, arguments);
+}
+var WarningOutlined2 = (props, ref) => /* @__PURE__ */ React467.createElement(AntdIconLight_default, _extends115({}, props, {
   ref,
   icon: WarningOutlined_default
 }));
-var RefIcon51 = /* @__PURE__ */ React466.forwardRef(WarningOutlined2);
+var RefIcon52 = /* @__PURE__ */ React467.forwardRef(WarningOutlined2);
 if (false) {
-  RefIcon51.displayName = "WarningOutlined";
+  RefIcon52.displayName = "WarningOutlined";
 }
-var WarningOutlined_default2 = RefIcon51;
+var WarningOutlined_default2 = RefIcon52;
 
 // upcraft-shopify/src/client/src/App.jsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
@@ -75662,6 +75694,71 @@ function App() {
   const [searchQuery, setSearchQuery] = (0, import_react150.useState)("");
   const [activeFilter, setActiveFilter] = (0, import_react150.useState)("ALL");
   const [pageSize, setPageSize] = (0, import_react150.useState)(25);
+  const [bulkQueue, setBulkQueue] = (0, import_react150.useState)(() => {
+    try {
+      const saved = localStorage.getItem("upcraft_bulk_staged_drafts");
+      return saved ? JSON.parse(saved) : [];
+    } catch (e3) {
+      return [];
+    }
+  });
+  const [bulkFilter, setBulkFilter] = (0, import_react150.useState)("ALL");
+  const [reviewDrafts, setReviewDrafts] = (0, import_react150.useState)([]);
+  const saveBulkQueue = (newQueue) => {
+    setBulkQueue(newQueue);
+    try {
+      localStorage.setItem("upcraft_bulk_staged_drafts", JSON.stringify(newQueue));
+    } catch (e3) {
+      console.error("Failed to save bulk queue:", e3);
+    }
+  };
+  const toggleBulkQueue = (draft) => {
+    const exists = bulkQueue.some((d) => d.id === draft.id);
+    if (exists) {
+      const updated = bulkQueue.filter((d) => d.id !== draft.id);
+      saveBulkQueue(updated);
+      message_default.info(`Removed ${draft.name} from Bulk Queue`);
+    } else {
+      const max = config?.max_batch_size || 70;
+      if (bulkQueue.length >= max) {
+        message_default.warning(`Maximum bulk batch cap of ${max} reached.`);
+        return;
+      }
+      const updated = [...bulkQueue, draft];
+      saveBulkQueue(updated);
+      message_default.success(`Added ${draft.name} to Bulk Queue`);
+    }
+  };
+  const addSelectedToBulk = () => {
+    const selectedList = Array.from(selectedMap.values());
+    if (selectedList.length === 0) return;
+    const max = config?.max_batch_size || 70;
+    const existingIds = new Set(bulkQueue.map((d) => d.id));
+    const newToAdd = selectedList.filter((d) => !existingIds.has(d.id));
+    if (newToAdd.length === 0) {
+      message_default.info("All selected drafts are already in Bulk Queue.");
+      return;
+    }
+    if (bulkQueue.length + newToAdd.length > max) {
+      const allowed = newToAdd.slice(0, max - bulkQueue.length);
+      const updated2 = [...bulkQueue, ...allowed];
+      saveBulkQueue(updated2);
+      message_default.warning(`Added ${allowed.length} drafts (batch cap of ${max} reached).`);
+      return;
+    }
+    const updated = [...bulkQueue, ...newToAdd];
+    saveBulkQueue(updated);
+    message_default.success(`Added ${newToAdd.length} draft(s) to Bulk Queue!`);
+  };
+  const removeFromBulkQueue = (id) => {
+    const updated = bulkQueue.filter((d) => d.id !== id);
+    saveBulkQueue(updated);
+    message_default.info("Removed from Bulk Queue");
+  };
+  const clearBulkQueue = () => {
+    saveBulkQueue([]);
+    message_default.info("Bulk Queue cleared.");
+  };
   const [selectedMap, setSelectedMap] = (0, import_react150.useState)(/* @__PURE__ */ new Map());
   const [config, setConfig] = (0, import_react150.useState)(null);
   const [configFeedback, setConfigFeedback] = (0, import_react150.useState)(null);
@@ -75897,6 +75994,22 @@ function App() {
       if (json.success) {
         message_default.success(json.message);
         setDrafts((prev2) => prev2.map((d) => d.id === editDraftModal.id ? json.data : d));
+        setBulkQueue((prev2) => {
+          const updated = prev2.map((d) => d.id === editDraftModal.id ? json.data : d);
+          try {
+            localStorage.setItem("upcraft_bulk_staged_drafts", JSON.stringify(updated));
+          } catch (e3) {
+          }
+          return updated;
+        });
+        setSelectedMap((prev2) => {
+          if (prev2.has(editDraftModal.id)) {
+            const next2 = new Map(prev2);
+            next2.set(editDraftModal.id, json.data);
+            return next2;
+          }
+          return prev2;
+        });
         if (viewDraftModal && viewDraftModal.id === editDraftModal.id) {
           setViewDraftModal(json.data);
         }
@@ -75936,11 +76049,11 @@ function App() {
     }
   };
   const handleCreateAndStartJob = async () => {
-    const draftsToSubmit = Array.from(selectedMap.values());
+    const draftsToSubmit = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
     if (draftsToSubmit.length === 0) return;
-    const incomplete = draftsToSubmit.filter((d) => !d.isAddressComplete);
+    const incomplete = draftsToSubmit.filter((d) => !d.isAddressComplete || !d.isCodEligible);
     if (incomplete.length > 0) {
-      message_default.error(`Cannot start bulk confirmation: ${incomplete.length} draft(s) have incomplete delivery details (missing city, state, pincode, or phone). Please edit them first.`);
+      message_default.error(`Cannot start bulk confirmation: ${incomplete.length} draft(s) have incomplete delivery details or missing COD tag. Please edit them first.`);
       return;
     }
     try {
@@ -75961,7 +76074,11 @@ function App() {
         setActiveJob(startJson.data);
         setShowReviewModal(false);
         setConfirmPhrase("");
+        const submittedIds = new Set(draftsToSubmit.map((d) => d.id));
+        const remainingQueue = bulkQueue.filter((d) => !submittedIds.has(d.id));
+        saveBulkQueue(remainingQueue);
         clearSelection();
+        setReviewDrafts([]);
         setShowJobModal(true);
         message_default.success({ content: `Bulk job started for ${draftsToSubmit.length} drafts!`, key: "bulk-start" });
       }
@@ -76054,6 +76171,23 @@ function App() {
       return sum + (isNaN(amt) ? 0 : amt);
     }, 0);
   }, [selectedMap]);
+  const bulkReadyDrafts = (0, import_react150.useMemo)(() => {
+    return bulkQueue.filter((d) => d.isAddressComplete && d.isCodEligible);
+  }, [bulkQueue]);
+  const bulkBrokenDrafts = (0, import_react150.useMemo)(() => {
+    return bulkQueue.filter((d) => !d.isAddressComplete || !d.isCodEligible);
+  }, [bulkQueue]);
+  const bulkReadyTotal = (0, import_react150.useMemo)(() => {
+    return bulkReadyDrafts.reduce((sum, d) => {
+      const amt = parseFloat(d.totalPriceSet?.shopMoney?.amount || 0);
+      return sum + (isNaN(amt) ? 0 : amt);
+    }, 0);
+  }, [bulkReadyDrafts]);
+  const filteredBulkDrafts = (0, import_react150.useMemo)(() => {
+    if (bulkFilter === "READY") return bulkReadyDrafts;
+    if (bulkFilter === "NEEDS_FIX") return bulkBrokenDrafts;
+    return bulkQueue;
+  }, [bulkQueue, bulkFilter, bulkReadyDrafts, bulkBrokenDrafts]);
   const draftColumns = [
     {
       title: "Draft Order",
@@ -76171,46 +76305,64 @@ function App() {
       title: "Actions",
       key: "actions",
       align: "center",
-      width: 240,
-      render: (_, record) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "View full draft order details (Customer, items, address, taxes)", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          button_default,
-          {
-            size: "small",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOutlined_default2, {}),
-            onClick: () => setViewDraftModal(record),
-            style: { background: "#1e293b", borderColor: "#334155", color: "#38bdf8" },
-            children: "Details"
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "Edit / Add missing shipping address or phone", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          button_default,
-          {
-            size: "small",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, {}),
-            onClick: () => openEditModal(record),
-            style: {
-              background: !record.isAddressComplete ? "#7c2d12" : "#1e293b",
-              borderColor: !record.isAddressComplete ? "#ea580c" : "#334155",
-              color: !record.isAddressComplete ? "#fdba74" : "#94a3b8"
-            },
-            children: "Fix"
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: !record.isCodEligible ? "Complete missing address fields or add COD tag to test" : "Test COD conversion for this single draft", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          button_default,
-          {
-            size: "small",
-            type: "primary",
-            ghost: record.isCodEligible,
-            disabled: !record.isCodEligible,
-            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
-            onClick: () => handleSingleTest(record),
-            style: { fontWeight: 600, borderRadius: 6 },
-            children: "Test"
-          }
-        ) })
-      ] })
+      width: 320,
+      render: (_, record) => {
+        const isStaged = bulkQueue.some((d) => d.id === record.id);
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: isStaged ? "Remove from Bulk Queue" : "Add this draft to Bulk Order Queue", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            button_default,
+            {
+              size: "small",
+              icon: isStaged ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckOutlined_default2, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
+              onClick: () => toggleBulkQueue(record),
+              style: {
+                background: isStaged ? "rgba(16, 185, 129, 0.15)" : "#1e293b",
+                borderColor: isStaged ? "#10b981" : "#334155",
+                color: isStaged ? "#34d399" : "#38bdf8",
+                fontWeight: isStaged ? 600 : 500
+              },
+              children: isStaged ? "In Bulk" : "+ Bulk"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "View full draft order details (Customer, items, address, taxes)", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            button_default,
+            {
+              size: "small",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOutlined_default2, {}),
+              onClick: () => setViewDraftModal(record),
+              style: { background: "#1e293b", borderColor: "#334155", color: "#cbd5e1" },
+              children: "Details"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "Edit / Add missing shipping address or phone", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            button_default,
+            {
+              size: "small",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, {}),
+              onClick: () => openEditModal(record),
+              style: {
+                background: !record.isAddressComplete ? "#7c2d12" : "#1e293b",
+                borderColor: !record.isAddressComplete ? "#ea580c" : "#334155",
+                color: !record.isAddressComplete ? "#fdba74" : "#94a3b8"
+              },
+              children: "Fix"
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: !record.isCodEligible ? "Complete missing address fields or add COD tag to test" : "Test COD conversion for this single draft", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            button_default,
+            {
+              size: "small",
+              type: "primary",
+              ghost: record.isCodEligible,
+              disabled: !record.isCodEligible,
+              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+              onClick: () => handleSingleTest(record),
+              style: { fontWeight: 600, borderRadius: 6 },
+              children: "Test"
+            }
+          ) })
+        ] });
+      }
     }
   ];
   const expandedRowRender = (record) => {
@@ -76247,6 +76399,159 @@ function App() {
       ] }, idx)) })
     ] });
   };
+  const bulkColumns = [
+    {
+      title: "Draft Order",
+      dataIndex: "name",
+      key: "name",
+      width: 140,
+      render: (text, record) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 700, color: "#38bdf8", fontFamily: "monospace" }, children: text }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 11, color: "#64748b" }, children: new Date(record.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short" }) })
+      ] })
+    },
+    {
+      title: "Customer & Delivery Contact",
+      key: "customer",
+      width: 250,
+      render: (_, record) => {
+        const custName = `${record.customer?.firstName || ""} ${record.customer?.lastName || ""}`.trim() || "Guest Customer";
+        const phone = record.phone || record.customer?.phone || record.shippingAddress?.phone || "No phone";
+        const city = record.shippingAddress?.city || "No city";
+        const prov = record.shippingAddress?.province || "";
+        const zip = record.shippingAddress?.zip || "No zip";
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 600, color: "#f8fafc" }, children: custName }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12, color: "#94a3b8", display: "flex", alignItems: "center", gap: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PhoneOutlined_default2, { style: { fontSize: 10, color: phone === "No phone" ? "#ef4444" : "#64748b" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: phone === "No phone" ? "#f87171" : "#cbd5e1" }, children: phone })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#64748b", display: "flex", alignItems: "center", gap: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EnvironmentOutlined_default2, { style: { fontSize: 10 } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
+              city,
+              prov ? `, ${prov}` : "",
+              " (",
+              zip,
+              ")"
+            ] })
+          ] })
+        ] });
+      }
+    },
+    {
+      title: "Line Items Summary",
+      key: "items",
+      width: 240,
+      render: (_, record) => {
+        const items = record.lineItems?.nodes || [];
+        const firstTitle = items[0]?.title || "Unknown Item";
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 220, color: "#cbd5e1", fontSize: 12 }, title: firstTitle, children: firstTitle }),
+          items.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#38bdf8", marginTop: 2, fontWeight: 500 }, children: [
+            "+",
+            items.length - 1,
+            " more item",
+            items.length > 2 ? "s" : "",
+            " (click + to view)"
+          ] })
+        ] });
+      }
+    },
+    {
+      title: "Total Amount",
+      key: "total",
+      align: "right",
+      width: 120,
+      render: (_, record) => {
+        const amt = parseFloat(record.totalPriceSet?.shopMoney?.amount || 0);
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontFamily: "monospace", fontWeight: 700, fontSize: 13, color: "#34d399", whiteSpace: "nowrap" }, children: [
+          "\u20B9",
+          amt.toLocaleString("en-IN", { minimumFractionDigits: 2 })
+        ] });
+      }
+    },
+    {
+      title: "Status & Readiness",
+      key: "status",
+      width: 180,
+      render: (_, record) => {
+        if (!record.isAddressComplete) {
+          const missing = record.missingFields?.filter((f) => f !== "COD Tag").join(", ") || "Address Info";
+          return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: `Incomplete Delivery Info: Missing ${missing}. Click to edit and fix.`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            tag_default,
+            {
+              color: "error",
+              onClick: () => openEditModal(record),
+              style: { cursor: "pointer", fontWeight: 600, padding: "3px 8px", borderRadius: 4 },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarningOutlined_default2, { style: { marginRight: 4 } }),
+                " Missing: ",
+                missing.length > 16 ? missing.slice(0, 16) + "..." : missing
+              ]
+            }
+          ) });
+        }
+        if (!record.isCodEligible) {
+          return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "Missing COD Tag. Click Fix to add COD tag.", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            tag_default,
+            {
+              color: "warning",
+              onClick: () => openEditModal(record),
+              style: { cursor: "pointer", fontWeight: 600, padding: "3px 8px", borderRadius: 4 },
+              children: "Non-COD Tag"
+            }
+          ) });
+        }
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "success", style: { fontWeight: 600, padding: "3px 8px", borderRadius: 4 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckOutlined_default2, { style: { marginRight: 4 } }),
+          " COD Ready"
+        ] });
+      }
+    },
+    {
+      title: "Actions",
+      key: "actions",
+      align: "center",
+      width: 200,
+      render: (_, record) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "View full draft order details", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          button_default,
+          {
+            size: "small",
+            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOutlined_default2, {}),
+            onClick: () => setViewDraftModal(record),
+            style: { background: "#1e293b", borderColor: "#334155", color: "#cbd5e1" },
+            children: "Details"
+          }
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "Edit / Add missing shipping address or phone", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          button_default,
+          {
+            size: "small",
+            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditOutlined_default2, {}),
+            onClick: () => openEditModal(record),
+            style: {
+              background: !record.isAddressComplete ? "#7c2d12" : "#1e293b",
+              borderColor: !record.isAddressComplete ? "#ea580c" : "#334155",
+              color: !record.isAddressComplete ? "#fdba74" : "#94a3b8"
+            },
+            children: "Fix"
+          }
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "Remove from Bulk Queue", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          button_default,
+          {
+            size: "small",
+            danger: true,
+            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeleteOutlined_default2, {}),
+            onClick: () => removeFromBulkQueue(record.id),
+            style: { background: "rgba(239, 68, 68, 0.1)" }
+          }
+        ) })
+      ] })
+    }
+  ];
   const antdTheme = {
     algorithm: theme_default3.darkAlgorithm,
     token: {
@@ -76460,6 +76765,22 @@ function App() {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 20, background: "#1e293b", flexShrink: 0 } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 4, flexShrink: 0 }, children: [
           { key: "drafts", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, {}), label: "Draft Orders" },
+          {
+            key: "bulk",
+            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+            label: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { display: "flex", alignItems: "center", gap: 6 }, children: [
+              "Bulk Orders",
+              bulkQueue.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
+                background: "#2563eb",
+                color: "#fff",
+                fontSize: 10,
+                fontWeight: 700,
+                padding: "1px 6px",
+                borderRadius: 9999,
+                lineHeight: "14px"
+              }, children: bulkQueue.length })
+            ] })
+          },
           { key: "history", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HistoryOutlined_default2, {}), label: "Bulk Jobs History" },
           { key: "audit", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, {}), label: "Audit Trail" },
           { key: "settings", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SettingOutlined_default2, {}), label: "Store & COD Policy" }
@@ -76583,6 +76904,20 @@ function App() {
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckOutlined_default2, {}), onClick: selectAllOnPage, style: { borderRadius: 6 }, children: "Select Page" }),
+            selectedMap.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              button_default,
+              {
+                type: "primary",
+                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
+                onClick: addSelectedToBulk,
+                style: { borderRadius: 6, background: "#2563eb", borderColor: "#2563eb" },
+                children: [
+                  "Add to Bulk (",
+                  selectedMap.size,
+                  ")"
+                ]
+              }
+            ),
             selectedMap.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(button_default, { danger: true, onClick: clearSelection, style: { borderRadius: 6 }, children: [
               "Clear (",
               selectedMap.size,
@@ -76614,6 +76949,142 @@ function App() {
               pageSizeOptions: ["25", "50", "75"],
               onShowSizeChange: (_, size) => setPageSize(size),
               showTotal: (total) => `Total ${total} open drafts`
+            },
+            scroll: { x: 1140 }
+          }
+        ) })
+      ] }),
+      activeTab === "bulk" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 16], children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Staged in Bulk Queue" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, { style: { color: "#38bdf8", fontSize: 16 } })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1 }, children: [
+              bulkQueue.length,
+              " ",
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 14, color: "#64748b", fontWeight: 500 }, children: [
+                "/ ",
+                config?.max_batch_size || 70,
+                " cap"
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Saved across browser sessions" })
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Ready to Convert" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981", fontSize: 16 } })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#10b981", lineHeight: 1.1 }, children: bulkReadyDrafts.length }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "100% address & COD verified" })
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Needs Attention" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarningOutlined_default2, { style: { color: bulkBrokenDrafts.length > 0 ? "#f59e0b" : "#64748b", fontSize: 16 } })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: bulkBrokenDrafts.length > 0 ? "#f59e0b" : "#94a3b8", lineHeight: 1.1 }, children: bulkBrokenDrafts.length }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Missing phone, address, or tag" })
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.95))", borderColor: "rgba(16, 185, 129, 0.35)" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 12, fontWeight: 600, color: "#34d399" }, children: "Ready Batch Value" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(tag_default, { color: "green", style: { margin: 0, fontWeight: 700, borderRadius: 4 }, children: [
+                bulkReadyDrafts.length,
+                " Orders"
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1, fontFamily: "monospace" }, children: [
+              "\u20B9",
+              bulkReadyTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { style: { fontSize: 11, color: "#94a3b8", display: "block", marginTop: 4 }, children: "Eligible for batch confirmation" })
+          ] }) })
+        ] }),
+        bulkBrokenDrafts.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          alert_default,
+          {
+            type: "warning",
+            showIcon: true,
+            message: `${bulkBrokenDrafts.length} draft order(s) require address or tag fix before conversion`,
+            description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12 }, children: [
+              "Click the ",
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { color: "#fdba74" }, children: "Fix" }),
+              " button on any incomplete draft below to provide missing details (phone, city, state, or pincode). Updates sync directly to Shopify and immediately mark the draft as Ready to Convert."
+            ] }),
+            style: { background: "rgba(245, 158, 11, 0.08)", borderColor: "rgba(245, 158, 11, 0.3)" }
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, bodyStyle: { padding: 14 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: [16, 12], align: "middle", justify: "space-between", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, md: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            segmented_default,
+            {
+              value: bulkFilter,
+              onChange: setBulkFilter,
+              options: [
+                { label: `All Staged (${bulkQueue.length})`, value: "ALL" },
+                { label: `Ready to Convert (${bulkReadyDrafts.length})`, value: "READY" },
+                { label: `Needs Attention (${bulkBrokenDrafts.length})`, value: "NEEDS_FIX" }
+              ],
+              style: { background: "#090d16", padding: 3 }
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(col_default2, { xs: 24, md: 12, style: { display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: 8 }, children: [
+            bulkQueue.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { danger: true, icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeleteOutlined_default2, {}), onClick: clearBulkQueue, style: { borderRadius: 6 }, children: "Clear Queue" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              button_default,
+              {
+                type: "primary",
+                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+                disabled: bulkReadyDrafts.length === 0,
+                onClick: () => {
+                  setReviewDrafts(bulkReadyDrafts);
+                  setShowReviewModal(true);
+                  setConfirmPhrase("");
+                },
+                style: {
+                  borderRadius: 6,
+                  fontWeight: 700,
+                  background: bulkReadyDrafts.length > 0 ? "linear-gradient(135deg, #10b981, #059669)" : void 0,
+                  borderColor: bulkReadyDrafts.length > 0 ? "#10b981" : void 0
+                },
+                children: [
+                  "Convert Ready Orders (",
+                  bulkReadyDrafts.length,
+                  ")"
+                ]
+              }
+            )
+          ] })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b", overflow: "hidden" }, bodyStyle: { padding: bulkQueue.length === 0 ? 40 : 0 }, children: bulkQueue.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          empty_default2,
+          {
+            image: empty_default2.PRESENTED_IMAGE_SIMPLE,
+            description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontSize: 15, fontWeight: 600, marginBottom: 6 }, children: "No Drafts in Bulk Order Queue" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#94a3b8", fontSize: 13, maxWidth: 460, margin: "0 auto 16px" }, children: [
+                "Switch to the ",
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Draft Orders" }),
+                " tab and click ",
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "+ Bulk" }),
+                " on any draft order to stage it here. You can inspect delivery completeness, fix missing fields in-place, and run bulk batch confirmation safely."
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { type: "primary", onClick: () => setActiveTab("drafts"), children: "Go to Draft Orders" })
+            ] })
+          }
+        ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          table_default,
+          {
+            rowKey: "id",
+            columns: bulkColumns,
+            dataSource: filteredBulkDrafts,
+            expandable: { expandedRowRender },
+            pagination: {
+              pageSize: 25,
+              showTotal: (total) => `Total ${total} staged drafts`
             },
             scroll: { x: 1140 }
           }
@@ -76961,6 +77432,21 @@ function App() {
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
           button_default,
           {
+            type: "default",
+            size: "middle",
+            icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
+            onClick: addSelectedToBulk,
+            style: { borderRadius: 9999, borderColor: "#3b82f6", color: "#60a5fa" },
+            children: [
+              "+ Add to Bulk (",
+              selectedMap.size,
+              ")"
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+          button_default,
+          {
             type: "primary",
             size: "middle",
             icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRightOutlined_default2, {}),
@@ -76972,6 +77458,7 @@ function App() {
               boxShadow: "0 4px 12px rgba(16, 185, 129, 0.35)"
             },
             onClick: () => {
+              setReviewDrafts(Array.from(selectedMap.values()));
               setShowReviewModal(true);
               setConfirmPhrase("");
             },
@@ -76984,102 +77471,111 @@ function App() {
         )
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-      modal_default,
-      {
-        title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, { style: { color: "#f59e0b" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: "Review Bulk COD Confirmation" })
-        ] }),
-        open: showReviewModal,
-        width: 680,
-        onCancel: () => setShowReviewModal(false),
-        footer: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { onClick: () => setShowReviewModal(false), children: "Cancel" }, "cancel"),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-            button_default,
-            {
-              type: "primary",
-              danger: true,
-              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
-              disabled: confirmPhrase.trim() !== `CONFIRM ${selectedMap.size} ORDERS`,
-              onClick: handleCreateAndStartJob,
-              style: { fontWeight: 700 },
-              children: [
-                "Execute Bulk Confirmation (",
-                selectedMap.size,
-                ")"
-              ]
-            },
-            "execute"
-          )
-        ],
-        children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            alert_default,
-            {
-              type: "warning",
-              showIcon: true,
-              message: "Operational Safety Gate",
-              description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 4 }, children: [
-                  "Converting ",
-                  selectedMap.size,
-                  " draft orders executes Shopify's ",
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { code: true, children: "draftOrderComplete" }),
-                  " mutation. This ",
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "commits store inventory" }),
-                  " and creates regular orders."
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#f8fafc" }, children: "Orders remain UNPAID / PAYMENT DUE until cash is physically received." })
-              ] })
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            table_default,
-            {
-              size: "small",
-              rowKey: "id",
-              dataSource: Array.from(selectedMap.values()),
-              pagination: { pageSize: 5 },
-              columns: [
-                { title: "Draft #", dataIndex: "name", render: (t2) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, code: true, style: { color: "#38bdf8" }, children: t2 }) },
-                { title: "Customer", render: (_, r3) => `${r3.customer?.firstName} ${r3.customer?.lastName || ""}` },
-                {
-                  title: "Amount",
-                  align: "right",
-                  render: (_, r3) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontFamily: "monospace", fontWeight: 600, color: "#34d399" }, children: [
-                    "\u20B9",
-                    parseFloat(r3.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)
-                  ] })
-                }
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { style: { background: "#090d16", borderColor: "#1e293b" }, size: "small", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 6, style: { width: "100%" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { strong: true, style: { fontSize: 12 }, children: [
-              "Accidental Submit Prevention: Type ",
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { code: true, style: { color: "#f59e0b", fontWeight: 700 }, children: [
-                "CONFIRM ",
-                selectedMap.size,
-                " ORDERS"
-              ] }),
-              " to unlock:"
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              input_default,
+    (() => {
+      const targetReviewList = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        modal_default,
+        {
+          title: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, { style: { color: "#f59e0b" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: "Review Bulk COD Confirmation" })
+          ] }),
+          open: showReviewModal,
+          width: 680,
+          onCancel: () => {
+            setShowReviewModal(false);
+            setReviewDrafts([]);
+          },
+          footer: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { onClick: () => {
+              setShowReviewModal(false);
+              setReviewDrafts([]);
+            }, children: "Cancel" }, "cancel"),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              button_default,
               {
-                placeholder: `CONFIRM ${selectedMap.size} ORDERS`,
-                value: confirmPhrase,
-                onChange: (e3) => setConfirmPhrase(e3.target.value),
-                style: { fontFamily: "monospace", fontWeight: 600 },
-                size: "large"
-              }
+                type: "primary",
+                danger: true,
+                icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+                disabled: confirmPhrase.trim() !== `CONFIRM ${targetReviewList.length} ORDERS`,
+                onClick: handleCreateAndStartJob,
+                style: { fontWeight: 700 },
+                children: [
+                  "Execute Bulk Confirmation (",
+                  targetReviewList.length,
+                  ")"
+                ]
+              },
+              "execute"
             )
-          ] }) })
-        ] })
-      }
-    ),
+          ],
+          children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 16, style: { width: "100%" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              alert_default,
+              {
+                type: "warning",
+                showIcon: true,
+                message: "Operational Safety Gate",
+                description: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12 }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 4 }, children: [
+                    "Converting ",
+                    targetReviewList.length,
+                    " draft orders executes Shopify's ",
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { code: true, children: "draftOrderComplete" }),
+                    " mutation. This ",
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "commits store inventory" }),
+                    " and creates regular orders."
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, style: { color: "#f8fafc" }, children: "Orders remain UNPAID / PAYMENT DUE until cash is physically received." })
+                ] })
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              table_default,
+              {
+                size: "small",
+                rowKey: "id",
+                dataSource: targetReviewList,
+                pagination: { pageSize: 5 },
+                columns: [
+                  { title: "Draft #", dataIndex: "name", render: (t2) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { strong: true, code: true, style: { color: "#38bdf8" }, children: t2 }) },
+                  { title: "Customer", render: (_, r3) => `${r3.customer?.firstName || ""} ${r3.customer?.lastName || ""}` },
+                  {
+                    title: "Amount",
+                    align: "right",
+                    render: (_, r3) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontFamily: "monospace", fontWeight: 600, color: "#34d399" }, children: [
+                      "\u20B9",
+                      parseFloat(r3.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)
+                    ] })
+                  }
+                ]
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(card_default, { style: { background: "#090d16", borderColor: "#1e293b" }, size: "small", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(space_default, { direction: "vertical", size: 6, style: { width: "100%" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { strong: true, style: { fontSize: 12 }, children: [
+                "Accidental Submit Prevention: Type ",
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { code: true, style: { color: "#f59e0b", fontWeight: 700 }, children: [
+                  "CONFIRM ",
+                  targetReviewList.length,
+                  " ORDERS"
+                ] }),
+                " to unlock:"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                input_default,
+                {
+                  placeholder: `CONFIRM ${targetReviewList.length} ORDERS`,
+                  value: confirmPhrase,
+                  onChange: (e3) => setConfirmPhrase(e3.target.value),
+                  style: { fontFamily: "monospace", fontWeight: 600 },
+                  size: "large"
+                }
+              )
+            ] }) })
+          ] })
+        }
+      );
+    })(),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
       modal_default,
       {

@@ -3,7 +3,7 @@ import {
   ConfigProvider, theme, Layout, Menu, Table, Button, Card, Row, Col,
   Statistic, Tag, Badge, Input, Radio, Modal, Alert, Form, Switch,
   InputNumber, Space, Typography, Tooltip, Divider, Progress, List,
-  Avatar, Dropdown, message, Segmented
+  Avatar, Dropdown, message, Segmented, Empty
 } from 'antd';
 import {
   ShoppingOutlined, HistoryOutlined, SafetyCertificateOutlined,
@@ -13,7 +13,8 @@ import {
   CheckOutlined, ShopOutlined, EyeOutlined, LockOutlined,
   PhoneOutlined, EnvironmentOutlined, GlobalOutlined, FilterOutlined,
   CloseCircleOutlined, ExclamationCircleOutlined, EditOutlined,
-  InfoCircleOutlined, FileTextOutlined, CompassOutlined
+  InfoCircleOutlined, FileTextOutlined, CompassOutlined,
+  PlusOutlined, DeleteOutlined
 } from '@ant-design/icons';
 
 const { Header, Content } = Layout;
@@ -27,7 +28,7 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [loginForm, setLoginForm] = useState({ username: 'admin', password: 'Upcraft2026!' });
   const [loggingIn, setLoggingIn] = useState(false);
-  const [activeTab, setActiveTab] = useState('drafts'); // 'drafts', 'history', 'audit', 'settings'
+  const [activeTab, setActiveTab] = useState('drafts'); // 'drafts', 'bulk', 'history', 'audit', 'settings'
 
   // Drafts state
   const [drafts, setDrafts] = useState([]);
@@ -36,6 +37,78 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('ALL'); // 'ALL', 'COD_ONLY', 'NON_COD', 'FLAGGED'
   const [pageSize, setPageSize] = useState(25);
+
+  // Bulk Staging Queue State (Persisted across sessions)
+  const [bulkQueue, setBulkQueue] = useState(() => {
+    try {
+      const saved = localStorage.getItem('upcraft_bulk_staged_drafts');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+  const [bulkFilter, setBulkFilter] = useState('ALL'); // 'ALL', 'READY', 'NEEDS_FIX'
+  const [reviewDrafts, setReviewDrafts] = useState([]); // Drafts targeted for current review modal
+
+  const saveBulkQueue = (newQueue) => {
+    setBulkQueue(newQueue);
+    try {
+      localStorage.setItem('upcraft_bulk_staged_drafts', JSON.stringify(newQueue));
+    } catch (e) {
+      console.error('Failed to save bulk queue:', e);
+    }
+  };
+
+  const toggleBulkQueue = (draft) => {
+    const exists = bulkQueue.some(d => d.id === draft.id);
+    if (exists) {
+      const updated = bulkQueue.filter(d => d.id !== draft.id);
+      saveBulkQueue(updated);
+      message.info(`Removed ${draft.name} from Bulk Queue`);
+    } else {
+      const max = config?.max_batch_size || 70;
+      if (bulkQueue.length >= max) {
+        message.warning(`Maximum bulk batch cap of ${max} reached.`);
+        return;
+      }
+      const updated = [...bulkQueue, draft];
+      saveBulkQueue(updated);
+      message.success(`Added ${draft.name} to Bulk Queue`);
+    }
+  };
+
+  const addSelectedToBulk = () => {
+    const selectedList = Array.from(selectedMap.values());
+    if (selectedList.length === 0) return;
+    const max = config?.max_batch_size || 70;
+    const existingIds = new Set(bulkQueue.map(d => d.id));
+    const newToAdd = selectedList.filter(d => !existingIds.has(d.id));
+    if (newToAdd.length === 0) {
+      message.info('All selected drafts are already in Bulk Queue.');
+      return;
+    }
+    if (bulkQueue.length + newToAdd.length > max) {
+      const allowed = newToAdd.slice(0, max - bulkQueue.length);
+      const updated = [...bulkQueue, ...allowed];
+      saveBulkQueue(updated);
+      message.warning(`Added ${allowed.length} drafts (batch cap of ${max} reached).`);
+      return;
+    }
+    const updated = [...bulkQueue, ...newToAdd];
+    saveBulkQueue(updated);
+    message.success(`Added ${newToAdd.length} draft(s) to Bulk Queue!`);
+  };
+
+  const removeFromBulkQueue = (id) => {
+    const updated = bulkQueue.filter(d => d.id !== id);
+    saveBulkQueue(updated);
+    message.info('Removed from Bulk Queue');
+  };
+
+  const clearBulkQueue = () => {
+    saveBulkQueue([]);
+    message.info('Bulk Queue cleared.');
+  };
 
   // Cross-page selection Map: draftId -> draftObject
   const [selectedMap, setSelectedMap] = useState(new Map());
@@ -310,6 +383,21 @@ export default function App() {
       if (json.success) {
         message.success(json.message);
         setDrafts(prev => prev.map(d => d.id === editDraftModal.id ? json.data : d));
+        setBulkQueue(prev => {
+          const updated = prev.map(d => d.id === editDraftModal.id ? json.data : d);
+          try {
+            localStorage.setItem('upcraft_bulk_staged_drafts', JSON.stringify(updated));
+          } catch (e) {}
+          return updated;
+        });
+        setSelectedMap(prev => {
+          if (prev.has(editDraftModal.id)) {
+            const next = new Map(prev);
+            next.set(editDraftModal.id, json.data);
+            return next;
+          }
+          return prev;
+        });
         if (viewDraftModal && viewDraftModal.id === editDraftModal.id) {
           setViewDraftModal(json.data);
         }
@@ -354,12 +442,12 @@ export default function App() {
 
   // Bulk Job Submission
   const handleCreateAndStartJob = async () => {
-    const draftsToSubmit = Array.from(selectedMap.values());
+    const draftsToSubmit = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
     if (draftsToSubmit.length === 0) return;
 
-    const incomplete = draftsToSubmit.filter(d => !d.isAddressComplete);
+    const incomplete = draftsToSubmit.filter(d => !d.isAddressComplete || !d.isCodEligible);
     if (incomplete.length > 0) {
-      message.error(`Cannot start bulk confirmation: ${incomplete.length} draft(s) have incomplete delivery details (missing city, state, pincode, or phone). Please edit them first.`);
+      message.error(`Cannot start bulk confirmation: ${incomplete.length} draft(s) have incomplete delivery details or missing COD tag. Please edit them first.`);
       return;
     }
 
@@ -383,7 +471,12 @@ export default function App() {
         setActiveJob(startJson.data);
         setShowReviewModal(false);
         setConfirmPhrase('');
+        // Clean converted drafts from bulk queue & selection
+        const submittedIds = new Set(draftsToSubmit.map(d => d.id));
+        const remainingQueue = bulkQueue.filter(d => !submittedIds.has(d.id));
+        saveBulkQueue(remainingQueue);
         clearSelection();
+        setReviewDrafts([]);
         setShowJobModal(true);
         message.success({ content: `Bulk job started for ${draftsToSubmit.length} drafts!`, key: 'bulk-start' });
       }
@@ -490,6 +583,28 @@ export default function App() {
       return sum + (isNaN(amt) ? 0 : amt);
     }, 0);
   }, [selectedMap]);
+
+  // Bulk Queue computations
+  const bulkReadyDrafts = useMemo(() => {
+    return bulkQueue.filter(d => d.isAddressComplete && d.isCodEligible);
+  }, [bulkQueue]);
+
+  const bulkBrokenDrafts = useMemo(() => {
+    return bulkQueue.filter(d => !d.isAddressComplete || !d.isCodEligible);
+  }, [bulkQueue]);
+
+  const bulkReadyTotal = useMemo(() => {
+    return bulkReadyDrafts.reduce((sum, d) => {
+      const amt = parseFloat(d.totalPriceSet?.shopMoney?.amount || 0);
+      return sum + (isNaN(amt) ? 0 : amt);
+    }, 0);
+  }, [bulkReadyDrafts]);
+
+  const filteredBulkDrafts = useMemo(() => {
+    if (bulkFilter === 'READY') return bulkReadyDrafts;
+    if (bulkFilter === 'NEEDS_FIX') return bulkBrokenDrafts;
+    return bulkQueue;
+  }, [bulkQueue, bulkFilter, bulkReadyDrafts, bulkBrokenDrafts]);
 
   // Ant Design Table Columns for Draft Orders
   const draftColumns = [
@@ -638,48 +753,66 @@ export default function App() {
       title: 'Actions',
       key: 'actions',
       align: 'center',
-      width: 240,
-      render: (_, record) => (
-        <div style={{ whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-          <Tooltip title="View full draft order details (Customer, items, address, taxes)">
-            <Button
-              size="small"
-              icon={<EyeOutlined />}
-              onClick={() => setViewDraftModal(record)}
-              style={{ background: '#1e293b', borderColor: '#334155', color: '#38bdf8' }}
-            >
-              Details
-            </Button>
-          </Tooltip>
-          <Tooltip title="Edit / Add missing shipping address or phone">
-            <Button
-              size="small"
-              icon={<EditOutlined />}
-              onClick={() => openEditModal(record)}
-              style={{
-                background: !record.isAddressComplete ? '#7c2d12' : '#1e293b',
-                borderColor: !record.isAddressComplete ? '#ea580c' : '#334155',
-                color: !record.isAddressComplete ? '#fdba74' : '#94a3b8'
-              }}
-            >
-              Fix
-            </Button>
-          </Tooltip>
-          <Tooltip title={!record.isCodEligible ? "Complete missing address fields or add COD tag to test" : "Test COD conversion for this single draft"}>
-            <Button
-              size="small"
-              type="primary"
-              ghost={record.isCodEligible}
-              disabled={!record.isCodEligible}
-              icon={<ThunderboltOutlined />}
-              onClick={() => handleSingleTest(record)}
-              style={{ fontWeight: 600, borderRadius: 6 }}
-            >
-              Test
-            </Button>
-          </Tooltip>
-        </div>
-      )
+      width: 320,
+      render: (_, record) => {
+        const isStaged = bulkQueue.some(d => d.id === record.id);
+        return (
+          <div style={{ whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+            <Tooltip title={isStaged ? "Remove from Bulk Queue" : "Add this draft to Bulk Order Queue"}>
+              <Button
+                size="small"
+                icon={isStaged ? <CheckOutlined /> : <PlusOutlined />}
+                onClick={() => toggleBulkQueue(record)}
+                style={{
+                  background: isStaged ? 'rgba(16, 185, 129, 0.15)' : '#1e293b',
+                  borderColor: isStaged ? '#10b981' : '#334155',
+                  color: isStaged ? '#34d399' : '#38bdf8',
+                  fontWeight: isStaged ? 600 : 500
+                }}
+              >
+                {isStaged ? 'In Bulk' : '+ Bulk'}
+              </Button>
+            </Tooltip>
+            <Tooltip title="View full draft order details (Customer, items, address, taxes)">
+              <Button
+                size="small"
+                icon={<EyeOutlined />}
+                onClick={() => setViewDraftModal(record)}
+                style={{ background: '#1e293b', borderColor: '#334155', color: '#cbd5e1' }}
+              >
+                Details
+              </Button>
+            </Tooltip>
+            <Tooltip title="Edit / Add missing shipping address or phone">
+              <Button
+                size="small"
+                icon={<EditOutlined />}
+                onClick={() => openEditModal(record)}
+                style={{
+                  background: !record.isAddressComplete ? '#7c2d12' : '#1e293b',
+                  borderColor: !record.isAddressComplete ? '#ea580c' : '#334155',
+                  color: !record.isAddressComplete ? '#fdba74' : '#94a3b8'
+                }}
+              >
+                Fix
+              </Button>
+            </Tooltip>
+            <Tooltip title={!record.isCodEligible ? "Complete missing address fields or add COD tag to test" : "Test COD conversion for this single draft"}>
+              <Button
+                size="small"
+                type="primary"
+                ghost={record.isCodEligible}
+                disabled={!record.isCodEligible}
+                icon={<ThunderboltOutlined />}
+                onClick={() => handleSingleTest(record)}
+                style={{ fontWeight: 600, borderRadius: 6 }}
+              >
+                Test
+              </Button>
+            </Tooltip>
+          </div>
+        );
+      }
     }
   ];
 
@@ -712,6 +845,166 @@ export default function App() {
       </div>
     );
   };
+
+  // Bulk Queue Table Columns
+  const bulkColumns = [
+    {
+      title: 'Draft Order',
+      dataIndex: 'name',
+      key: 'name',
+      width: 140,
+      render: (text, record) => (
+        <div style={{ whiteSpace: 'nowrap' }}>
+          <div style={{ fontWeight: 700, color: '#38bdf8', fontFamily: 'monospace' }}>{text}</div>
+          <div style={{ fontSize: 11, color: '#64748b' }}>
+            {new Date(record.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'Customer & Delivery Contact',
+      key: 'customer',
+      width: 250,
+      render: (_, record) => {
+        const custName = `${record.customer?.firstName || ''} ${record.customer?.lastName || ''}`.trim() || 'Guest Customer';
+        const phone = record.phone || record.customer?.phone || record.shippingAddress?.phone || 'No phone';
+        const city = record.shippingAddress?.city || 'No city';
+        const prov = record.shippingAddress?.province || '';
+        const zip = record.shippingAddress?.zip || 'No zip';
+        return (
+          <div>
+            <div style={{ fontWeight: 600, color: '#f8fafc' }}>{custName}</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <PhoneOutlined style={{ fontSize: 10, color: phone === 'No phone' ? '#ef4444' : '#64748b' }} />
+              <span style={{ color: phone === 'No phone' ? '#f87171' : '#cbd5e1' }}>{phone}</span>
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <EnvironmentOutlined style={{ fontSize: 10 }} />
+              <span>{city}{prov ? `, ${prov}` : ''} ({zip})</span>
+            </div>
+          </div>
+        );
+      }
+    },
+    {
+      title: 'Line Items Summary',
+      key: 'items',
+      width: 240,
+      render: (_, record) => {
+        const items = record.lineItems?.nodes || [];
+        const firstTitle = items[0]?.title || 'Unknown Item';
+        return (
+          <div>
+            <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 220, color: '#cbd5e1', fontSize: 12 }} title={firstTitle}>
+              {firstTitle}
+            </div>
+            {items.length > 1 && (
+              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 2, fontWeight: 500 }}>
+                +{items.length - 1} more item{items.length > 2 ? 's' : ''} (click + to view)
+              </div>
+            )}
+          </div>
+        );
+      }
+    },
+    {
+      title: 'Total Amount',
+      key: 'total',
+      align: 'right',
+      width: 120,
+      render: (_, record) => {
+        const amt = parseFloat(record.totalPriceSet?.shopMoney?.amount || 0);
+        return (
+          <div style={{ fontFamily: 'monospace', fontWeight: 700, fontSize: 13, color: '#34d399', whiteSpace: 'nowrap' }}>
+            ₹{amt.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+          </div>
+        );
+      }
+    },
+    {
+      title: 'Status & Readiness',
+      key: 'status',
+      width: 180,
+      render: (_, record) => {
+        if (!record.isAddressComplete) {
+          const missing = record.missingFields?.filter(f => f !== 'COD Tag').join(', ') || 'Address Info';
+          return (
+            <Tooltip title={`Incomplete Delivery Info: Missing ${missing}. Click to edit and fix.`}>
+              <Tag
+                color="error"
+                onClick={() => openEditModal(record)}
+                style={{ cursor: 'pointer', fontWeight: 600, padding: '3px 8px', borderRadius: 4 }}
+              >
+                <WarningOutlined style={{ marginRight: 4 }} /> Missing: {missing.length > 16 ? missing.slice(0, 16) + '...' : missing}
+              </Tag>
+            </Tooltip>
+          );
+        }
+        if (!record.isCodEligible) {
+          return (
+            <Tooltip title="Missing COD Tag. Click Fix to add COD tag.">
+              <Tag
+                color="warning"
+                onClick={() => openEditModal(record)}
+                style={{ cursor: 'pointer', fontWeight: 600, padding: '3px 8px', borderRadius: 4 }}
+              >
+                Non-COD Tag
+              </Tag>
+            </Tooltip>
+          );
+        }
+        return (
+          <Tag color="success" style={{ fontWeight: 600, padding: '3px 8px', borderRadius: 4 }}>
+            <CheckOutlined style={{ marginRight: 4 }} /> COD Ready
+          </Tag>
+        );
+      }
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      align: 'center',
+      width: 200,
+      render: (_, record) => (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+          <Tooltip title="View full draft order details">
+            <Button
+              size="small"
+              icon={<EyeOutlined />}
+              onClick={() => setViewDraftModal(record)}
+              style={{ background: '#1e293b', borderColor: '#334155', color: '#cbd5e1' }}
+            >
+              Details
+            </Button>
+          </Tooltip>
+          <Tooltip title="Edit / Add missing shipping address or phone">
+            <Button
+              size="small"
+              icon={<EditOutlined />}
+              onClick={() => openEditModal(record)}
+              style={{
+                background: !record.isAddressComplete ? '#7c2d12' : '#1e293b',
+                borderColor: !record.isAddressComplete ? '#ea580c' : '#334155',
+                color: !record.isAddressComplete ? '#fdba74' : '#94a3b8'
+              }}
+            >
+              Fix
+            </Button>
+          </Tooltip>
+          <Tooltip title="Remove from Bulk Queue">
+            <Button
+              size="small"
+              danger
+              icon={<DeleteOutlined />}
+              onClick={() => removeFromBulkQueue(record.id)}
+              style={{ background: 'rgba(239, 68, 68, 0.1)' }}
+            />
+          </Tooltip>
+        </div>
+      )
+    }
+  ];
 
   // Ant Design Dark Theme Configuration
   const antdTheme = {
@@ -958,6 +1251,28 @@ export default function App() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
               {[
                 { key: 'drafts', icon: <ShoppingOutlined />, label: 'Draft Orders' },
+                {
+                  key: 'bulk',
+                  icon: <ThunderboltOutlined />,
+                  label: (
+                    <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      Bulk Orders
+                      {bulkQueue.length > 0 && (
+                        <span style={{
+                          background: '#2563eb',
+                          color: '#fff',
+                          fontSize: 10,
+                          fontWeight: 700,
+                          padding: '1px 6px',
+                          borderRadius: 9999,
+                          lineHeight: '14px'
+                        }}>
+                          {bulkQueue.length}
+                        </span>
+                      )}
+                    </span>
+                  )
+                },
                 { key: 'history', icon: <HistoryOutlined />, label: 'Bulk Jobs History' },
                 { key: 'audit', icon: <SafetyCertificateOutlined />, label: 'Audit Trail' },
                 { key: 'settings', icon: <SettingOutlined />, label: 'Store & COD Policy' }
@@ -1105,6 +1420,17 @@ export default function App() {
                     </Button>
 
                     {selectedMap.size > 0 && (
+                      <Button
+                        type="primary"
+                        icon={<PlusOutlined />}
+                        onClick={addSelectedToBulk}
+                        style={{ borderRadius: 6, background: '#2563eb', borderColor: '#2563eb' }}
+                      >
+                        Add to Bulk ({selectedMap.size})
+                      </Button>
+                    )}
+
+                    {selectedMap.size > 0 && (
                       <Button danger onClick={clearSelection} style={{ borderRadius: 6 }}>
                         Clear ({selectedMap.size})
                       </Button>
@@ -1143,6 +1469,159 @@ export default function App() {
                   }}
                   scroll={{ x: 1140 }}
                 />
+              </Card>
+            </Space>
+          )}
+
+          {/* TAB: BULK ORDERS STAGING QUEUE */}
+          {activeTab === 'bulk' && (
+            <Space direction="vertical" size={16} style={{ width: '100%' }}>
+              {/* Stat Cards */}
+              <Row gutter={[16, 16]}>
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>Staged in Bulk Queue</Text>
+                      <ThunderboltOutlined style={{ color: '#38bdf8', fontSize: 16 }} />
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#f8fafc', lineHeight: 1.1 }}>
+                      {bulkQueue.length} <span style={{ fontSize: 14, color: '#64748b', fontWeight: 500 }}>/ {config?.max_batch_size || 70} cap</span>
+                    </div>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Saved across browser sessions</Text>
+                  </Card>
+                </Col>
+
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>Ready to Convert</Text>
+                      <CheckCircleOutlined style={{ color: '#10b981', fontSize: 16 }} />
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#10b981', lineHeight: 1.1 }}>
+                      {bulkReadyDrafts.length}
+                    </div>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>100% address & COD verified</Text>
+                  </Card>
+                </Col>
+
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>Needs Attention</Text>
+                      <WarningOutlined style={{ color: bulkBrokenDrafts.length > 0 ? '#f59e0b' : '#64748b', fontSize: 16 }} />
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: bulkBrokenDrafts.length > 0 ? '#f59e0b' : '#94a3b8', lineHeight: 1.1 }}>
+                      {bulkBrokenDrafts.length}
+                    </div>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Missing phone, address, or tag</Text>
+                  </Card>
+                </Col>
+
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.95))', borderColor: 'rgba(16, 185, 129, 0.35)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text style={{ fontSize: 12, fontWeight: 600, color: '#34d399' }}>Ready Batch Value</Text>
+                      <Tag color="green" style={{ margin: 0, fontWeight: 700, borderRadius: 4 }}>{bulkReadyDrafts.length} Orders</Tag>
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#f8fafc', lineHeight: 1.1, fontFamily: 'monospace' }}>
+                      ₹{bulkReadyTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                    </div>
+                    <Text style={{ fontSize: 11, color: '#94a3b8', display: 'block', marginTop: 4 }}>Eligible for batch confirmation</Text>
+                  </Card>
+                </Col>
+              </Row>
+
+              {/* Warning Notice if Broken Drafts Exist */}
+              {bulkBrokenDrafts.length > 0 && (
+                <Alert
+                  type="warning"
+                  showIcon
+                  message={`${bulkBrokenDrafts.length} draft order(s) require address or tag fix before conversion`}
+                  description={
+                    <div style={{ fontSize: 12 }}>
+                      Click the <strong style={{ color: '#fdba74' }}>Fix</strong> button on any incomplete draft below to provide missing details (phone, city, state, or pincode). Updates sync directly to Shopify and immediately mark the draft as Ready to Convert.
+                    </div>
+                  }
+                  style={{ background: 'rgba(245, 158, 11, 0.08)', borderColor: 'rgba(245, 158, 11, 0.3)' }}
+                />
+              )}
+
+              {/* Toolbar */}
+              <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }} bodyStyle={{ padding: 14 }}>
+                <Row gutter={[16, 12]} align="middle" justify="space-between">
+                  <Col xs={24} md={12}>
+                    <Segmented
+                      value={bulkFilter}
+                      onChange={setBulkFilter}
+                      options={[
+                        { label: `All Staged (${bulkQueue.length})`, value: 'ALL' },
+                        { label: `Ready to Convert (${bulkReadyDrafts.length})`, value: 'READY' },
+                        { label: `Needs Attention (${bulkBrokenDrafts.length})`, value: 'NEEDS_FIX' }
+                      ]}
+                      style={{ background: '#090d16', padding: 3 }}
+                    />
+                  </Col>
+
+                  <Col xs={24} md={12} style={{ display: 'flex', justifyContent: 'flex-end', flexWrap: 'wrap', gap: 8 }}>
+                    {bulkQueue.length > 0 && (
+                      <Button danger icon={<DeleteOutlined />} onClick={clearBulkQueue} style={{ borderRadius: 6 }}>
+                        Clear Queue
+                      </Button>
+                    )}
+                    <Button
+                      type="primary"
+                      icon={<ThunderboltOutlined />}
+                      disabled={bulkReadyDrafts.length === 0}
+                      onClick={() => {
+                        setReviewDrafts(bulkReadyDrafts);
+                        setShowReviewModal(true);
+                        setConfirmPhrase('');
+                      }}
+                      style={{
+                        borderRadius: 6,
+                        fontWeight: 700,
+                        background: bulkReadyDrafts.length > 0 ? 'linear-gradient(135deg, #10b981, #059669)' : undefined,
+                        borderColor: bulkReadyDrafts.length > 0 ? '#10b981' : undefined
+                      }}
+                    >
+                      Convert Ready Orders ({bulkReadyDrafts.length})
+                    </Button>
+                  </Col>
+                </Row>
+              </Card>
+
+              {/* Data Table or Empty Queue State */}
+              <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b', overflow: 'hidden' }} bodyStyle={{ padding: bulkQueue.length === 0 ? 40 : 0 }}>
+                {bulkQueue.length === 0 ? (
+                  <Empty
+                    image={Empty.PRESENTED_IMAGE_SIMPLE}
+                    description={
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ color: '#f8fafc', fontSize: 15, fontWeight: 600, marginBottom: 6 }}>
+                          No Drafts in Bulk Order Queue
+                        </div>
+                        <div style={{ color: '#94a3b8', fontSize: 13, maxWidth: 460, margin: '0 auto 16px' }}>
+                          Switch to the <strong>Draft Orders</strong> tab and click <strong>+ Bulk</strong> on any draft order to stage it here. You can inspect delivery completeness, fix missing fields in-place, and run bulk batch confirmation safely.
+                        </div>
+                        <Button type="primary" onClick={() => setActiveTab('drafts')}>
+                          Go to Draft Orders
+                        </Button>
+                      </div>
+                    }
+                  />
+                ) : (
+                  <Table
+                    rowKey="id"
+                    columns={bulkColumns}
+                    dataSource={filteredBulkDrafts}
+                    expandable={{ expandedRowRender }}
+                    pagination={{
+                      pageSize: 25,
+                      showTotal: total => `Total ${total} staged drafts`
+                    }}
+                    scroll={{ x: 1140 }}
+                  />
+                )}
               </Card>
             </Space>
           )}
@@ -1506,6 +1985,15 @@ export default function App() {
                 Clear
               </Button>
               <Button
+                type="default"
+                size="middle"
+                icon={<PlusOutlined />}
+                onClick={addSelectedToBulk}
+                style={{ borderRadius: 9999, borderColor: '#3b82f6', color: '#60a5fa' }}
+              >
+                + Add to Bulk ({selectedMap.size})
+              </Button>
+              <Button
                 type="primary"
                 size="middle"
                 icon={<ArrowRightOutlined />}
@@ -1517,6 +2005,7 @@ export default function App() {
                   boxShadow: '0 4px 12px rgba(16, 185, 129, 0.35)'
                 }}
                 onClick={() => {
+                  setReviewDrafts(Array.from(selectedMap.values()));
                   setShowReviewModal(true);
                   setConfirmPhrase('');
                 }}
@@ -1528,81 +2017,89 @@ export default function App() {
         )}
 
         {/* Review & Safety Confirmation Modal */}
-        <Modal
-          title={
-            <Space>
-              <SafetyCertificateOutlined style={{ color: '#f59e0b' }} />
-              <span style={{ fontWeight: 700 }}>Review Bulk COD Confirmation</span>
-            </Space>
-          }
-          open={showReviewModal}
-          width={680}
-          onCancel={() => setShowReviewModal(false)}
-          footer={[
-            <Button key="cancel" onClick={() => setShowReviewModal(false)}>Cancel</Button>,
-            <Button
-              key="execute"
-              type="primary"
-              danger
-              icon={<ThunderboltOutlined />}
-              disabled={confirmPhrase.trim() !== `CONFIRM ${selectedMap.size} ORDERS`}
-              onClick={handleCreateAndStartJob}
-              style={{ fontWeight: 700 }}
-            >
-              Execute Bulk Confirmation ({selectedMap.size})
-            </Button>
-          ]}
-        >
-          <Space direction="vertical" size={16} style={{ width: '100%' }}>
-            <Alert
-              type="warning"
-              showIcon
-              message="Operational Safety Gate"
-              description={
-                <div style={{ fontSize: 12 }}>
-                  <div style={{ marginBottom: 4 }}>
-                    Converting {selectedMap.size} draft orders executes Shopify's <Text code>draftOrderComplete</Text> mutation.
-                    This <strong>commits store inventory</strong> and creates regular orders.
-                  </div>
-                  <Text strong style={{ color: '#f8fafc' }}>
-                    Orders remain UNPAID / PAYMENT DUE until cash is physically received.
-                  </Text>
-                </div>
+        {(() => {
+          const targetReviewList = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
+          return (
+            <Modal
+              title={
+                <Space>
+                  <SafetyCertificateOutlined style={{ color: '#f59e0b' }} />
+                  <span style={{ fontWeight: 700 }}>Review Bulk COD Confirmation</span>
+                </Space>
               }
-            />
-
-            <Table
-              size="small"
-              rowKey="id"
-              dataSource={Array.from(selectedMap.values())}
-              pagination={{ pageSize: 5 }}
-              columns={[
-                { title: 'Draft #', dataIndex: 'name', render: t => <Text strong code style={{ color: '#38bdf8' }}>{t}</Text> },
-                { title: 'Customer', render: (_, r) => `${r.customer?.firstName} ${r.customer?.lastName || ''}` },
-                {
-                  title: 'Amount',
-                  align: 'right',
-                  render: (_, r) => <span style={{ fontFamily: 'monospace', fontWeight: 600, color: '#34d399' }}>₹{parseFloat(r.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)}</span>
-                }
+              open={showReviewModal}
+              width={680}
+              onCancel={() => {
+                setShowReviewModal(false);
+                setReviewDrafts([]);
+              }}
+              footer={[
+                <Button key="cancel" onClick={() => { setShowReviewModal(false); setReviewDrafts([]); }}>Cancel</Button>,
+                <Button
+                  key="execute"
+                  type="primary"
+                  danger
+                  icon={<ThunderboltOutlined />}
+                  disabled={confirmPhrase.trim() !== `CONFIRM ${targetReviewList.length} ORDERS`}
+                  onClick={handleCreateAndStartJob}
+                  style={{ fontWeight: 700 }}
+                >
+                  Execute Bulk Confirmation ({targetReviewList.length})
+                </Button>
               ]}
-            />
-
-            <Card style={{ background: '#090d16', borderColor: '#1e293b' }} size="small">
-              <Space direction="vertical" size={6} style={{ width: '100%' }}>
-                <Text strong style={{ fontSize: 12 }}>
-                  Accidental Submit Prevention: Type <Text code style={{ color: '#f59e0b', fontWeight: 700 }}>CONFIRM {selectedMap.size} ORDERS</Text> to unlock:
-                </Text>
-                <Input
-                  placeholder={`CONFIRM ${selectedMap.size} ORDERS`}
-                  value={confirmPhrase}
-                  onChange={e => setConfirmPhrase(e.target.value)}
-                  style={{ fontFamily: 'monospace', fontWeight: 600 }}
-                  size="large"
+            >
+              <Space direction="vertical" size={16} style={{ width: '100%' }}>
+                <Alert
+                  type="warning"
+                  showIcon
+                  message="Operational Safety Gate"
+                  description={
+                    <div style={{ fontSize: 12 }}>
+                      <div style={{ marginBottom: 4 }}>
+                        Converting {targetReviewList.length} draft orders executes Shopify's <Text code>draftOrderComplete</Text> mutation.
+                        This <strong>commits store inventory</strong> and creates regular orders.
+                      </div>
+                      <Text strong style={{ color: '#f8fafc' }}>
+                        Orders remain UNPAID / PAYMENT DUE until cash is physically received.
+                      </Text>
+                    </div>
+                  }
                 />
+
+                <Table
+                  size="small"
+                  rowKey="id"
+                  dataSource={targetReviewList}
+                  pagination={{ pageSize: 5 }}
+                  columns={[
+                    { title: 'Draft #', dataIndex: 'name', render: t => <Text strong code style={{ color: '#38bdf8' }}>{t}</Text> },
+                    { title: 'Customer', render: (_, r) => `${r.customer?.firstName || ''} ${r.customer?.lastName || ''}` },
+                    {
+                      title: 'Amount',
+                      align: 'right',
+                      render: (_, r) => <span style={{ fontFamily: 'monospace', fontWeight: 600, color: '#34d399' }}>₹{parseFloat(r.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)}</span>
+                    }
+                  ]}
+                />
+
+                <Card style={{ background: '#090d16', borderColor: '#1e293b' }} size="small">
+                  <Space direction="vertical" size={6} style={{ width: '100%' }}>
+                    <Text strong style={{ fontSize: 12 }}>
+                      Accidental Submit Prevention: Type <Text code style={{ color: '#f59e0b', fontWeight: 700 }}>CONFIRM {targetReviewList.length} ORDERS</Text> to unlock:
+                    </Text>
+                    <Input
+                      placeholder={`CONFIRM ${targetReviewList.length} ORDERS`}
+                      value={confirmPhrase}
+                      onChange={e => setConfirmPhrase(e.target.value)}
+                      style={{ fontFamily: 'monospace', fontWeight: 600 }}
+                      size="large"
+                    />
+                  </Space>
+                </Card>
               </Space>
-            </Card>
-          </Space>
-        </Modal>
+            </Modal>
+          );
+        })()}
 
         {/* Live Job Progress Modal */}
         <Modal
