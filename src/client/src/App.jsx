@@ -3,7 +3,7 @@ import {
   ConfigProvider, theme, Layout, Menu, Table, Button, Card, Row, Col,
   Statistic, Tag, Badge, Input, Radio, Modal, Alert, Form, Switch,
   InputNumber, Space, Typography, Tooltip, Divider, Progress, List,
-  Avatar, Dropdown, message, Segmented
+  Avatar, Dropdown, message, Segmented, Empty
 } from 'antd';
 import {
   ShoppingOutlined, HistoryOutlined, SafetyCertificateOutlined,
@@ -13,21 +13,26 @@ import {
   CheckOutlined, ShopOutlined, EyeOutlined, LockOutlined,
   PhoneOutlined, EnvironmentOutlined, GlobalOutlined, FilterOutlined,
   CloseCircleOutlined, ExclamationCircleOutlined, EditOutlined,
-  InfoCircleOutlined, FileTextOutlined, CompassOutlined
+  InfoCircleOutlined, FileTextOutlined, CompassOutlined,
+  PlusOutlined, DeleteOutlined, MenuFoldOutlined, MenuUnfoldOutlined
 } from '@ant-design/icons';
 
-const { Header, Content } = Layout;
+const { Header, Content, Sider } = Layout;
 const { Title, Text, Paragraph } = Typography;
 
 const API_BASE = '/api';
 
 export default function App() {
+  // Navigation layout state
+  const [collapsed, setCollapsed] = useState(false);
+  const [sidebarSearch, setSidebarSearch] = useState('');
+
   // Auth state
   const [token, setToken] = useState(localStorage.getItem('upcraft_token') || '');
   const [user, setUser] = useState(null);
   const [loginForm, setLoginForm] = useState({ username: 'admin', password: 'Upcraft2026!' });
   const [loggingIn, setLoggingIn] = useState(false);
-  const [activeTab, setActiveTab] = useState('drafts'); // 'drafts', 'history', 'audit', 'settings'
+  const [activeTab, setActiveTab] = useState('drafts'); // 'drafts', 'bulk', 'history', 'audit', 'settings'
 
   // Drafts state
   const [drafts, setDrafts] = useState([]);
@@ -36,6 +41,92 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('ALL'); // 'ALL', 'COD_ONLY', 'NON_COD', 'FLAGGED'
   const [pageSize, setPageSize] = useState(25);
+
+  // Bulk Staging Queue State (Persisted across sessions)
+  const [bulkQueue, setBulkQueue] = useState(() => {
+    try {
+      const saved = localStorage.getItem('upcraft_bulk_staged_drafts');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+  const [bulkFilter, setBulkFilter] = useState('ALL'); // 'ALL', 'READY', 'NEEDS_FIX'
+  const [reviewDrafts, setReviewDrafts] = useState([]); // Drafts targeted for current review modal
+
+  const saveBulkQueue = (newQueue) => {
+    setBulkQueue(newQueue);
+    try {
+      localStorage.setItem('upcraft_bulk_staged_drafts', JSON.stringify(newQueue));
+    } catch (e) {
+      console.error('Failed to save bulk queue:', e);
+    }
+  };
+
+  const moveToBulk = (draft) => {
+    const exists = bulkQueue.some(d => d.id === draft.id);
+    if (exists) {
+      setActiveTab('bulk');
+      return;
+    }
+    const max = config?.max_batch_size || 70;
+    if (bulkQueue.length >= max) {
+      message.warning(`Maximum bulk batch cap of ${max} reached.`);
+      return;
+    }
+    const updated = [...bulkQueue, draft];
+    saveBulkQueue(updated);
+    if (selectedMap.has(draft.id)) {
+      setSelectedMap(prev => {
+        const next = new Map(prev);
+        next.delete(draft.id);
+        return next;
+      });
+    }
+    message.success(`Moved ${draft.name} to Bulk Orders page!`);
+    setActiveTab('bulk');
+  };
+
+  const toggleBulkQueue = moveToBulk;
+
+  const addSelectedToBulk = () => {
+    const selectedList = Array.from(selectedMap.values());
+    if (selectedList.length === 0) return;
+    const max = config?.max_batch_size || 70;
+    const existingIds = new Set(bulkQueue.map(d => d.id));
+    const newToAdd = selectedList.filter(d => !existingIds.has(d.id));
+    if (newToAdd.length === 0) {
+      message.info('All selected drafts are already in Bulk Queue.');
+      setActiveTab('bulk');
+      return;
+    }
+    let updated;
+    if (bulkQueue.length + newToAdd.length > max) {
+      const allowed = newToAdd.slice(0, max - bulkQueue.length);
+      updated = [...bulkQueue, ...allowed];
+      saveBulkQueue(updated);
+      setSelectedMap(new Map());
+      message.warning(`Moved ${allowed.length} drafts to Bulk Orders (batch cap of ${max} reached).`);
+    } else {
+      updated = [...bulkQueue, ...newToAdd];
+      saveBulkQueue(updated);
+      setSelectedMap(new Map());
+      message.success(`Moved ${newToAdd.length} draft(s) to Bulk Orders page!`);
+    }
+    setActiveTab('bulk');
+  };
+
+  const removeFromBulkQueue = (id) => {
+    const removed = bulkQueue.find(d => d.id === id);
+    const updated = bulkQueue.filter(d => d.id !== id);
+    saveBulkQueue(updated);
+    message.info(`Returned ${removed?.name || 'draft'} to Draft Orders page.`);
+  };
+
+  const clearBulkQueue = () => {
+    saveBulkQueue([]);
+    message.info('Bulk Queue cleared. All drafts returned to Draft Orders page.');
+  };
 
   // Cross-page selection Map: draftId -> draftObject
   const [selectedMap, setSelectedMap] = useState(new Map());
@@ -310,6 +401,21 @@ export default function App() {
       if (json.success) {
         message.success(json.message);
         setDrafts(prev => prev.map(d => d.id === editDraftModal.id ? json.data : d));
+        setBulkQueue(prev => {
+          const updated = prev.map(d => d.id === editDraftModal.id ? json.data : d);
+          try {
+            localStorage.setItem('upcraft_bulk_staged_drafts', JSON.stringify(updated));
+          } catch (e) {}
+          return updated;
+        });
+        setSelectedMap(prev => {
+          if (prev.has(editDraftModal.id)) {
+            const next = new Map(prev);
+            next.set(editDraftModal.id, json.data);
+            return next;
+          }
+          return prev;
+        });
         if (viewDraftModal && viewDraftModal.id === editDraftModal.id) {
           setViewDraftModal(json.data);
         }
@@ -354,12 +460,12 @@ export default function App() {
 
   // Bulk Job Submission
   const handleCreateAndStartJob = async () => {
-    const draftsToSubmit = Array.from(selectedMap.values());
+    const draftsToSubmit = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
     if (draftsToSubmit.length === 0) return;
 
-    const incomplete = draftsToSubmit.filter(d => !d.isAddressComplete);
+    const incomplete = draftsToSubmit.filter(d => !d.isAddressComplete || !d.isCodEligible);
     if (incomplete.length > 0) {
-      message.error(`Cannot start bulk confirmation: ${incomplete.length} draft(s) have incomplete delivery details (missing city, state, pincode, or phone). Please edit them first.`);
+      message.error(`Cannot start bulk confirmation: ${incomplete.length} draft(s) have incomplete delivery details or missing COD tag. Please edit them first.`);
       return;
     }
 
@@ -383,7 +489,12 @@ export default function App() {
         setActiveJob(startJson.data);
         setShowReviewModal(false);
         setConfirmPhrase('');
+        // Clean converted drafts from bulk queue & selection
+        const submittedIds = new Set(draftsToSubmit.map(d => d.id));
+        const remainingQueue = bulkQueue.filter(d => !submittedIds.has(d.id));
+        saveBulkQueue(remainingQueue);
         clearSelection();
+        setReviewDrafts([]);
         setShowJobModal(true);
         message.success({ content: `Bulk job started for ${draftsToSubmit.length} drafts!`, key: 'bulk-start' });
       }
@@ -457,9 +568,15 @@ export default function App() {
     }
   };
 
-  // Filtered drafts calculation
+  // Filter out drafts that have been moved to bulkQueue
+  const unstagedDrafts = useMemo(() => {
+    const bulkIds = new Set(bulkQueue.map(d => d.id));
+    return drafts.filter(d => !bulkIds.has(d.id));
+  }, [drafts, bulkQueue]);
+
+  // Filtered drafts calculation (using unstagedDrafts)
   const filteredDrafts = useMemo(() => {
-    let list = drafts;
+    let list = unstagedDrafts;
     if (activeFilter === 'COD_ONLY') {
       list = list.filter(d => d.isCodEligible);
     } else if (activeFilter === 'NON_COD') {
@@ -481,7 +598,7 @@ export default function App() {
     }
 
     return list;
-  }, [drafts, activeFilter, searchQuery]);
+  }, [unstagedDrafts, activeFilter, searchQuery]);
 
   // Selected total value
   const selectedTotal = useMemo(() => {
@@ -491,67 +608,117 @@ export default function App() {
     }, 0);
   }, [selectedMap]);
 
+  // Bulk Queue computations
+  const bulkReadyDrafts = useMemo(() => {
+    return bulkQueue.filter(d => d.isAddressComplete && d.isCodEligible);
+  }, [bulkQueue]);
+
+  const bulkBrokenDrafts = useMemo(() => {
+    return bulkQueue.filter(d => !d.isAddressComplete || !d.isCodEligible);
+  }, [bulkQueue]);
+
+  const bulkReadyTotal = useMemo(() => {
+    return bulkReadyDrafts.reduce((sum, d) => {
+      const amt = parseFloat(d.totalPriceSet?.shopMoney?.amount || 0);
+      return sum + (isNaN(amt) ? 0 : amt);
+    }, 0);
+  }, [bulkReadyDrafts]);
+
+  const filteredBulkDrafts = useMemo(() => {
+    if (bulkFilter === 'READY') return bulkReadyDrafts;
+    if (bulkFilter === 'NEEDS_FIX') return bulkBrokenDrafts;
+    return bulkQueue;
+  }, [bulkQueue, bulkFilter, bulkReadyDrafts, bulkBrokenDrafts]);
+
   // Ant Design Table Columns for Draft Orders
   const draftColumns = [
     {
       title: 'Draft Order',
       dataIndex: 'name',
       key: 'name',
-      width: 140,
-      render: (text, record) => (
-        <div style={{ whiteSpace: 'nowrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#38bdf8', fontSize: 13 }}>
-              {text}
-            </span>
-            {record.flags?.includes('HIGH_VALUE') && (
-              <Tag color="gold" style={{ fontSize: 10, padding: '0 4px', margin: 0, fontWeight: 600 }}>
-                High Value
-              </Tag>
-            )}
+      width: 130,
+      render: (text, record) => {
+        const formattedDate = (() => {
+          if (!record.createdAt) return 'Recent';
+          const d = new Date(record.createdAt);
+          return isNaN(d.getTime()) ? 'Recent' : d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+        })();
+        return (
+          <div style={{ whiteSpace: 'nowrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#38bdf8', fontSize: 13 }}>
+                {text}
+              </span>
+              {record.flags?.includes('HIGH_VALUE') && (
+                <Tag color="gold" style={{ fontSize: 10, padding: '0 4px', margin: 0, fontWeight: 600 }}>
+                  High Value
+                </Tag>
+              )}
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>
+              {formattedDate}
+            </div>
           </div>
-          <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>
-            {new Date(record.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
-          </div>
-        </div>
-      )
+        );
+      }
     },
     {
       title: 'Customer & Delivery Contact',
       key: 'customer',
-      width: 250,
+      width: 340,
       render: (_, record) => {
-        const phone = record.phone || record.customer?.phone || record.shippingAddress?.phone;
-        const city = record.shippingAddress?.city;
-        const state = record.shippingAddress?.province;
-        const zip = record.shippingAddress?.zip;
-        const recipientName = record.shippingAddress?.name || `${record.customer?.firstName || ''} ${record.customer?.lastName || ''}`.trim() || 'Guest Customer';
+        const ship = record.shippingAddress || {};
+        const cust = record.customer || {};
+        const recipientName = ship.name || `${cust.firstName || ''} ${cust.lastName || ''}`.trim() || 'Guest Customer';
+        const phone = record.phone || cust.phone || ship.phone;
+        const address1 = ship.address1;
+        const address2 = ship.address2;
+        const city = ship.city;
+        const state = ship.province || ship.provinceCode;
+        const zip = ship.zip;
+        const street = [address1, address2].filter(Boolean).join(', ');
+        const location = [city, state].filter(Boolean).join(', ') + (zip ? ` (${zip})` : '');
 
         return (
-          <div>
-            <div style={{ fontWeight: 600, color: '#f8fafc', fontSize: 13, display: 'flex', alignItems: 'center', gap: 6 }}>
-              {recipientName}
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6, fontSize: 11, marginTop: 4 }}>
+          <div style={{ maxWidth: 320 }}>
+            {/* Row 1: Recipient Name & Phone */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, marginBottom: 2 }}>
+              <span style={{ fontWeight: 600, color: '#f8fafc', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {recipientName}
+              </span>
               {phone ? (
-                <span style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 3 }}>
-                  <PhoneOutlined style={{ fontSize: 10, color: '#64748b' }} />
+                <span style={{ color: '#38bdf8', fontSize: 11, fontFamily: 'monospace', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 3 }}>
+                  <PhoneOutlined style={{ fontSize: 10 }} />
                   {phone}
                 </span>
               ) : (
-                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px' }}>
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
                   No Phone
                 </Tag>
               )}
-              <span style={{ color: '#475569' }}>•</span>
-              {city ? (
-                <span style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 3 }}>
-                  <EnvironmentOutlined style={{ fontSize: 10, color: '#64748b' }} />
-                  {city}{state ? `, ${state}` : ''}{zip ? ` (${zip})` : ''}
+            </div>
+
+            {/* Row 2: Full Street Address (Address1 & Address2) */}
+            <div style={{ fontSize: 12, color: '#e2e8f0', lineHeight: '1.4', marginTop: 2 }}>
+              {street ? (
+                <span style={{ wordBreak: 'break-word' }}>
+                  {street}
                 </span>
               ) : (
-                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer' }} onClick={() => openEditModal(record)}>
-                  Missing City
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing Street Address
+                </Tag>
+              )}
+            </div>
+
+            {/* Row 3: City, State & Pincode */}
+            <div style={{ fontSize: 11, color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
+              <EnvironmentOutlined style={{ fontSize: 10, color: '#64748b', flexShrink: 0 }} />
+              {city ? (
+                <span>{location}</span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing City / Pincode
                 </Tag>
               )}
             </div>
@@ -562,17 +729,52 @@ export default function App() {
     {
       title: 'Line Items Summary',
       key: 'lineItems',
-      ellipsis: true,
+      width: 260,
       render: (_, record) => {
         const items = record.lineItems?.nodes || [];
-        const firstTitle = items[0]?.title || items[0]?.name || 'Order Item';
+        if (items.length === 0) {
+          return <span style={{ color: '#64748b', fontSize: 12 }}>No items</span>;
+        }
+        const first = items[0];
+        const title = first.title || first.name || 'Order Item';
+        const variant = first.variantTitle && first.variantTitle !== 'Default Title' ? first.variantTitle : '';
+        const qty = first.quantity || 1;
+        const price = first.originalUnitPriceSet?.shopMoney?.amount;
+        const sku = first.sku;
+
         return (
-          <div>
-            <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 280, color: '#cbd5e1', fontSize: 12 }} title={firstTitle}>
-              {firstTitle}
+          <div style={{ maxWidth: 240 }}>
+            <div style={{ color: '#f8fafc', fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={title}>
+              {title}
             </div>
+
+            {(variant || sku) && (
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6, fontSize: 11, marginTop: 2 }}>
+                {variant && (
+                  <Tag color="cyan" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
+                    {variant}
+                  </Tag>
+                )}
+                {sku && (
+                  <span style={{ color: '#64748b', fontFamily: 'monospace', fontSize: 10 }}>
+                    SKU: {sku}
+                  </span>
+                )}
+              </div>
+            )}
+
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ color: '#38bdf8', fontWeight: 600 }}>Qty: {qty}</span>
+              {price && (
+                <>
+                  <span style={{ color: '#475569' }}>•</span>
+                  <span>₹{parseFloat(price).toLocaleString('en-IN', { minimumFractionDigits: 2 })} each</span>
+                </>
+              )}
+            </div>
+
             {items.length > 1 && (
-              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 2, fontWeight: 500 }}>
+              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 3, fontWeight: 500 }}>
                 +{items.length - 1} more item{items.length > 2 ? 's' : ''} (click + to view)
               </div>
             )}
@@ -638,48 +840,67 @@ export default function App() {
       title: 'Actions',
       key: 'actions',
       align: 'center',
-      width: 240,
-      render: (_, record) => (
-        <div style={{ whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-          <Tooltip title="View full draft order details (Customer, items, address, taxes)">
-            <Button
-              size="small"
-              icon={<EyeOutlined />}
-              onClick={() => setViewDraftModal(record)}
-              style={{ background: '#1e293b', borderColor: '#334155', color: '#38bdf8' }}
-            >
-              Details
-            </Button>
-          </Tooltip>
-          <Tooltip title="Edit / Add missing shipping address or phone">
-            <Button
-              size="small"
-              icon={<EditOutlined />}
-              onClick={() => openEditModal(record)}
-              style={{
-                background: !record.isAddressComplete ? '#7c2d12' : '#1e293b',
-                borderColor: !record.isAddressComplete ? '#ea580c' : '#334155',
-                color: !record.isAddressComplete ? '#fdba74' : '#94a3b8'
-              }}
-            >
-              Fix
-            </Button>
-          </Tooltip>
-          <Tooltip title={!record.isCodEligible ? "Complete missing address fields or add COD tag to test" : "Test COD conversion for this single draft"}>
-            <Button
-              size="small"
-              type="primary"
-              ghost={record.isCodEligible}
-              disabled={!record.isCodEligible}
-              icon={<ThunderboltOutlined />}
-              onClick={() => handleSingleTest(record)}
-              style={{ fontWeight: 600, borderRadius: 6 }}
-            >
-              Test
-            </Button>
-          </Tooltip>
-        </div>
-      )
+      width: 320,
+      render: (_, record) => {
+        return (
+          <div style={{ whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+            <Tooltip title="Move this draft order to Bulk Orders page">
+              <Button
+                size="small"
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={() => moveToBulk(record)}
+                style={{
+                  background: '#2563eb',
+                  borderColor: '#2563eb',
+                  color: '#ffffff',
+                  fontWeight: 600,
+                  borderRadius: 6
+                }}
+              >
+                + Bulk
+              </Button>
+            </Tooltip>
+            <Tooltip title="View full draft order details (Customer, items, address, taxes)">
+              <Button
+                size="small"
+                icon={<EyeOutlined />}
+                onClick={() => setViewDraftModal(record)}
+                style={{ background: '#1e293b', borderColor: '#334155', color: '#cbd5e1' }}
+              >
+                Details
+              </Button>
+            </Tooltip>
+            <Tooltip title="Edit / Add missing shipping address or phone">
+              <Button
+                size="small"
+                icon={<EditOutlined />}
+                onClick={() => openEditModal(record)}
+                style={{
+                  background: !record.isAddressComplete ? '#7c2d12' : '#1e293b',
+                  borderColor: !record.isAddressComplete ? '#ea580c' : '#334155',
+                  color: !record.isAddressComplete ? '#fdba74' : '#94a3b8'
+                }}
+              >
+                Fix
+              </Button>
+            </Tooltip>
+            <Tooltip title={!record.isCodEligible ? "Complete missing address fields or add COD tag to test" : "Test COD conversion for this single draft"}>
+              <Button
+                size="small"
+                type="primary"
+                ghost={record.isCodEligible}
+                disabled={!record.isCodEligible}
+                icon={<ThunderboltOutlined />}
+                onClick={() => handleSingleTest(record)}
+                style={{ fontWeight: 600, borderRadius: 6 }}
+              >
+                Test
+              </Button>
+            </Tooltip>
+          </div>
+        );
+      }
     }
   ];
 
@@ -712,6 +933,242 @@ export default function App() {
       </div>
     );
   };
+
+  // Bulk Queue Table Columns
+  const bulkColumns = [
+    {
+      title: 'Draft Order',
+      dataIndex: 'name',
+      key: 'name',
+      width: 130,
+      render: (text, record) => {
+        const formattedDate = (() => {
+          if (!record.createdAt) return 'Recent';
+          const d = new Date(record.createdAt);
+          return isNaN(d.getTime()) ? 'Recent' : d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+        })();
+        return (
+          <div style={{ whiteSpace: 'nowrap' }}>
+            <div style={{ fontWeight: 700, color: '#38bdf8', fontFamily: 'monospace' }}>{text}</div>
+            <div style={{ fontSize: 11, color: '#64748b' }}>
+              {formattedDate}
+            </div>
+          </div>
+        );
+      }
+    },
+    {
+      title: 'Customer & Delivery Contact',
+      key: 'customer',
+      width: 340,
+      render: (_, record) => {
+        const ship = record.shippingAddress || {};
+        const cust = record.customer || {};
+        const custName = ship.name || `${cust.firstName || ''} ${cust.lastName || ''}`.trim() || 'Guest Customer';
+        const phone = record.phone || cust.phone || ship.phone;
+        const address1 = ship.address1;
+        const address2 = ship.address2;
+        const city = ship.city;
+        const prov = ship.province || ship.provinceCode || '';
+        const zip = ship.zip;
+        const street = [address1, address2].filter(Boolean).join(', ');
+        const location = [city, prov].filter(Boolean).join(', ') + (zip ? ` (${zip})` : '');
+
+        return (
+          <div style={{ maxWidth: 320 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, marginBottom: 2 }}>
+              <span style={{ fontWeight: 600, color: '#f8fafc', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {custName}
+              </span>
+              {phone ? (
+                <span style={{ color: '#38bdf8', fontSize: 11, fontFamily: 'monospace', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 3 }}>
+                  <PhoneOutlined style={{ fontSize: 10 }} />
+                  {phone}
+                </span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
+                  No phone
+                </Tag>
+              )}
+            </div>
+            <div style={{ fontSize: 12, color: '#e2e8f0', lineHeight: '1.4', marginTop: 2 }}>
+              {street ? (
+                <span style={{ wordBreak: 'break-word' }}>
+                  {street}
+                </span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing Street Address
+                </Tag>
+              )}
+            </div>
+            <div style={{ fontSize: 11, color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
+              <EnvironmentOutlined style={{ fontSize: 10, color: '#64748b', flexShrink: 0 }} />
+              {city ? (
+                <span>{location}</span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing City / Pincode
+                </Tag>
+              )}
+            </div>
+          </div>
+        );
+      }
+    },
+    {
+      title: 'Line Items Summary',
+      key: 'items',
+      width: 260,
+      render: (_, record) => {
+        const items = record.lineItems?.nodes || [];
+        if (items.length === 0) {
+          return <span style={{ color: '#64748b', fontSize: 12 }}>No items</span>;
+        }
+        const first = items[0];
+        const title = first.title || first.name || 'Unknown Item';
+        const variant = first.variantTitle && first.variantTitle !== 'Default Title' ? first.variantTitle : '';
+        const qty = first.quantity || 1;
+        const price = first.originalUnitPriceSet?.shopMoney?.amount;
+        const sku = first.sku;
+
+        return (
+          <div style={{ maxWidth: 240 }}>
+            <div style={{ color: '#f8fafc', fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={title}>
+              {title}
+            </div>
+
+            {(variant || sku) && (
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6, fontSize: 11, marginTop: 2 }}>
+                {variant && (
+                  <Tag color="cyan" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
+                    {variant}
+                  </Tag>
+                )}
+                {sku && (
+                  <span style={{ color: '#64748b', fontFamily: 'monospace', fontSize: 10 }}>
+                    SKU: {sku}
+                  </span>
+                )}
+              </div>
+            )}
+
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ color: '#38bdf8', fontWeight: 600 }}>Qty: {qty}</span>
+              {price && (
+                <>
+                  <span style={{ color: '#475569' }}>•</span>
+                  <span>₹{parseFloat(price).toLocaleString('en-IN', { minimumFractionDigits: 2 })} each</span>
+                </>
+              )}
+            </div>
+
+            {items.length > 1 && (
+              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 3, fontWeight: 500 }}>
+                +{items.length - 1} more item{items.length > 2 ? 's' : ''} (click + to view)
+              </div>
+            )}
+          </div>
+        );
+      }
+    },
+    {
+      title: 'Total Amount',
+      key: 'total',
+      align: 'right',
+      width: 120,
+      render: (_, record) => {
+        const amt = parseFloat(record.totalPriceSet?.shopMoney?.amount || 0);
+        return (
+          <div style={{ fontFamily: 'monospace', fontWeight: 700, fontSize: 13, color: '#34d399', whiteSpace: 'nowrap' }}>
+            ₹{amt.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+          </div>
+        );
+      }
+    },
+    {
+      title: 'Status & Readiness',
+      key: 'status',
+      width: 180,
+      render: (_, record) => {
+        if (!record.isAddressComplete) {
+          const missing = record.missingFields?.filter(f => f !== 'COD Tag').join(', ') || 'Address Info';
+          return (
+            <Tooltip title={`Incomplete Delivery Info: Missing ${missing}. Click to edit and fix.`}>
+              <Tag
+                color="error"
+                onClick={() => openEditModal(record)}
+                style={{ cursor: 'pointer', fontWeight: 600, padding: '3px 8px', borderRadius: 4 }}
+              >
+                <WarningOutlined style={{ marginRight: 4 }} /> Missing: {missing.length > 16 ? missing.slice(0, 16) + '...' : missing}
+              </Tag>
+            </Tooltip>
+          );
+        }
+        if (!record.isCodEligible) {
+          return (
+            <Tooltip title="Missing COD Tag. Click Fix to add COD tag.">
+              <Tag
+                color="warning"
+                onClick={() => openEditModal(record)}
+                style={{ cursor: 'pointer', fontWeight: 600, padding: '3px 8px', borderRadius: 4 }}
+              >
+                Non-COD Tag
+              </Tag>
+            </Tooltip>
+          );
+        }
+        return (
+          <Tag color="success" style={{ fontWeight: 600, padding: '3px 8px', borderRadius: 4 }}>
+            <CheckOutlined style={{ marginRight: 4 }} /> COD Ready
+          </Tag>
+        );
+      }
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      align: 'center',
+      width: 200,
+      render: (_, record) => (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+          <Tooltip title="View full draft order details">
+            <Button
+              size="small"
+              icon={<EyeOutlined />}
+              onClick={() => setViewDraftModal(record)}
+              style={{ background: '#1e293b', borderColor: '#334155', color: '#cbd5e1' }}
+            >
+              Details
+            </Button>
+          </Tooltip>
+          <Tooltip title="Edit / Add missing shipping address or phone">
+            <Button
+              size="small"
+              icon={<EditOutlined />}
+              onClick={() => openEditModal(record)}
+              style={{
+                background: !record.isAddressComplete ? '#7c2d12' : '#1e293b',
+                borderColor: !record.isAddressComplete ? '#ea580c' : '#334155',
+                color: !record.isAddressComplete ? '#fdba74' : '#94a3b8'
+              }}
+            >
+              Fix
+            </Button>
+          </Tooltip>
+          <Tooltip title="Remove from Bulk Queue">
+            <Button
+              size="small"
+              danger
+              icon={<DeleteOutlined />}
+              onClick={() => removeFromBulkQueue(record.id)}
+              style={{ background: 'rgba(239, 68, 68, 0.1)' }}
+            />
+          </Tooltip>
+        </div>
+      )
+    }
+  ];
 
   // Ant Design Dark Theme Configuration
   const antdTheme = {
@@ -877,122 +1334,459 @@ export default function App() {
   return (
     <ConfigProvider theme={antdTheme}>
       <Layout style={{ minHeight: '100vh', background: '#090d16' }}>
-        {/* Ant Design Header - Clean line-height and aligned elements */}
-        <Header style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 24px',
-          background: '#090d16',
-          borderBottom: '1px solid #1e293b',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-          height: 68,
-          lineHeight: 'normal'
-        }}>
-          {/* Brand Left */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+        {/* Left Sidebar (AppSidebar style matching upcraft-admin-panel) */}
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          trigger={null}
+          width={260}
+          collapsedWidth={80}
+          style={{
+            background: '#090d16',
+            borderRight: '1px solid #1e293b',
+            height: '100vh',
+            position: 'sticky',
+            top: 0,
+            left: 0,
+            zIndex: 100
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+            {/* Top Area: Logo, Store Chip, Navigation Items */}
+            <div style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
+              {/* Brand Header */}
+              <div style={{
+                padding: collapsed ? '18px 12px' : '18px 16px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                borderBottom: '1px solid #1e293b'
+              }}>
+                <div style={{
+                  width: 38,
+                  height: 38,
+                  borderRadius: 10,
+                  background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  fontSize: 16,
+                  fontWeight: 800,
+                  boxShadow: '0 4px 14px rgba(37, 99, 235, 0.4)',
+                  flexShrink: 0
+                }}>
+                  UP
+                </div>
+                {!collapsed && (
+                  <div style={{ lineHeight: 1.2, overflow: 'hidden' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontWeight: 800, color: '#f8fafc', fontSize: 16, letterSpacing: -0.3 }}>
+                        Upcraft.Tech
+                      </span>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+                    </div>
+                    <div style={{ fontSize: 11, color: '#64748b', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span>Shopify COD</span>
+                      <Tag color="geekblue" style={{ fontSize: 9, margin: 0, padding: '0 4px', lineHeight: '14px', borderRadius: 3 }}>
+                        API 2026-10
+                      </Tag>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Store Domain Switcher / Pill */}
+              {!collapsed ? (
+                <div style={{ padding: '12px 14px 6px' }}>
+                  <div style={{
+                    background: '#0f172a',
+                    border: '1px solid #1e293b',
+                    borderRadius: 8,
+                    padding: '8px 10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 8
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' }}>
+                      <ShopOutlined style={{ color: '#38bdf8', fontSize: 14 }} />
+                      <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 11 }}>
+                        <div style={{ color: '#e2e8f0', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {config?.store_domain?.split('.')[0] || 'upcraft-store'}
+                        </div>
+                        <div style={{ color: config?.mock_mode ? '#10b981' : '#38bdf8', fontSize: 10, display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: config?.mock_mode ? '#10b981' : '#38bdf8' }} />
+                          {config?.mock_mode ? 'Mock Mode' : 'Live Store API'}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div style={{ padding: '12px 0', textAlign: 'center' }}>
+                  <Tooltip title={`${config?.store_domain || 'Shopify Store'} (${config?.mock_mode ? 'Mock Mode' : 'Live API'})`} placement="right">
+                    <div style={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: 8,
+                      background: '#0f172a',
+                      border: '1px solid #1e293b',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#38bdf8'
+                    }}>
+                      <ShopOutlined />
+                    </div>
+                  </Tooltip>
+                </div>
+              )}
+
+              {/* Nav Search Input */}
+              {!collapsed && (
+                <div style={{ padding: '6px 14px 6px' }}>
+                  <Input
+                    size="small"
+                    placeholder="Search navigation..."
+                    prefix={<SearchOutlined style={{ color: '#64748b', fontSize: 12 }} />}
+                    value={sidebarSearch}
+                    onChange={e => setSidebarSearch(e.target.value)}
+                    allowClear
+                    style={{
+                      background: '#090d16',
+                      borderColor: '#1e293b',
+                      borderRadius: 8,
+                      fontSize: 12,
+                      color: '#f8fafc'
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Grouped Sidebar Navigation Items */}
+              <div style={{ padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {/* Section: OVERVIEW */}
+                <div>
+                  {!collapsed && (
+                    <div style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#64748b',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '4px 10px',
+                      marginBottom: 4
+                    }}>
+                      Overview
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {[
+                      { key: 'drafts', icon: <ShoppingOutlined />, label: 'Draft Orders', badge: null },
+                      {
+                        key: 'bulk',
+                        icon: <ThunderboltOutlined />,
+                        label: 'Bulk Orders',
+                        badge: bulkQueue.length > 0 ? bulkQueue.length : null
+                      }
+                    ].filter(item => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map(item => {
+                      const isActive = activeTab === item.key;
+                      return (
+                        <Tooltip key={item.key} title={collapsed ? item.label : ''} placement="right">
+                          <button
+                            onClick={() => setActiveTab(item.key)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: collapsed ? 'center' : 'space-between',
+                              width: '100%',
+                              padding: collapsed ? '10px 0' : '9px 12px',
+                              borderRadius: 10,
+                              border: 'none',
+                              background: isActive ? '#2563eb' : 'transparent',
+                              color: isActive ? '#ffffff' : '#94a3b8',
+                              fontWeight: isActive ? 600 : 500,
+                              fontSize: 13,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isActive ? '0 4px 14px rgba(37, 99, 235, 0.35)' : 'none'
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = '#1e293b'; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                              <span style={{ fontSize: 16, display: 'flex', color: isActive ? '#ffffff' : '#94a3b8' }}>{item.icon}</span>
+                              {!collapsed && <span>{item.label}</span>}
+                            </div>
+                            {!collapsed && item.badge !== null && (
+                              <span style={{
+                                background: isActive ? 'rgba(255,255,255,0.25)' : '#1e293b',
+                                color: isActive ? '#ffffff' : '#38bdf8',
+                                fontSize: 11,
+                                fontWeight: 700,
+                                padding: '1px 7px',
+                                borderRadius: 9999
+                              }}>
+                                {item.badge}
+                              </span>
+                            )}
+                          </button>
+                        </Tooltip>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section: OPERATIONS */}
+                <div>
+                  {!collapsed && (
+                    <div style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#64748b',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '4px 10px',
+                      marginBottom: 4
+                    }}>
+                      Operations
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {[
+                      { key: 'history', icon: <HistoryOutlined />, label: 'Bulk Jobs History', badge: null },
+                      { key: 'audit', icon: <SafetyCertificateOutlined />, label: 'Audit Trail', badge: null }
+                    ].filter(item => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map(item => {
+                      const isActive = activeTab === item.key;
+                      return (
+                        <Tooltip key={item.key} title={collapsed ? item.label : ''} placement="right">
+                          <button
+                            onClick={() => setActiveTab(item.key)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: collapsed ? 'center' : 'space-between',
+                              width: '100%',
+                              padding: collapsed ? '10px 0' : '9px 12px',
+                              borderRadius: 10,
+                              border: 'none',
+                              background: isActive ? '#2563eb' : 'transparent',
+                              color: isActive ? '#ffffff' : '#94a3b8',
+                              fontWeight: isActive ? 600 : 500,
+                              fontSize: 13,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isActive ? '0 4px 14px rgba(37, 99, 235, 0.35)' : 'none'
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = '#1e293b'; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                              <span style={{ fontSize: 16, display: 'flex', color: isActive ? '#ffffff' : '#94a3b8' }}>{item.icon}</span>
+                              {!collapsed && <span>{item.label}</span>}
+                            </div>
+                          </button>
+                        </Tooltip>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section: CONFIGURATION */}
+                <div>
+                  {!collapsed && (
+                    <div style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#64748b',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '4px 10px',
+                      marginBottom: 4
+                    }}>
+                      System
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {[
+                      { key: 'settings', icon: <SettingOutlined />, label: 'Store & COD Policy', badge: null }
+                    ].filter(item => !sidebarSearch || item.label.toLowerCase().includes(sidebarSearch.toLowerCase())).map(item => {
+                      const isActive = activeTab === item.key;
+                      return (
+                        <Tooltip key={item.key} title={collapsed ? item.label : ''} placement="right">
+                          <button
+                            onClick={() => setActiveTab(item.key)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: collapsed ? 'center' : 'space-between',
+                              width: '100%',
+                              padding: collapsed ? '10px 0' : '9px 12px',
+                              borderRadius: 10,
+                              border: 'none',
+                              background: isActive ? '#2563eb' : 'transparent',
+                              color: isActive ? '#ffffff' : '#94a3b8',
+                              fontWeight: isActive ? 600 : 500,
+                              fontSize: 13,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isActive ? '0 4px 14px rgba(37, 99, 235, 0.35)' : 'none'
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = '#1e293b'; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                              <span style={{ fontSize: 16, display: 'flex', color: isActive ? '#ffffff' : '#94a3b8' }}>{item.icon}</span>
+                              {!collapsed && <span>{item.label}</span>}
+                            </div>
+                          </button>
+                        </Tooltip>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Section: User Profile & Collapse Toggle */}
+            <div style={{
+              padding: '12px 10px',
+              borderTop: '1px solid #1e293b',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 8
+            }}>
+              <Dropdown menu={{ items: userMenuItems }} placement="topRight" trigger={['click']}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: collapsed ? 'center' : 'space-between',
+                  padding: '8px 10px',
+                  borderRadius: 8,
+                  background: '#0f172a',
+                  border: '1px solid #1e293b',
+                  cursor: 'pointer'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Avatar
+                      style={{ backgroundColor: '#2563eb', color: '#fff', fontWeight: 700 }}
+                      size={28}
+                    >
+                      {user.fullName ? user.fullName[0].toUpperCase() : 'U'}
+                    </Avatar>
+                    {!collapsed && (
+                      <div style={{ lineHeight: 1.2, textAlign: 'left', overflow: 'hidden' }}>
+                        <div style={{ color: '#f8fafc', fontSize: 12, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                          {user.fullName}
+                        </div>
+                        <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase' }}>
+                          {user.role}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {!collapsed && <LogoutOutlined style={{ color: '#64748b', fontSize: 12 }} />}
+                </div>
+              </Dropdown>
+
+              <button
+                onClick={() => setCollapsed(!collapsed)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: collapsed ? 'center' : 'flex-start',
+                  gap: 8,
+                  padding: '7px 10px',
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#64748b',
+                  fontSize: 12,
+                  cursor: 'pointer',
+                  borderRadius: 6
+                }}
+                onMouseEnter={e => e.currentTarget.style.color = '#94a3b8'}
+                onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+              >
+                {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                {!collapsed && <span>Collapse Sidebar</span>}
+              </button>
+            </div>
+          </div>
+        </Sider>
+
+        {/* Main Content Layout with Top Header */}
+        <Layout style={{ background: '#090d16' }}>
+          <Header style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 24px',
+            background: '#090d16',
+            borderBottom: '1px solid #1e293b',
+            position: 'sticky',
+            top: 0,
+            zIndex: 90,
+            height: 60,
+            lineHeight: 'normal'
+          }}>
+            {/* Breadcrumb Left */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ color: '#64748b', fontSize: 13 }}>Shopify</span>
+              <span style={{ color: '#334155' }}>/</span>
+              <span style={{ color: '#f8fafc', fontSize: 14, fontWeight: 700 }}>
+                {activeTab === 'drafts' && 'Draft Orders'}
+                {activeTab === 'bulk' && 'Bulk Order Staging Queue'}
+                {activeTab === 'history' && 'Bulk Jobs History'}
+                {activeTab === 'audit' && 'Operational Audit Trail'}
+                {activeTab === 'settings' && 'Store & COD Policy Settings'}
+              </span>
+            </div>
+
+            {/* Header Right: Store Status Chip & Refresh */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <div style={{
-                width: 40,
-                height: 40,
-                borderRadius: 10,
-                background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fff',
-                fontSize: 20,
-                boxShadow: '0 4px 12px rgba(37, 99, 235, 0.35)'
-              }}>
-                <ShopOutlined />
-              </div>
-              <div style={{ lineHeight: 1.3 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ fontWeight: 800, color: '#f8fafc', fontSize: 16, letterSpacing: -0.3 }}>
-                    Upcraft Shopify
-                  </span>
-                  <Tag color="geekblue" style={{ fontSize: 10, margin: 0, padding: '0 6px', fontWeight: 600 }}>
-                    API 2026-10
-                  </Tag>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
-                  <span style={{ fontFamily: 'monospace' }}>{config?.store_domain || 'upcraft-cod-demo.myshopify.com'}</span>
-                  <span>•</span>
-                  {config?.mock_mode ? (
-                    <span style={{ color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
-                      Mock Simulator
-                    </span>
-                  ) : (
-                    <span style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#38bdf8', display: 'inline-block' }} />
-                      Live Store API
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Tabs */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              {[
-                { key: 'drafts', icon: <ShoppingOutlined />, label: 'Draft Orders' },
-                { key: 'history', icon: <HistoryOutlined />, label: 'Bulk Jobs History' },
-                { key: 'audit', icon: <SafetyCertificateOutlined />, label: 'Audit Trail' },
-                { key: 'settings', icon: <SettingOutlined />, label: 'Store & COD Policy' }
-              ].map(tab => {
-                const isActive = activeTab === tab.key;
-                return (
-                  <button
-                    key={tab.key}
-                    onClick={() => setActiveTab(tab.key)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      padding: '8px 14px',
-                      borderRadius: 8,
-                      border: 'none',
-                      background: isActive ? '#1e293b' : 'transparent',
-                      color: isActive ? '#38bdf8' : '#94a3b8',
-                      fontWeight: isActive ? 600 : 500,
-                      fontSize: 13,
-                      cursor: 'pointer',
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    {tab.icon}
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* User Profile Right */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" trigger={['click']}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '6px 12px',
-                borderRadius: 8,
+                gap: 8,
+                fontSize: 11,
+                color: '#94a3b8',
                 background: '#0f172a',
+                padding: '4px 10px',
+                borderRadius: 6,
                 border: '1px solid #1e293b',
-                cursor: 'pointer'
+                whiteSpace: 'nowrap'
               }}>
-                <Avatar icon={<UserOutlined />} style={{ backgroundColor: '#1e293b', color: '#38bdf8' }} size={28} />
-                <div style={{ textAlign: 'left', lineHeight: 1.2 }}>
-                  <div style={{ color: '#f8fafc', fontSize: 12, fontWeight: 600 }}>{user.fullName}</div>
-                  <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', letterSpacing: 0.5 }}>{user.role}</div>
-                </div>
+                <span style={{ fontFamily: 'monospace', color: '#cbd5e1' }}>{config?.store_domain || 'upcraft-cod-demo.myshopify.com'}</span>
+                <span style={{ color: '#475569' }}>•</span>
+                {config?.mock_mode ? (
+                  <span style={{ color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+                    Mock Simulator
+                  </span>
+                ) : (
+                  <span style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#38bdf8', display: 'inline-block' }} />
+                    Live Store API
+                  </span>
+                )}
               </div>
-            </Dropdown>
-          </div>
-        </Header>
+
+              <Button
+                size="small"
+                icon={<SyncOutlined spin={loadingDrafts} />}
+                onClick={() => {
+                  if (activeTab === 'drafts') fetchDrafts();
+                  else if (activeTab === 'history') fetchJobsHistory();
+                  else if (activeTab === 'audit') fetchAuditLogs();
+                  else if (activeTab === 'settings') fetchConfig();
+                }}
+                style={{ background: '#0f172a', borderColor: '#1e293b', color: '#94a3b8' }}
+              >
+                Refresh
+              </Button>
+            </div>
+          </Header>
 
         {/* Content Area */}
         <Content style={{ padding: '24px', maxWidth: 1400, margin: '0 auto', width: '100%', paddingBottom: 110 }}>
@@ -1008,9 +1802,11 @@ export default function App() {
                       <ShoppingOutlined style={{ color: '#38bdf8', fontSize: 16 }} />
                     </div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#f8fafc', lineHeight: 1.1 }}>
-                      {pageInfo.totalOpenCount || drafts.length}
+                      {unstagedDrafts.length}
                     </div>
-                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Fetched via GraphQL API</Text>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>
+                      {bulkQueue.length > 0 ? `${bulkQueue.length} moved to Bulk Orders` : 'Fetched via GraphQL API'}
+                    </Text>
                   </Card>
                 </Col>
 
@@ -1021,7 +1817,7 @@ export default function App() {
                       <CheckCircleOutlined style={{ color: '#10b981', fontSize: 16 }} />
                     </div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#10b981', lineHeight: 1.1 }}>
-                      {drafts.filter(d => d.isCodEligible).length}
+                      {unstagedDrafts.filter(d => d.isCodEligible).length}
                     </div>
                     <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Tagged with "{config?.cod_marker_value || 'COD'}"</Text>
                   </Card>
@@ -1034,7 +1830,7 @@ export default function App() {
                       <WarningOutlined style={{ color: '#f59e0b', fontSize: 16 }} />
                     </div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#f59e0b', lineHeight: 1.1 }}>
-                      {drafts.filter(d => d.flags && d.flags.length > 0).length}
+                      {unstagedDrafts.filter(d => d.flags && d.flags.length > 0).length}
                     </div>
                     <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Missing phone or high value</Text>
                   </Card>
@@ -1073,10 +1869,10 @@ export default function App() {
                       value={activeFilter}
                       onChange={setActiveFilter}
                       options={[
-                        { label: `All (${drafts.length})`, value: 'ALL' },
-                        { label: `COD Ready (${drafts.filter(d => d.isCodEligible).length})`, value: 'COD_ONLY' },
-                        { label: `Non-COD (${drafts.filter(d => !d.isCodEligible).length})`, value: 'NON_COD' },
-                        { label: `Flagged (${drafts.filter(d => d.flags?.length > 0).length})`, value: 'FLAGGED' }
+                        { label: `All (${unstagedDrafts.length})`, value: 'ALL' },
+                        { label: `COD Ready (${unstagedDrafts.filter(d => d.isCodEligible).length})`, value: 'COD_ONLY' },
+                        { label: `Non-COD (${unstagedDrafts.filter(d => !d.isCodEligible).length})`, value: 'NON_COD' },
+                        { label: `Flagged (${unstagedDrafts.filter(d => d.flags?.length > 0).length})`, value: 'FLAGGED' }
                       ]}
                       style={{ background: '#090d16', padding: 3 }}
                     />
@@ -1084,6 +1880,17 @@ export default function App() {
                     <Button icon={<CheckOutlined />} onClick={selectAllOnPage} style={{ borderRadius: 6 }}>
                       Select Page
                     </Button>
+
+                    {selectedMap.size > 0 && (
+                      <Button
+                        type="primary"
+                        icon={<PlusOutlined />}
+                        onClick={addSelectedToBulk}
+                        style={{ borderRadius: 6, background: '#2563eb', borderColor: '#2563eb' }}
+                      >
+                        Add to Bulk ({selectedMap.size})
+                      </Button>
+                    )}
 
                     {selectedMap.size > 0 && (
                       <Button danger onClick={clearSelection} style={{ borderRadius: 6 }}>
@@ -1106,6 +1913,29 @@ export default function App() {
                   columns={draftColumns}
                   dataSource={filteredDrafts}
                   expandable={{ expandedRowRender }}
+                  locale={{
+                    emptyText: drafts.length > 0 && bulkQueue.length > 0 ? (
+                      <div style={{ padding: '40px 20px', textAlign: 'center' }}>
+                        <CheckCircleOutlined style={{ fontSize: 36, color: '#10b981', marginBottom: 12 }} />
+                        <div style={{ fontSize: 16, fontWeight: 700, color: '#f8fafc', marginBottom: 6 }}>
+                          All Open Drafts Moved to Bulk Orders
+                        </div>
+                        <div style={{ fontSize: 13, color: '#94a3b8', maxWidth: 460, margin: '0 auto 18px' }}>
+                          All {drafts.length} open draft orders have been moved to the Bulk Orders page ({bulkQueue.length} staged).
+                        </div>
+                        <Button
+                          type="primary"
+                          icon={<ThunderboltOutlined />}
+                          onClick={() => setActiveTab('bulk')}
+                          style={{ background: '#2563eb', borderColor: '#2563eb', borderRadius: 6, fontWeight: 600, height: 36, padding: '0 18px' }}
+                        >
+                          Go to Bulk Orders Page ({bulkQueue.length})
+                        </Button>
+                      </div>
+                    ) : (
+                      <Empty description={<span style={{ color: '#64748b' }}>No open draft orders found</span>} />
+                    )
+                  }}
                   rowSelection={{
                     selectedRowKeys: Array.from(selectedMap.keys()),
                     onChange: onSelectChange,
@@ -1122,8 +1952,161 @@ export default function App() {
                     onShowSizeChange: (_, size) => setPageSize(size),
                     showTotal: total => `Total ${total} open drafts`
                   }}
-                  scroll={{ x: 1140 }}
+                  scroll={{ x: 1260 }}
                 />
+              </Card>
+            </Space>
+          )}
+
+          {/* TAB: BULK ORDERS STAGING QUEUE */}
+          {activeTab === 'bulk' && (
+            <Space direction="vertical" size={16} style={{ width: '100%' }}>
+              {/* Stat Cards */}
+              <Row gutter={[16, 16]}>
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>Staged in Bulk Queue</Text>
+                      <ThunderboltOutlined style={{ color: '#38bdf8', fontSize: 16 }} />
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#f8fafc', lineHeight: 1.1 }}>
+                      {bulkQueue.length} <span style={{ fontSize: 14, color: '#64748b', fontWeight: 500 }}>/ {config?.max_batch_size || 70} cap</span>
+                    </div>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Saved across browser sessions</Text>
+                  </Card>
+                </Col>
+
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>Ready to Convert</Text>
+                      <CheckCircleOutlined style={{ color: '#10b981', fontSize: 16 }} />
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#10b981', lineHeight: 1.1 }}>
+                      {bulkReadyDrafts.length}
+                    </div>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>100% address & COD verified</Text>
+                  </Card>
+                </Col>
+
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>Needs Attention</Text>
+                      <WarningOutlined style={{ color: bulkBrokenDrafts.length > 0 ? '#f59e0b' : '#64748b', fontSize: 16 }} />
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: bulkBrokenDrafts.length > 0 ? '#f59e0b' : '#94a3b8', lineHeight: 1.1 }}>
+                      {bulkBrokenDrafts.length}
+                    </div>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Missing phone, address, or tag</Text>
+                  </Card>
+                </Col>
+
+                <Col xs={24} sm={12} md={6}>
+                  <Card bordered style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.95))', borderColor: 'rgba(16, 185, 129, 0.35)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <Text style={{ fontSize: 12, fontWeight: 600, color: '#34d399' }}>Ready Batch Value</Text>
+                      <Tag color="green" style={{ margin: 0, fontWeight: 700, borderRadius: 4 }}>{bulkReadyDrafts.length} Orders</Tag>
+                    </div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#f8fafc', lineHeight: 1.1, fontFamily: 'monospace' }}>
+                      ₹{bulkReadyTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                    </div>
+                    <Text style={{ fontSize: 11, color: '#94a3b8', display: 'block', marginTop: 4 }}>Eligible for batch confirmation</Text>
+                  </Card>
+                </Col>
+              </Row>
+
+              {/* Warning Notice if Broken Drafts Exist */}
+              {bulkBrokenDrafts.length > 0 && (
+                <Alert
+                  type="warning"
+                  showIcon
+                  message={`${bulkBrokenDrafts.length} draft order(s) require address or tag fix before conversion`}
+                  description={
+                    <div style={{ fontSize: 12 }}>
+                      Click the <strong style={{ color: '#fdba74' }}>Fix</strong> button on any incomplete draft below to provide missing details (phone, city, state, or pincode). Updates sync directly to Shopify and immediately mark the draft as Ready to Convert.
+                    </div>
+                  }
+                  style={{ background: 'rgba(245, 158, 11, 0.08)', borderColor: 'rgba(245, 158, 11, 0.3)' }}
+                />
+              )}
+
+              {/* Toolbar */}
+              <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b' }} bodyStyle={{ padding: 14 }}>
+                <Row gutter={[16, 12]} align="middle" justify="space-between">
+                  <Col xs={24} md={12}>
+                    <Segmented
+                      value={bulkFilter}
+                      onChange={setBulkFilter}
+                      options={[
+                        { label: `All Staged (${bulkQueue.length})`, value: 'ALL' },
+                        { label: `Ready to Convert (${bulkReadyDrafts.length})`, value: 'READY' },
+                        { label: `Needs Attention (${bulkBrokenDrafts.length})`, value: 'NEEDS_FIX' }
+                      ]}
+                      style={{ background: '#090d16', padding: 3 }}
+                    />
+                  </Col>
+
+                  <Col xs={24} md={12} style={{ display: 'flex', justifyContent: 'flex-end', flexWrap: 'wrap', gap: 8 }}>
+                    {bulkQueue.length > 0 && (
+                      <Button danger icon={<DeleteOutlined />} onClick={clearBulkQueue} style={{ borderRadius: 6 }}>
+                        Clear Queue
+                      </Button>
+                    )}
+                    <Button
+                      type="primary"
+                      icon={<ThunderboltOutlined />}
+                      disabled={bulkReadyDrafts.length === 0}
+                      onClick={() => {
+                        setReviewDrafts(bulkReadyDrafts);
+                        setShowReviewModal(true);
+                        setConfirmPhrase('');
+                      }}
+                      style={{
+                        borderRadius: 6,
+                        fontWeight: 700,
+                        background: bulkReadyDrafts.length > 0 ? 'linear-gradient(135deg, #10b981, #059669)' : undefined,
+                        borderColor: bulkReadyDrafts.length > 0 ? '#10b981' : undefined
+                      }}
+                    >
+                      Convert Ready Orders ({bulkReadyDrafts.length})
+                    </Button>
+                  </Col>
+                </Row>
+              </Card>
+
+              {/* Data Table or Empty Queue State */}
+              <Card bordered style={{ background: '#0f172a', borderColor: '#1e293b', overflow: 'hidden' }} bodyStyle={{ padding: bulkQueue.length === 0 ? 40 : 0 }}>
+                {bulkQueue.length === 0 ? (
+                  <Empty
+                    image={Empty.PRESENTED_IMAGE_SIMPLE}
+                    description={
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ color: '#f8fafc', fontSize: 15, fontWeight: 600, marginBottom: 6 }}>
+                          No Drafts in Bulk Order Queue
+                        </div>
+                        <div style={{ color: '#94a3b8', fontSize: 13, maxWidth: 460, margin: '0 auto 16px' }}>
+                          Switch to the <strong>Draft Orders</strong> tab and click <strong>+ Bulk</strong> on any draft order to stage it here. You can inspect delivery completeness, fix missing fields in-place, and run bulk batch confirmation safely.
+                        </div>
+                        <Button type="primary" onClick={() => setActiveTab('drafts')}>
+                          Go to Draft Orders
+                        </Button>
+                      </div>
+                    }
+                  />
+                ) : (
+                  <Table
+                    rowKey="id"
+                    columns={bulkColumns}
+                    dataSource={filteredBulkDrafts}
+                    expandable={{ expandedRowRender }}
+                    pagination={{
+                      pageSize: 25,
+                      showTotal: total => `Total ${total} staged drafts`
+                    }}
+                    scroll={{ x: 1260 }}
+                  />
+                )}
               </Card>
             </Space>
           )}
@@ -1487,6 +2470,15 @@ export default function App() {
                 Clear
               </Button>
               <Button
+                type="default"
+                size="middle"
+                icon={<PlusOutlined />}
+                onClick={addSelectedToBulk}
+                style={{ borderRadius: 9999, borderColor: '#3b82f6', color: '#60a5fa' }}
+              >
+                + Add to Bulk ({selectedMap.size})
+              </Button>
+              <Button
                 type="primary"
                 size="middle"
                 icon={<ArrowRightOutlined />}
@@ -1498,6 +2490,7 @@ export default function App() {
                   boxShadow: '0 4px 12px rgba(16, 185, 129, 0.35)'
                 }}
                 onClick={() => {
+                  setReviewDrafts(Array.from(selectedMap.values()));
                   setShowReviewModal(true);
                   setConfirmPhrase('');
                 }}
@@ -1509,81 +2502,89 @@ export default function App() {
         )}
 
         {/* Review & Safety Confirmation Modal */}
-        <Modal
-          title={
-            <Space>
-              <SafetyCertificateOutlined style={{ color: '#f59e0b' }} />
-              <span style={{ fontWeight: 700 }}>Review Bulk COD Confirmation</span>
-            </Space>
-          }
-          open={showReviewModal}
-          width={680}
-          onCancel={() => setShowReviewModal(false)}
-          footer={[
-            <Button key="cancel" onClick={() => setShowReviewModal(false)}>Cancel</Button>,
-            <Button
-              key="execute"
-              type="primary"
-              danger
-              icon={<ThunderboltOutlined />}
-              disabled={confirmPhrase.trim() !== `CONFIRM ${selectedMap.size} ORDERS`}
-              onClick={handleCreateAndStartJob}
-              style={{ fontWeight: 700 }}
-            >
-              Execute Bulk Confirmation ({selectedMap.size})
-            </Button>
-          ]}
-        >
-          <Space direction="vertical" size={16} style={{ width: '100%' }}>
-            <Alert
-              type="warning"
-              showIcon
-              message="Operational Safety Gate"
-              description={
-                <div style={{ fontSize: 12 }}>
-                  <div style={{ marginBottom: 4 }}>
-                    Converting {selectedMap.size} draft orders executes Shopify's <Text code>draftOrderComplete</Text> mutation.
-                    This <strong>commits store inventory</strong> and creates regular orders.
-                  </div>
-                  <Text strong style={{ color: '#f8fafc' }}>
-                    Orders remain UNPAID / PAYMENT DUE until cash is physically received.
-                  </Text>
-                </div>
+        {(() => {
+          const targetReviewList = reviewDrafts.length > 0 ? reviewDrafts : Array.from(selectedMap.values());
+          return (
+            <Modal
+              title={
+                <Space>
+                  <SafetyCertificateOutlined style={{ color: '#f59e0b' }} />
+                  <span style={{ fontWeight: 700 }}>Review Bulk COD Confirmation</span>
+                </Space>
               }
-            />
-
-            <Table
-              size="small"
-              rowKey="id"
-              dataSource={Array.from(selectedMap.values())}
-              pagination={{ pageSize: 5 }}
-              columns={[
-                { title: 'Draft #', dataIndex: 'name', render: t => <Text strong code style={{ color: '#38bdf8' }}>{t}</Text> },
-                { title: 'Customer', render: (_, r) => `${r.customer?.firstName} ${r.customer?.lastName || ''}` },
-                {
-                  title: 'Amount',
-                  align: 'right',
-                  render: (_, r) => <span style={{ fontFamily: 'monospace', fontWeight: 600, color: '#34d399' }}>₹{parseFloat(r.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)}</span>
-                }
+              open={showReviewModal}
+              width={680}
+              onCancel={() => {
+                setShowReviewModal(false);
+                setReviewDrafts([]);
+              }}
+              footer={[
+                <Button key="cancel" onClick={() => { setShowReviewModal(false); setReviewDrafts([]); }}>Cancel</Button>,
+                <Button
+                  key="execute"
+                  type="primary"
+                  danger
+                  icon={<ThunderboltOutlined />}
+                  disabled={confirmPhrase.trim() !== `CONFIRM ${targetReviewList.length} ORDERS`}
+                  onClick={handleCreateAndStartJob}
+                  style={{ fontWeight: 700 }}
+                >
+                  Execute Bulk Confirmation ({targetReviewList.length})
+                </Button>
               ]}
-            />
-
-            <Card style={{ background: '#090d16', borderColor: '#1e293b' }} size="small">
-              <Space direction="vertical" size={6} style={{ width: '100%' }}>
-                <Text strong style={{ fontSize: 12 }}>
-                  Accidental Submit Prevention: Type <Text code style={{ color: '#f59e0b', fontWeight: 700 }}>CONFIRM {selectedMap.size} ORDERS</Text> to unlock:
-                </Text>
-                <Input
-                  placeholder={`CONFIRM ${selectedMap.size} ORDERS`}
-                  value={confirmPhrase}
-                  onChange={e => setConfirmPhrase(e.target.value)}
-                  style={{ fontFamily: 'monospace', fontWeight: 600 }}
-                  size="large"
+            >
+              <Space direction="vertical" size={16} style={{ width: '100%' }}>
+                <Alert
+                  type="warning"
+                  showIcon
+                  message="Operational Safety Gate"
+                  description={
+                    <div style={{ fontSize: 12 }}>
+                      <div style={{ marginBottom: 4 }}>
+                        Converting {targetReviewList.length} draft orders executes Shopify's <Text code>draftOrderComplete</Text> mutation.
+                        This <strong>commits store inventory</strong> and creates regular orders.
+                      </div>
+                      <Text strong style={{ color: '#f8fafc' }}>
+                        Orders remain UNPAID / PAYMENT DUE until cash is physically received.
+                      </Text>
+                    </div>
+                  }
                 />
+
+                <Table
+                  size="small"
+                  rowKey="id"
+                  dataSource={targetReviewList}
+                  pagination={{ pageSize: 5 }}
+                  columns={[
+                    { title: 'Draft #', dataIndex: 'name', render: t => <Text strong code style={{ color: '#38bdf8' }}>{t}</Text> },
+                    { title: 'Customer', render: (_, r) => `${r.customer?.firstName || ''} ${r.customer?.lastName || ''}` },
+                    {
+                      title: 'Amount',
+                      align: 'right',
+                      render: (_, r) => <span style={{ fontFamily: 'monospace', fontWeight: 600, color: '#34d399' }}>₹{parseFloat(r.totalPriceSet?.shopMoney?.amount || 0).toFixed(2)}</span>
+                    }
+                  ]}
+                />
+
+                <Card style={{ background: '#090d16', borderColor: '#1e293b' }} size="small">
+                  <Space direction="vertical" size={6} style={{ width: '100%' }}>
+                    <Text strong style={{ fontSize: 12 }}>
+                      Accidental Submit Prevention: Type <Text code style={{ color: '#f59e0b', fontWeight: 700 }}>CONFIRM {targetReviewList.length} ORDERS</Text> to unlock:
+                    </Text>
+                    <Input
+                      placeholder={`CONFIRM ${targetReviewList.length} ORDERS`}
+                      value={confirmPhrase}
+                      onChange={e => setConfirmPhrase(e.target.value)}
+                      style={{ fontFamily: 'monospace', fontWeight: 600 }}
+                      size="large"
+                    />
+                  </Space>
+                </Card>
               </Space>
-            </Card>
-          </Space>
-        </Modal>
+            </Modal>
+          );
+        })()}
 
         {/* Live Job Progress Modal */}
         <Modal
@@ -1751,6 +2752,13 @@ export default function App() {
           open={!!viewDraftModal}
           onCancel={() => setViewDraftModal(null)}
           width={760}
+          centered
+          styles={{
+            body: {
+              maxHeight: 'calc(85vh - 120px)',
+              overflowY: 'auto'
+            }
+          }}
           footer={[
             <Button key="close" onClick={() => setViewDraftModal(null)}>
               Close
@@ -1962,7 +2970,7 @@ export default function App() {
           })()}
         </Modal>
 
-        {/* Edit / Fix Missing Details Modal */}
+        {/* Edit / Fix Missing Details Modal - Fully responsive, centered, screen-fitted */}
         <Modal
           title={
             editDraftModal && (
@@ -1974,34 +2982,42 @@ export default function App() {
           }
           open={!!editDraftModal}
           onCancel={() => setEditDraftModal(null)}
-          width={600}
+          width={760}
+          centered
+          styles={{
+            body: {
+              maxHeight: 'calc(85vh - 110px)',
+              overflowY: 'auto',
+              padding: '12px 18px'
+            }
+          }}
           confirmLoading={savingDraft}
           okText="Save & Sync to Shopify"
           onOk={handleSaveDraft}
         >
           {editDraftModal && (
-            <Form form={editForm} layout="vertical" style={{ marginTop: 12 }}>
+            <Form form={editForm} layout="vertical" style={{ marginTop: 2 }}>
               <Alert
                 type="info"
                 showIcon
                 message="Updates sync in real-time with your live Shopify store. Once required delivery fields are filled, this draft unlocks for conversion."
-                style={{ marginBottom: 16 }}
+                style={{ marginBottom: 14 }}
               />
 
-              <Row gutter={12}>
+              <Row gutter={14}>
                 <Col span={12}>
-                  <Form.Item label="First Name" name="firstName">
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>First Name</span>} name="firstName">
                     <Input placeholder="Recipient first name" />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <Form.Item label="Last Name" name="lastName">
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Last Name</span>} name="lastName">
                     <Input placeholder="Recipient last name" />
                   </Form.Item>
                 </Col>
               </Row>
 
-              <Row gutter={12}>
+              <Row gutter={14}>
                 <Col span={12}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>Contact Phone (Required)</span>}
@@ -2012,44 +3028,49 @@ export default function App() {
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <Form.Item label="Customer Email" name="email">
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Customer Email</span>} name="email">
                     <Input placeholder="e.g. customer@example.com" />
                   </Form.Item>
                 </Col>
               </Row>
 
-              <Form.Item
-                label={<span style={{ fontWeight: 600 }}>Address Line 1 (Required)</span>}
-                name="address1"
-                rules={[{ required: true, message: 'Street address / House number is required' }]}
-              >
-                <Input placeholder="Flat/House no., Building, Street, Area" />
-              </Form.Item>
-
-              <Form.Item label="Address Line 2 (Optional)" name="address2">
-                <Input placeholder="Landmark, Apartment, Suite, etc." />
-              </Form.Item>
+              <Row gutter={14}>
+                <Col span={14}>
+                  <Form.Item
+                    label={<span style={{ fontWeight: 600 }}>Address Line 1 (Required)</span>}
+                    name="address1"
+                    rules={[{ required: true, message: 'Street address / House number is required' }]}
+                  >
+                    <Input placeholder="Flat/House no., Building, Street, Area" />
+                  </Form.Item>
+                </Col>
+                <Col span={10}>
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Address Line 2 (Optional)</span>} name="address2">
+                    <Input placeholder="Landmark, Apartment, Suite, etc." />
+                  </Form.Item>
+                </Col>
+              </Row>
 
               <Row gutter={12}>
-                <Col span={8}>
+                <Col span={7}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>City (Required)</span>}
                     name="city"
-                    rules={[{ required: true, message: 'City / Town is required' }]}
+                    rules={[{ required: true, message: 'City is required' }]}
                   >
-                    <Input placeholder="e.g. Jojawar / Marwar" />
+                    <Input placeholder="e.g. Jojawar" />
                   </Form.Item>
                 </Col>
-                <Col span={8}>
+                <Col span={7}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>State (Required)</span>}
                     name="province"
-                    rules={[{ required: true, message: 'State / Province is required' }]}
+                    rules={[{ required: true, message: 'State is required' }]}
                   >
                     <Input placeholder="e.g. Rajasthan" />
                   </Form.Item>
                 </Col>
-                <Col span={8}>
+                <Col span={5}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>Pincode (Required)</span>}
                     name="zip"
@@ -2058,26 +3079,35 @@ export default function App() {
                     <Input placeholder="e.g. 306022" />
                   </Form.Item>
                 </Col>
-              </Row>
-
-              <Row gutter={12}>
-                <Col span={12}>
-                  <Form.Item label="Country" name="country">
+                <Col span={5}>
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Country</span>} name="country">
                     <Input placeholder="India" />
                   </Form.Item>
                 </Col>
-                <Col span={12}>
-                  <Form.Item label="COD Marker Tag" name="addCodTag" valuePropName="checked">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 4 }}>
-                      <Switch />
-                      <Text style={{ fontSize: 12 }}>Tag as COD ({config?.cod_marker_value || 'COD'})</Text>
-                    </div>
-                  </Form.Item>
-                </Col>
               </Row>
+
+              <div style={{
+                background: '#0b1329',
+                border: '1px solid #1e293b',
+                borderRadius: 8,
+                padding: '10px 14px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginTop: 2
+              }}>
+                <div>
+                  <div style={{ color: '#f8fafc', fontWeight: 600, fontSize: 13 }}>Cash-on-Delivery (COD) Tag</div>
+                  <div style={{ color: '#64748b', fontSize: 11 }}>Tags draft with "{config?.cod_marker_value || 'COD'}" so Shopify orders process as COD</div>
+                </div>
+                <Form.Item name="addCodTag" valuePropName="checked" style={{ margin: 0 }}>
+                  <Switch checkedChildren="COD Tagged" unCheckedChildren="No Tag" />
+                </Form.Item>
+              </div>
             </Form>
           )}
         </Modal>
+        </Layout>
       </Layout>
     </ConfigProvider>
   );

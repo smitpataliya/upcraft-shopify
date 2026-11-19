@@ -1,14 +1,16 @@
 # Production Dockerfile for Upcraft Shopify
-FROM node:24-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
-# Copy application files
-COPY package.json ./
-COPY src/ ./src/
-COPY build.js ./
+# Install production dependencies
+COPY package*.json ./
+RUN npm install --omit=dev
 
-# Create data directory for SQLite
+# Copy application code and pre-compiled client bundle
+COPY src/ ./src/
+
+# Data directory for persistent SQLite database
 RUN mkdir -p /app/data
 
 EXPOSE 4000
@@ -18,4 +20,3 @@ ENV PORT=4000
 ENV HOST=0.0.0.0
 
 CMD ["node", "src/server/index.js"]
-
