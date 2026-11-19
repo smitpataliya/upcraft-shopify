@@ -76276,39 +76276,50 @@ function App() {
       title: "Draft Order",
       dataIndex: "name",
       key: "name",
-      width: 140,
-      render: (text, record) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace", fontWeight: 700, color: "#38bdf8", fontSize: 13 }, children: text }),
-          record.flags?.includes("HIGH_VALUE") && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "gold", style: { fontSize: 10, padding: "0 4px", margin: 0, fontWeight: 600 }, children: "High Value" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 11, color: "#64748b", marginTop: 2 }, children: new Date(record.createdAt).toLocaleDateString(void 0, { month: "short", day: "numeric", year: "numeric" }) })
-      ] })
+      width: 130,
+      render: (text, record) => {
+        const formattedDate = (() => {
+          if (!record.createdAt) return "Recent";
+          const d = new Date(record.createdAt);
+          return isNaN(d.getTime()) ? "Recent" : d.toLocaleDateString(void 0, { month: "short", day: "numeric", year: "numeric" });
+        })();
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace", fontWeight: 700, color: "#38bdf8", fontSize: 13 }, children: text }),
+            record.flags?.includes("HIGH_VALUE") && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "gold", style: { fontSize: 10, padding: "0 4px", margin: 0, fontWeight: 600 }, children: "High Value" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 11, color: "#64748b", marginTop: 2 }, children: formattedDate })
+        ] });
+      }
     },
     {
       title: "Customer & Delivery Contact",
       key: "customer",
-      width: 250,
+      width: 340,
       render: (_, record) => {
-        const phone = record.phone || record.customer?.phone || record.shippingAddress?.phone;
-        const city = record.shippingAddress?.city;
-        const state = record.shippingAddress?.province;
-        const zip = record.shippingAddress?.zip;
-        const recipientName = record.shippingAddress?.name || `${record.customer?.firstName || ""} ${record.customer?.lastName || ""}`.trim() || "Guest Customer";
-        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 600, color: "#f8fafc", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }, children: recipientName }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, fontSize: 11, marginTop: 4 }, children: [
-            phone ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#94a3b8", display: "flex", alignItems: "center", gap: 3 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PhoneOutlined_default2, { style: { fontSize: 10, color: "#64748b" } }),
+        const ship = record.shippingAddress || {};
+        const cust = record.customer || {};
+        const recipientName = ship.name || `${cust.firstName || ""} ${cust.lastName || ""}`.trim() || "Guest Customer";
+        const phone = record.phone || cust.phone || ship.phone;
+        const address1 = ship.address1;
+        const address2 = ship.address2;
+        const city = ship.city;
+        const state = ship.province || ship.provinceCode;
+        const zip = ship.zip;
+        const street = [address1, address2].filter(Boolean).join(", ");
+        const location = [city, state].filter(Boolean).join(", ") + (zip ? ` (${zip})` : "");
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 320 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 6, marginBottom: 2 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600, color: "#f8fafc", fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: recipientName }),
+            phone ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontSize: 11, fontFamily: "monospace", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: 3 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PhoneOutlined_default2, { style: { fontSize: 10 } }),
               phone
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px" }, children: "No Phone" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#475569" }, children: "\u2022" }),
-            city ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#94a3b8", display: "flex", alignItems: "center", gap: 3 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EnvironmentOutlined_default2, { style: { fontSize: 10, color: "#64748b" } }),
-              city,
-              state ? `, ${state}` : "",
-              zip ? ` (${zip})` : ""
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px", cursor: "pointer" }, onClick: () => openEditModal(record), children: "Missing City" })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px", lineHeight: "16px" }, children: "No Phone" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: "#e2e8f0", lineHeight: "1.4", marginTop: 2 }, children: street ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { wordBreak: "break-word" }, children: street }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px", cursor: "pointer", lineHeight: "16px" }, onClick: () => openEditModal(record), children: "Missing Street Address" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#94a3b8", display: "flex", alignItems: "center", gap: 4, marginTop: 2 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EnvironmentOutlined_default2, { style: { fontSize: 10, color: "#64748b", flexShrink: 0 } }),
+            city ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: location }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px", cursor: "pointer", lineHeight: "16px" }, onClick: () => openEditModal(record), children: "Missing City / Pincode" })
           ] })
         ] });
       }
@@ -76316,13 +76327,42 @@ function App() {
     {
       title: "Line Items Summary",
       key: "lineItems",
-      ellipsis: true,
+      width: 260,
       render: (_, record) => {
         const items = record.lineItems?.nodes || [];
-        const firstTitle = items[0]?.title || items[0]?.name || "Order Item";
-        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 280, color: "#cbd5e1", fontSize: 12 }, title: firstTitle, children: firstTitle }),
-          items.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#38bdf8", marginTop: 2, fontWeight: 500 }, children: [
+        if (items.length === 0) {
+          return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#64748b", fontSize: 12 }, children: "No items" });
+        }
+        const first = items[0];
+        const title = first.title || first.name || "Order Item";
+        const variant = first.variantTitle && first.variantTitle !== "Default Title" ? first.variantTitle : "";
+        const qty = first.quantity || 1;
+        const price = first.originalUnitPriceSet?.shopMoney?.amount;
+        const sku = first.sku;
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 240 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontSize: 13, fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, title, children: title }),
+          (variant || sku) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, fontSize: 11, marginTop: 2 }, children: [
+            variant && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "cyan", style: { fontSize: 10, margin: 0, padding: "0 4px", lineHeight: "16px" }, children: variant }),
+            sku && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#64748b", fontFamily: "monospace", fontSize: 10 }, children: [
+              "SKU: ",
+              sku
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#94a3b8", marginTop: 2, display: "flex", alignItems: "center", gap: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontWeight: 600 }, children: [
+              "Qty: ",
+              qty
+            ] }),
+            price && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#475569" }, children: "\u2022" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
+                "\u20B9",
+                parseFloat(price).toLocaleString("en-IN", { minimumFractionDigits: 2 }),
+                " each"
+              ] })
+            ] })
+          ] }),
+          items.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#38bdf8", marginTop: 3, fontWeight: 500 }, children: [
             "+",
             items.length - 1,
             " more item",
@@ -76488,37 +76528,47 @@ function App() {
       title: "Draft Order",
       dataIndex: "name",
       key: "name",
-      width: 140,
-      render: (text, record) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 700, color: "#38bdf8", fontFamily: "monospace" }, children: text }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 11, color: "#64748b" }, children: new Date(record.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short" }) })
-      ] })
+      width: 130,
+      render: (text, record) => {
+        const formattedDate = (() => {
+          if (!record.createdAt) return "Recent";
+          const d = new Date(record.createdAt);
+          return isNaN(d.getTime()) ? "Recent" : d.toLocaleDateString("en-GB", { day: "2-digit", month: "short" });
+        })();
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 700, color: "#38bdf8", fontFamily: "monospace" }, children: text }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 11, color: "#64748b" }, children: formattedDate })
+        ] });
+      }
     },
     {
       title: "Customer & Delivery Contact",
       key: "customer",
-      width: 250,
+      width: 340,
       render: (_, record) => {
-        const custName = `${record.customer?.firstName || ""} ${record.customer?.lastName || ""}`.trim() || "Guest Customer";
-        const phone = record.phone || record.customer?.phone || record.shippingAddress?.phone || "No phone";
-        const city = record.shippingAddress?.city || "No city";
-        const prov = record.shippingAddress?.province || "";
-        const zip = record.shippingAddress?.zip || "No zip";
-        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 600, color: "#f8fafc" }, children: custName }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 12, color: "#94a3b8", display: "flex", alignItems: "center", gap: 6 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PhoneOutlined_default2, { style: { fontSize: 10, color: phone === "No phone" ? "#ef4444" : "#64748b" } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: phone === "No phone" ? "#f87171" : "#cbd5e1" }, children: phone })
+        const ship = record.shippingAddress || {};
+        const cust = record.customer || {};
+        const custName = ship.name || `${cust.firstName || ""} ${cust.lastName || ""}`.trim() || "Guest Customer";
+        const phone = record.phone || cust.phone || ship.phone;
+        const address1 = ship.address1;
+        const address2 = ship.address2;
+        const city = ship.city;
+        const prov = ship.province || ship.provinceCode || "";
+        const zip = ship.zip;
+        const street = [address1, address2].filter(Boolean).join(", ");
+        const location = [city, prov].filter(Boolean).join(", ") + (zip ? ` (${zip})` : "");
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 320 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 6, marginBottom: 2 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600, color: "#f8fafc", fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: custName }),
+            phone ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontSize: 11, fontFamily: "monospace", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: 3 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PhoneOutlined_default2, { style: { fontSize: 10 } }),
+              phone
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px", lineHeight: "16px" }, children: "No phone" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#64748b", display: "flex", alignItems: "center", gap: 6 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EnvironmentOutlined_default2, { style: { fontSize: 10 } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
-              city,
-              prov ? `, ${prov}` : "",
-              " (",
-              zip,
-              ")"
-            ] })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: "#e2e8f0", lineHeight: "1.4", marginTop: 2 }, children: street ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { wordBreak: "break-word" }, children: street }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px", cursor: "pointer", lineHeight: "16px" }, onClick: () => openEditModal(record), children: "Missing Street Address" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#94a3b8", display: "flex", alignItems: "center", gap: 4, marginTop: 2 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EnvironmentOutlined_default2, { style: { fontSize: 10, color: "#64748b", flexShrink: 0 } }),
+            city ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: location }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "error", style: { fontSize: 10, margin: 0, padding: "0 4px", cursor: "pointer", lineHeight: "16px" }, onClick: () => openEditModal(record), children: "Missing City / Pincode" })
           ] })
         ] });
       }
@@ -76526,13 +76576,42 @@ function App() {
     {
       title: "Line Items Summary",
       key: "items",
-      width: 240,
+      width: 260,
       render: (_, record) => {
         const items = record.lineItems?.nodes || [];
-        const firstTitle = items[0]?.title || "Unknown Item";
-        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 220, color: "#cbd5e1", fontSize: 12 }, title: firstTitle, children: firstTitle }),
-          items.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#38bdf8", marginTop: 2, fontWeight: 500 }, children: [
+        if (items.length === 0) {
+          return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#64748b", fontSize: 12 }, children: "No items" });
+        }
+        const first = items[0];
+        const title = first.title || first.name || "Unknown Item";
+        const variant = first.variantTitle && first.variantTitle !== "Default Title" ? first.variantTitle : "";
+        const qty = first.quantity || 1;
+        const price = first.originalUnitPriceSet?.shopMoney?.amount;
+        const sku = first.sku;
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 240 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontSize: 13, fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, title, children: title }),
+          (variant || sku) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, fontSize: 11, marginTop: 2 }, children: [
+            variant && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "cyan", style: { fontSize: 10, margin: 0, padding: "0 4px", lineHeight: "16px" }, children: variant }),
+            sku && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#64748b", fontFamily: "monospace", fontSize: 10 }, children: [
+              "SKU: ",
+              sku
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#94a3b8", marginTop: 2, display: "flex", alignItems: "center", gap: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontWeight: 600 }, children: [
+              "Qty: ",
+              qty
+            ] }),
+            price && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#475569" }, children: "\u2022" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
+                "\u20B9",
+                parseFloat(price).toLocaleString("en-IN", { minimumFractionDigits: 2 }),
+                " each"
+              ] })
+            ] })
+          ] }),
+          items.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 11, color: "#38bdf8", marginTop: 3, fontWeight: 500 }, children: [
             "+",
             items.length - 1,
             " more item",
@@ -77326,7 +77405,7 @@ function App() {
                 onShowSizeChange: (_, size) => setPageSize(size),
                 showTotal: (total) => `Total ${total} open drafts`
               },
-              scroll: { x: 1140 }
+              scroll: { x: 1260 }
             }
           ) })
         ] }),
@@ -77462,7 +77541,7 @@ function App() {
                 pageSize: 25,
                 showTotal: (total) => `Total ${total} staged drafts`
               },
-              scroll: { x: 1140 }
+              scroll: { x: 1260 }
             }
           ) })
         ] }),

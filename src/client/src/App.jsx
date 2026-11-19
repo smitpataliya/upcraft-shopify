@@ -636,61 +636,89 @@ export default function App() {
       title: 'Draft Order',
       dataIndex: 'name',
       key: 'name',
-      width: 140,
-      render: (text, record) => (
-        <div style={{ whiteSpace: 'nowrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#38bdf8', fontSize: 13 }}>
-              {text}
-            </span>
-            {record.flags?.includes('HIGH_VALUE') && (
-              <Tag color="gold" style={{ fontSize: 10, padding: '0 4px', margin: 0, fontWeight: 600 }}>
-                High Value
-              </Tag>
-            )}
+      width: 130,
+      render: (text, record) => {
+        const formattedDate = (() => {
+          if (!record.createdAt) return 'Recent';
+          const d = new Date(record.createdAt);
+          return isNaN(d.getTime()) ? 'Recent' : d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+        })();
+        return (
+          <div style={{ whiteSpace: 'nowrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#38bdf8', fontSize: 13 }}>
+                {text}
+              </span>
+              {record.flags?.includes('HIGH_VALUE') && (
+                <Tag color="gold" style={{ fontSize: 10, padding: '0 4px', margin: 0, fontWeight: 600 }}>
+                  High Value
+                </Tag>
+              )}
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>
+              {formattedDate}
+            </div>
           </div>
-          <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>
-            {new Date(record.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
-          </div>
-        </div>
-      )
+        );
+      }
     },
     {
       title: 'Customer & Delivery Contact',
       key: 'customer',
-      width: 250,
+      width: 340,
       render: (_, record) => {
-        const phone = record.phone || record.customer?.phone || record.shippingAddress?.phone;
-        const city = record.shippingAddress?.city;
-        const state = record.shippingAddress?.province;
-        const zip = record.shippingAddress?.zip;
-        const recipientName = record.shippingAddress?.name || `${record.customer?.firstName || ''} ${record.customer?.lastName || ''}`.trim() || 'Guest Customer';
+        const ship = record.shippingAddress || {};
+        const cust = record.customer || {};
+        const recipientName = ship.name || `${cust.firstName || ''} ${cust.lastName || ''}`.trim() || 'Guest Customer';
+        const phone = record.phone || cust.phone || ship.phone;
+        const address1 = ship.address1;
+        const address2 = ship.address2;
+        const city = ship.city;
+        const state = ship.province || ship.provinceCode;
+        const zip = ship.zip;
+        const street = [address1, address2].filter(Boolean).join(', ');
+        const location = [city, state].filter(Boolean).join(', ') + (zip ? ` (${zip})` : '');
 
         return (
-          <div>
-            <div style={{ fontWeight: 600, color: '#f8fafc', fontSize: 13, display: 'flex', alignItems: 'center', gap: 6 }}>
-              {recipientName}
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6, fontSize: 11, marginTop: 4 }}>
+          <div style={{ maxWidth: 320 }}>
+            {/* Row 1: Recipient Name & Phone */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, marginBottom: 2 }}>
+              <span style={{ fontWeight: 600, color: '#f8fafc', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {recipientName}
+              </span>
               {phone ? (
-                <span style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 3 }}>
-                  <PhoneOutlined style={{ fontSize: 10, color: '#64748b' }} />
+                <span style={{ color: '#38bdf8', fontSize: 11, fontFamily: 'monospace', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 3 }}>
+                  <PhoneOutlined style={{ fontSize: 10 }} />
                   {phone}
                 </span>
               ) : (
-                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px' }}>
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
                   No Phone
                 </Tag>
               )}
-              <span style={{ color: '#475569' }}>•</span>
-              {city ? (
-                <span style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 3 }}>
-                  <EnvironmentOutlined style={{ fontSize: 10, color: '#64748b' }} />
-                  {city}{state ? `, ${state}` : ''}{zip ? ` (${zip})` : ''}
+            </div>
+
+            {/* Row 2: Full Street Address (Address1 & Address2) */}
+            <div style={{ fontSize: 12, color: '#e2e8f0', lineHeight: '1.4', marginTop: 2 }}>
+              {street ? (
+                <span style={{ wordBreak: 'break-word' }}>
+                  {street}
                 </span>
               ) : (
-                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer' }} onClick={() => openEditModal(record)}>
-                  Missing City
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing Street Address
+                </Tag>
+              )}
+            </div>
+
+            {/* Row 3: City, State & Pincode */}
+            <div style={{ fontSize: 11, color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
+              <EnvironmentOutlined style={{ fontSize: 10, color: '#64748b', flexShrink: 0 }} />
+              {city ? (
+                <span>{location}</span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing City / Pincode
                 </Tag>
               )}
             </div>
@@ -701,17 +729,52 @@ export default function App() {
     {
       title: 'Line Items Summary',
       key: 'lineItems',
-      ellipsis: true,
+      width: 260,
       render: (_, record) => {
         const items = record.lineItems?.nodes || [];
-        const firstTitle = items[0]?.title || items[0]?.name || 'Order Item';
+        if (items.length === 0) {
+          return <span style={{ color: '#64748b', fontSize: 12 }}>No items</span>;
+        }
+        const first = items[0];
+        const title = first.title || first.name || 'Order Item';
+        const variant = first.variantTitle && first.variantTitle !== 'Default Title' ? first.variantTitle : '';
+        const qty = first.quantity || 1;
+        const price = first.originalUnitPriceSet?.shopMoney?.amount;
+        const sku = first.sku;
+
         return (
-          <div>
-            <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 280, color: '#cbd5e1', fontSize: 12 }} title={firstTitle}>
-              {firstTitle}
+          <div style={{ maxWidth: 240 }}>
+            <div style={{ color: '#f8fafc', fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={title}>
+              {title}
             </div>
+
+            {(variant || sku) && (
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6, fontSize: 11, marginTop: 2 }}>
+                {variant && (
+                  <Tag color="cyan" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
+                    {variant}
+                  </Tag>
+                )}
+                {sku && (
+                  <span style={{ color: '#64748b', fontFamily: 'monospace', fontSize: 10 }}>
+                    SKU: {sku}
+                  </span>
+                )}
+              </div>
+            )}
+
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ color: '#38bdf8', fontWeight: 600 }}>Qty: {qty}</span>
+              {price && (
+                <>
+                  <span style={{ color: '#475569' }}>•</span>
+                  <span>₹{parseFloat(price).toLocaleString('en-IN', { minimumFractionDigits: 2 })} each</span>
+                </>
+              )}
+            </div>
+
             {items.length > 1 && (
-              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 2, fontWeight: 500 }}>
+              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 3, fontWeight: 500 }}>
                 +{items.length - 1} more item{items.length > 2 ? 's' : ''} (click + to view)
               </div>
             )}
@@ -877,36 +940,77 @@ export default function App() {
       title: 'Draft Order',
       dataIndex: 'name',
       key: 'name',
-      width: 140,
-      render: (text, record) => (
-        <div style={{ whiteSpace: 'nowrap' }}>
-          <div style={{ fontWeight: 700, color: '#38bdf8', fontFamily: 'monospace' }}>{text}</div>
-          <div style={{ fontSize: 11, color: '#64748b' }}>
-            {new Date(record.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}
+      width: 130,
+      render: (text, record) => {
+        const formattedDate = (() => {
+          if (!record.createdAt) return 'Recent';
+          const d = new Date(record.createdAt);
+          return isNaN(d.getTime()) ? 'Recent' : d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+        })();
+        return (
+          <div style={{ whiteSpace: 'nowrap' }}>
+            <div style={{ fontWeight: 700, color: '#38bdf8', fontFamily: 'monospace' }}>{text}</div>
+            <div style={{ fontSize: 11, color: '#64748b' }}>
+              {formattedDate}
+            </div>
           </div>
-        </div>
-      )
+        );
+      }
     },
     {
       title: 'Customer & Delivery Contact',
       key: 'customer',
-      width: 250,
+      width: 340,
       render: (_, record) => {
-        const custName = `${record.customer?.firstName || ''} ${record.customer?.lastName || ''}`.trim() || 'Guest Customer';
-        const phone = record.phone || record.customer?.phone || record.shippingAddress?.phone || 'No phone';
-        const city = record.shippingAddress?.city || 'No city';
-        const prov = record.shippingAddress?.province || '';
-        const zip = record.shippingAddress?.zip || 'No zip';
+        const ship = record.shippingAddress || {};
+        const cust = record.customer || {};
+        const custName = ship.name || `${cust.firstName || ''} ${cust.lastName || ''}`.trim() || 'Guest Customer';
+        const phone = record.phone || cust.phone || ship.phone;
+        const address1 = ship.address1;
+        const address2 = ship.address2;
+        const city = ship.city;
+        const prov = ship.province || ship.provinceCode || '';
+        const zip = ship.zip;
+        const street = [address1, address2].filter(Boolean).join(', ');
+        const location = [city, prov].filter(Boolean).join(', ') + (zip ? ` (${zip})` : '');
+
         return (
-          <div>
-            <div style={{ fontWeight: 600, color: '#f8fafc' }}>{custName}</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <PhoneOutlined style={{ fontSize: 10, color: phone === 'No phone' ? '#ef4444' : '#64748b' }} />
-              <span style={{ color: phone === 'No phone' ? '#f87171' : '#cbd5e1' }}>{phone}</span>
+          <div style={{ maxWidth: 320 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, marginBottom: 2 }}>
+              <span style={{ fontWeight: 600, color: '#f8fafc', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {custName}
+              </span>
+              {phone ? (
+                <span style={{ color: '#38bdf8', fontSize: 11, fontFamily: 'monospace', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 3 }}>
+                  <PhoneOutlined style={{ fontSize: 10 }} />
+                  {phone}
+                </span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
+                  No phone
+                </Tag>
+              )}
             </div>
-            <div style={{ fontSize: 11, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <EnvironmentOutlined style={{ fontSize: 10 }} />
-              <span>{city}{prov ? `, ${prov}` : ''} ({zip})</span>
+            <div style={{ fontSize: 12, color: '#e2e8f0', lineHeight: '1.4', marginTop: 2 }}>
+              {street ? (
+                <span style={{ wordBreak: 'break-word' }}>
+                  {street}
+                </span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing Street Address
+                </Tag>
+              )}
+            </div>
+            <div style={{ fontSize: 11, color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
+              <EnvironmentOutlined style={{ fontSize: 10, color: '#64748b', flexShrink: 0 }} />
+              {city ? (
+                <span>{location}</span>
+              ) : (
+                <Tag color="error" style={{ fontSize: 10, margin: 0, padding: '0 4px', cursor: 'pointer', lineHeight: '16px' }} onClick={() => openEditModal(record)}>
+                  Missing City / Pincode
+                </Tag>
+              )}
             </div>
           </div>
         );
@@ -915,17 +1019,52 @@ export default function App() {
     {
       title: 'Line Items Summary',
       key: 'items',
-      width: 240,
+      width: 260,
       render: (_, record) => {
         const items = record.lineItems?.nodes || [];
-        const firstTitle = items[0]?.title || 'Unknown Item';
+        if (items.length === 0) {
+          return <span style={{ color: '#64748b', fontSize: 12 }}>No items</span>;
+        }
+        const first = items[0];
+        const title = first.title || first.name || 'Unknown Item';
+        const variant = first.variantTitle && first.variantTitle !== 'Default Title' ? first.variantTitle : '';
+        const qty = first.quantity || 1;
+        const price = first.originalUnitPriceSet?.shopMoney?.amount;
+        const sku = first.sku;
+
         return (
-          <div>
-            <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 220, color: '#cbd5e1', fontSize: 12 }} title={firstTitle}>
-              {firstTitle}
+          <div style={{ maxWidth: 240 }}>
+            <div style={{ color: '#f8fafc', fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={title}>
+              {title}
             </div>
+
+            {(variant || sku) && (
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6, fontSize: 11, marginTop: 2 }}>
+                {variant && (
+                  <Tag color="cyan" style={{ fontSize: 10, margin: 0, padding: '0 4px', lineHeight: '16px' }}>
+                    {variant}
+                  </Tag>
+                )}
+                {sku && (
+                  <span style={{ color: '#64748b', fontFamily: 'monospace', fontSize: 10 }}>
+                    SKU: {sku}
+                  </span>
+                )}
+              </div>
+            )}
+
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ color: '#38bdf8', fontWeight: 600 }}>Qty: {qty}</span>
+              {price && (
+                <>
+                  <span style={{ color: '#475569' }}>•</span>
+                  <span>₹{parseFloat(price).toLocaleString('en-IN', { minimumFractionDigits: 2 })} each</span>
+                </>
+              )}
+            </div>
+
             {items.length > 1 && (
-              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 2, fontWeight: 500 }}>
+              <div style={{ fontSize: 11, color: '#38bdf8', marginTop: 3, fontWeight: 500 }}>
                 +{items.length - 1} more item{items.length > 2 ? 's' : ''} (click + to view)
               </div>
             )}
@@ -1813,7 +1952,7 @@ export default function App() {
                     onShowSizeChange: (_, size) => setPageSize(size),
                     showTotal: total => `Total ${total} open drafts`
                   }}
-                  scroll={{ x: 1140 }}
+                  scroll={{ x: 1260 }}
                 />
               </Card>
             </Space>
@@ -1965,7 +2104,7 @@ export default function App() {
                       pageSize: 25,
                       showTotal: total => `Total ${total} staged drafts`
                     }}
-                    scroll={{ x: 1140 }}
+                    scroll={{ x: 1260 }}
                   />
                 )}
               </Card>
