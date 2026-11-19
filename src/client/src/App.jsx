@@ -2567,6 +2567,13 @@ export default function App() {
           open={!!viewDraftModal}
           onCancel={() => setViewDraftModal(null)}
           width={760}
+          centered
+          styles={{
+            body: {
+              maxHeight: 'calc(85vh - 120px)',
+              overflowY: 'auto'
+            }
+          }}
           footer={[
             <Button key="close" onClick={() => setViewDraftModal(null)}>
               Close
@@ -2778,7 +2785,7 @@ export default function App() {
           })()}
         </Modal>
 
-        {/* Edit / Fix Missing Details Modal */}
+        {/* Edit / Fix Missing Details Modal - Fully responsive, centered, screen-fitted */}
         <Modal
           title={
             editDraftModal && (
@@ -2790,34 +2797,42 @@ export default function App() {
           }
           open={!!editDraftModal}
           onCancel={() => setEditDraftModal(null)}
-          width={600}
+          width={760}
+          centered
+          styles={{
+            body: {
+              maxHeight: 'calc(85vh - 110px)',
+              overflowY: 'auto',
+              padding: '12px 18px'
+            }
+          }}
           confirmLoading={savingDraft}
           okText="Save & Sync to Shopify"
           onOk={handleSaveDraft}
         >
           {editDraftModal && (
-            <Form form={editForm} layout="vertical" style={{ marginTop: 12 }}>
+            <Form form={editForm} layout="vertical" style={{ marginTop: 2 }}>
               <Alert
                 type="info"
                 showIcon
                 message="Updates sync in real-time with your live Shopify store. Once required delivery fields are filled, this draft unlocks for conversion."
-                style={{ marginBottom: 16 }}
+                style={{ marginBottom: 14 }}
               />
 
-              <Row gutter={12}>
+              <Row gutter={14}>
                 <Col span={12}>
-                  <Form.Item label="First Name" name="firstName">
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>First Name</span>} name="firstName">
                     <Input placeholder="Recipient first name" />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <Form.Item label="Last Name" name="lastName">
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Last Name</span>} name="lastName">
                     <Input placeholder="Recipient last name" />
                   </Form.Item>
                 </Col>
               </Row>
 
-              <Row gutter={12}>
+              <Row gutter={14}>
                 <Col span={12}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>Contact Phone (Required)</span>}
@@ -2828,44 +2843,49 @@ export default function App() {
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <Form.Item label="Customer Email" name="email">
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Customer Email</span>} name="email">
                     <Input placeholder="e.g. customer@example.com" />
                   </Form.Item>
                 </Col>
               </Row>
 
-              <Form.Item
-                label={<span style={{ fontWeight: 600 }}>Address Line 1 (Required)</span>}
-                name="address1"
-                rules={[{ required: true, message: 'Street address / House number is required' }]}
-              >
-                <Input placeholder="Flat/House no., Building, Street, Area" />
-              </Form.Item>
-
-              <Form.Item label="Address Line 2 (Optional)" name="address2">
-                <Input placeholder="Landmark, Apartment, Suite, etc." />
-              </Form.Item>
+              <Row gutter={14}>
+                <Col span={14}>
+                  <Form.Item
+                    label={<span style={{ fontWeight: 600 }}>Address Line 1 (Required)</span>}
+                    name="address1"
+                    rules={[{ required: true, message: 'Street address / House number is required' }]}
+                  >
+                    <Input placeholder="Flat/House no., Building, Street, Area" />
+                  </Form.Item>
+                </Col>
+                <Col span={10}>
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Address Line 2 (Optional)</span>} name="address2">
+                    <Input placeholder="Landmark, Apartment, Suite, etc." />
+                  </Form.Item>
+                </Col>
+              </Row>
 
               <Row gutter={12}>
-                <Col span={8}>
+                <Col span={7}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>City (Required)</span>}
                     name="city"
-                    rules={[{ required: true, message: 'City / Town is required' }]}
+                    rules={[{ required: true, message: 'City is required' }]}
                   >
-                    <Input placeholder="e.g. Jojawar / Marwar" />
+                    <Input placeholder="e.g. Jojawar" />
                   </Form.Item>
                 </Col>
-                <Col span={8}>
+                <Col span={7}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>State (Required)</span>}
                     name="province"
-                    rules={[{ required: true, message: 'State / Province is required' }]}
+                    rules={[{ required: true, message: 'State is required' }]}
                   >
                     <Input placeholder="e.g. Rajasthan" />
                   </Form.Item>
                 </Col>
-                <Col span={8}>
+                <Col span={5}>
                   <Form.Item
                     label={<span style={{ fontWeight: 600 }}>Pincode (Required)</span>}
                     name="zip"
@@ -2874,23 +2894,31 @@ export default function App() {
                     <Input placeholder="e.g. 306022" />
                   </Form.Item>
                 </Col>
-              </Row>
-
-              <Row gutter={12}>
-                <Col span={12}>
-                  <Form.Item label="Country" name="country">
+                <Col span={5}>
+                  <Form.Item label={<span style={{ fontWeight: 500 }}>Country</span>} name="country">
                     <Input placeholder="India" />
                   </Form.Item>
                 </Col>
-                <Col span={12}>
-                  <Form.Item label="COD Marker Tag" name="addCodTag" valuePropName="checked">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 4 }}>
-                      <Switch />
-                      <Text style={{ fontSize: 12 }}>Tag as COD ({config?.cod_marker_value || 'COD'})</Text>
-                    </div>
-                  </Form.Item>
-                </Col>
               </Row>
+
+              <div style={{
+                background: '#0b1329',
+                border: '1px solid #1e293b',
+                borderRadius: 8,
+                padding: '10px 14px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginTop: 2
+              }}>
+                <div>
+                  <div style={{ color: '#f8fafc', fontWeight: 600, fontSize: 13 }}>Cash-on-Delivery (COD) Tag</div>
+                  <div style={{ color: '#64748b', fontSize: 11 }}>Tags draft with "{config?.cod_marker_value || 'COD'}" so Shopify orders process as COD</div>
+                </div>
+                <Form.Item name="addCodTag" valuePropName="checked" style={{ margin: 0 }}>
+                  <Switch checkedChildren="COD Tagged" unCheckedChildren="No Tag" />
+                </Form.Item>
+              </div>
             </Form>
           )}
         </Modal>

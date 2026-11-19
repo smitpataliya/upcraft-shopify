@@ -78043,6 +78043,13 @@ function App() {
           open: !!viewDraftModal,
           onCancel: () => setViewDraftModal(null),
           width: 760,
+          centered: true,
+          styles: {
+            body: {
+              maxHeight: "calc(85vh - 120px)",
+              overflowY: "auto"
+            }
+          },
           footer: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(button_default, { onClick: () => setViewDraftModal(null), children: "Close" }, "close"),
             viewDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -78271,25 +78278,33 @@ function App() {
           ] }),
           open: !!editDraftModal,
           onCancel: () => setEditDraftModal(null),
-          width: 600,
+          width: 760,
+          centered: true,
+          styles: {
+            body: {
+              maxHeight: "calc(85vh - 110px)",
+              overflowY: "auto",
+              padding: "12px 18px"
+            }
+          },
           confirmLoading: savingDraft,
           okText: "Save & Sync to Shopify",
           onOk: handleSaveDraft,
-          children: editDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default, { form: editForm, layout: "vertical", style: { marginTop: 12 }, children: [
+          children: editDraftModal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(form_default, { form: editForm, layout: "vertical", style: { marginTop: 2 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               alert_default,
               {
                 type: "info",
                 showIcon: true,
                 message: "Updates sync in real-time with your live Shopify store. Once required delivery fields are filled, this draft unlocks for conversion.",
-                style: { marginBottom: 16 }
+                style: { marginBottom: 14 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "First Name", name: "firstName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient first name" }) }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Last Name", name: "lastName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient last name" }) }) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 14, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 500 }, children: "First Name" }), name: "firstName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient first name" }) }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 500 }, children: "Last Name" }), name: "lastName", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Recipient last name" }) }) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 14, children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 form_default.Item,
                 {
@@ -78299,38 +78314,40 @@ function App() {
                   children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. +91 87901 62162" })
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Customer Email", name: "email", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. customer@example.com" }) }) })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 500 }, children: "Customer Email" }), name: "email", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. customer@example.com" }) }) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              form_default.Item,
-              {
-                label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Address Line 1 (Required)" }),
-                name: "address1",
-                rules: [{ required: true, message: "Street address / House number is required" }],
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Flat/House no., Building, Street, Area" })
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Address Line 2 (Optional)", name: "address2", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Landmark, Apartment, Suite, etc." }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 14, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 14, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                form_default.Item,
+                {
+                  label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Address Line 1 (Required)" }),
+                  name: "address1",
+                  rules: [{ required: true, message: "Street address / House number is required" }],
+                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Flat/House no., Building, Street, Area" })
+                }
+              ) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 10, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 500 }, children: "Address Line 2 (Optional)" }), name: "address2", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "Landmark, Apartment, Suite, etc." }) }) })
+            ] }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 7, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 form_default.Item,
                 {
                   label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "City (Required)" }),
                   name: "city",
-                  rules: [{ required: true, message: "City / Town is required" }],
-                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. Jojawar / Marwar" })
+                  rules: [{ required: true, message: "City is required" }],
+                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. Jojawar" })
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 7, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 form_default.Item,
                 {
                   label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "State (Required)" }),
                   name: "province",
-                  rules: [{ required: true, message: "State / Province is required" }],
+                  rules: [{ required: true, message: "State is required" }],
                   children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. Rajasthan" })
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 8, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 5, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 form_default.Item,
                 {
                   label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 600 }, children: "Pincode (Required)" }),
@@ -78338,18 +78355,28 @@ function App() {
                   rules: [{ required: true, message: "Pincode is required" }],
                   children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "e.g. 306022" })
                 }
-              ) })
+              ) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 5, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 500 }, children: "Country" }), name: "country", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "India" }) }) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(row_default2, { gutter: 12, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "Country", name: "country", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(input_default, { placeholder: "India" }) }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { span: 12, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { label: "COD Marker Tag", name: "addCodTag", valuePropName: "checked", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, marginTop: 4 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(switch_default, {}),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { style: { fontSize: 12 }, children: [
-                  "Tag as COD (",
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+              background: "#0b1329",
+              border: "1px solid #1e293b",
+              borderRadius: 8,
+              padding: "10px 14px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 2
+            }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#f8fafc", fontWeight: 600, fontSize: 13 }, children: "Cash-on-Delivery (COD) Tag" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: "#64748b", fontSize: 11 }, children: [
+                  'Tags draft with "',
                   config?.cod_marker_value || "COD",
-                  ")"
+                  '" so Shopify orders process as COD'
                 ] })
-              ] }) }) })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(form_default.Item, { name: "addCodTag", valuePropName: "checked", style: { margin: 0 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(switch_default, { checkedChildren: "COD Tagged", unCheckedChildren: "No Tag" }) })
             ] })
           ] })
         }
