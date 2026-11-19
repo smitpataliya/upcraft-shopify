@@ -63,23 +63,31 @@ export default function App() {
     }
   };
 
-  const toggleBulkQueue = (draft) => {
+  const moveToBulk = (draft) => {
     const exists = bulkQueue.some(d => d.id === draft.id);
     if (exists) {
-      const updated = bulkQueue.filter(d => d.id !== draft.id);
-      saveBulkQueue(updated);
-      message.info(`Removed ${draft.name} from Bulk Queue`);
-    } else {
-      const max = config?.max_batch_size || 70;
-      if (bulkQueue.length >= max) {
-        message.warning(`Maximum bulk batch cap of ${max} reached.`);
-        return;
-      }
-      const updated = [...bulkQueue, draft];
-      saveBulkQueue(updated);
-      message.success(`Added ${draft.name} to Bulk Queue`);
+      setActiveTab('bulk');
+      return;
     }
+    const max = config?.max_batch_size || 70;
+    if (bulkQueue.length >= max) {
+      message.warning(`Maximum bulk batch cap of ${max} reached.`);
+      return;
+    }
+    const updated = [...bulkQueue, draft];
+    saveBulkQueue(updated);
+    if (selectedMap.has(draft.id)) {
+      setSelectedMap(prev => {
+        const next = new Map(prev);
+        next.delete(draft.id);
+        return next;
+      });
+    }
+    message.success(`Moved ${draft.name} to Bulk Orders page!`);
+    setActiveTab('bulk');
   };
+
+  const toggleBulkQueue = moveToBulk;
 
   const addSelectedToBulk = () => {
     const selectedList = Array.from(selectedMap.values());
@@ -89,29 +97,35 @@ export default function App() {
     const newToAdd = selectedList.filter(d => !existingIds.has(d.id));
     if (newToAdd.length === 0) {
       message.info('All selected drafts are already in Bulk Queue.');
+      setActiveTab('bulk');
       return;
     }
+    let updated;
     if (bulkQueue.length + newToAdd.length > max) {
       const allowed = newToAdd.slice(0, max - bulkQueue.length);
-      const updated = [...bulkQueue, ...allowed];
+      updated = [...bulkQueue, ...allowed];
       saveBulkQueue(updated);
-      message.warning(`Added ${allowed.length} drafts (batch cap of ${max} reached).`);
-      return;
+      setSelectedMap(new Map());
+      message.warning(`Moved ${allowed.length} drafts to Bulk Orders (batch cap of ${max} reached).`);
+    } else {
+      updated = [...bulkQueue, ...newToAdd];
+      saveBulkQueue(updated);
+      setSelectedMap(new Map());
+      message.success(`Moved ${newToAdd.length} draft(s) to Bulk Orders page!`);
     }
-    const updated = [...bulkQueue, ...newToAdd];
-    saveBulkQueue(updated);
-    message.success(`Added ${newToAdd.length} draft(s) to Bulk Queue!`);
+    setActiveTab('bulk');
   };
 
   const removeFromBulkQueue = (id) => {
+    const removed = bulkQueue.find(d => d.id === id);
     const updated = bulkQueue.filter(d => d.id !== id);
     saveBulkQueue(updated);
-    message.info('Removed from Bulk Queue');
+    message.info(`Returned ${removed?.name || 'draft'} to Draft Orders page.`);
   };
 
   const clearBulkQueue = () => {
     saveBulkQueue([]);
-    message.info('Bulk Queue cleared.');
+    message.info('Bulk Queue cleared. All drafts returned to Draft Orders page.');
   };
 
   // Cross-page selection Map: draftId -> draftObject
@@ -554,9 +568,15 @@ export default function App() {
     }
   };
 
-  // Filtered drafts calculation
+  // Filter out drafts that have been moved to bulkQueue
+  const unstagedDrafts = useMemo(() => {
+    const bulkIds = new Set(bulkQueue.map(d => d.id));
+    return drafts.filter(d => !bulkIds.has(d.id));
+  }, [drafts, bulkQueue]);
+
+  // Filtered drafts calculation (using unstagedDrafts)
   const filteredDrafts = useMemo(() => {
-    let list = drafts;
+    let list = unstagedDrafts;
     if (activeFilter === 'COD_ONLY') {
       list = list.filter(d => d.isCodEligible);
     } else if (activeFilter === 'NON_COD') {
@@ -578,7 +598,7 @@ export default function App() {
     }
 
     return list;
-  }, [drafts, activeFilter, searchQuery]);
+  }, [unstagedDrafts, activeFilter, searchQuery]);
 
   // Selected total value
   const selectedTotal = useMemo(() => {
@@ -759,22 +779,23 @@ export default function App() {
       align: 'center',
       width: 320,
       render: (_, record) => {
-        const isStaged = bulkQueue.some(d => d.id === record.id);
         return (
           <div style={{ whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-            <Tooltip title={isStaged ? "Remove from Bulk Queue" : "Add this draft to Bulk Order Queue"}>
+            <Tooltip title="Move this draft order to Bulk Orders page">
               <Button
                 size="small"
-                icon={isStaged ? <CheckOutlined /> : <PlusOutlined />}
-                onClick={() => toggleBulkQueue(record)}
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={() => moveToBulk(record)}
                 style={{
-                  background: isStaged ? 'rgba(16, 185, 129, 0.15)' : '#1e293b',
-                  borderColor: isStaged ? '#10b981' : '#334155',
-                  color: isStaged ? '#34d399' : '#38bdf8',
-                  fontWeight: isStaged ? 600 : 500
+                  background: '#2563eb',
+                  borderColor: '#2563eb',
+                  color: '#ffffff',
+                  fontWeight: 600,
+                  borderRadius: 6
                 }}
               >
-                {isStaged ? 'In Bulk' : '+ Bulk'}
+                + Bulk
               </Button>
             </Tooltip>
             <Tooltip title="View full draft order details (Customer, items, address, taxes)">
@@ -1642,9 +1663,11 @@ export default function App() {
                       <ShoppingOutlined style={{ color: '#38bdf8', fontSize: 16 }} />
                     </div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#f8fafc', lineHeight: 1.1 }}>
-                      {pageInfo.totalOpenCount || drafts.length}
+                      {unstagedDrafts.length}
                     </div>
-                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Fetched via GraphQL API</Text>
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>
+                      {bulkQueue.length > 0 ? `${bulkQueue.length} moved to Bulk Orders` : 'Fetched via GraphQL API'}
+                    </Text>
                   </Card>
                 </Col>
 
@@ -1655,7 +1678,7 @@ export default function App() {
                       <CheckCircleOutlined style={{ color: '#10b981', fontSize: 16 }} />
                     </div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#10b981', lineHeight: 1.1 }}>
-                      {drafts.filter(d => d.isCodEligible).length}
+                      {unstagedDrafts.filter(d => d.isCodEligible).length}
                     </div>
                     <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Tagged with "{config?.cod_marker_value || 'COD'}"</Text>
                   </Card>
@@ -1668,7 +1691,7 @@ export default function App() {
                       <WarningOutlined style={{ color: '#f59e0b', fontSize: 16 }} />
                     </div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#f59e0b', lineHeight: 1.1 }}>
-                      {drafts.filter(d => d.flags && d.flags.length > 0).length}
+                      {unstagedDrafts.filter(d => d.flags && d.flags.length > 0).length}
                     </div>
                     <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>Missing phone or high value</Text>
                   </Card>
@@ -1707,10 +1730,10 @@ export default function App() {
                       value={activeFilter}
                       onChange={setActiveFilter}
                       options={[
-                        { label: `All (${drafts.length})`, value: 'ALL' },
-                        { label: `COD Ready (${drafts.filter(d => d.isCodEligible).length})`, value: 'COD_ONLY' },
-                        { label: `Non-COD (${drafts.filter(d => !d.isCodEligible).length})`, value: 'NON_COD' },
-                        { label: `Flagged (${drafts.filter(d => d.flags?.length > 0).length})`, value: 'FLAGGED' }
+                        { label: `All (${unstagedDrafts.length})`, value: 'ALL' },
+                        { label: `COD Ready (${unstagedDrafts.filter(d => d.isCodEligible).length})`, value: 'COD_ONLY' },
+                        { label: `Non-COD (${unstagedDrafts.filter(d => !d.isCodEligible).length})`, value: 'NON_COD' },
+                        { label: `Flagged (${unstagedDrafts.filter(d => d.flags?.length > 0).length})`, value: 'FLAGGED' }
                       ]}
                       style={{ background: '#090d16', padding: 3 }}
                     />
@@ -1751,6 +1774,29 @@ export default function App() {
                   columns={draftColumns}
                   dataSource={filteredDrafts}
                   expandable={{ expandedRowRender }}
+                  locale={{
+                    emptyText: drafts.length > 0 && bulkQueue.length > 0 ? (
+                      <div style={{ padding: '40px 20px', textAlign: 'center' }}>
+                        <CheckCircleOutlined style={{ fontSize: 36, color: '#10b981', marginBottom: 12 }} />
+                        <div style={{ fontSize: 16, fontWeight: 700, color: '#f8fafc', marginBottom: 6 }}>
+                          All Open Drafts Moved to Bulk Orders
+                        </div>
+                        <div style={{ fontSize: 13, color: '#94a3b8', maxWidth: 460, margin: '0 auto 18px' }}>
+                          All {drafts.length} open draft orders have been moved to the Bulk Orders page ({bulkQueue.length} staged).
+                        </div>
+                        <Button
+                          type="primary"
+                          icon={<ThunderboltOutlined />}
+                          onClick={() => setActiveTab('bulk')}
+                          style={{ background: '#2563eb', borderColor: '#2563eb', borderRadius: 6, fontWeight: 600, height: 36, padding: '0 18px' }}
+                        >
+                          Go to Bulk Orders Page ({bulkQueue.length})
+                        </Button>
+                      </div>
+                    ) : (
+                      <Empty description={<span style={{ color: '#64748b' }}>No open draft orders found</span>} />
+                    )
+                  }}
                   rowSelection={{
                     selectedRowKeys: Array.from(selectedMap.keys()),
                     onChange: onSelectChange,

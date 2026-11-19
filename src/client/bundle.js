@@ -75778,23 +75778,30 @@ function App() {
       console.error("Failed to save bulk queue:", e3);
     }
   };
-  const toggleBulkQueue = (draft) => {
+  const moveToBulk = (draft) => {
     const exists = bulkQueue.some((d) => d.id === draft.id);
     if (exists) {
-      const updated = bulkQueue.filter((d) => d.id !== draft.id);
-      saveBulkQueue(updated);
-      message_default.info(`Removed ${draft.name} from Bulk Queue`);
-    } else {
-      const max = config?.max_batch_size || 70;
-      if (bulkQueue.length >= max) {
-        message_default.warning(`Maximum bulk batch cap of ${max} reached.`);
-        return;
-      }
-      const updated = [...bulkQueue, draft];
-      saveBulkQueue(updated);
-      message_default.success(`Added ${draft.name} to Bulk Queue`);
+      setActiveTab("bulk");
+      return;
     }
+    const max = config?.max_batch_size || 70;
+    if (bulkQueue.length >= max) {
+      message_default.warning(`Maximum bulk batch cap of ${max} reached.`);
+      return;
+    }
+    const updated = [...bulkQueue, draft];
+    saveBulkQueue(updated);
+    if (selectedMap.has(draft.id)) {
+      setSelectedMap((prev2) => {
+        const next2 = new Map(prev2);
+        next2.delete(draft.id);
+        return next2;
+      });
+    }
+    message_default.success(`Moved ${draft.name} to Bulk Orders page!`);
+    setActiveTab("bulk");
   };
+  const toggleBulkQueue = moveToBulk;
   const addSelectedToBulk = () => {
     const selectedList = Array.from(selectedMap.values());
     if (selectedList.length === 0) return;
@@ -75803,27 +75810,33 @@ function App() {
     const newToAdd = selectedList.filter((d) => !existingIds.has(d.id));
     if (newToAdd.length === 0) {
       message_default.info("All selected drafts are already in Bulk Queue.");
+      setActiveTab("bulk");
       return;
     }
+    let updated;
     if (bulkQueue.length + newToAdd.length > max) {
       const allowed = newToAdd.slice(0, max - bulkQueue.length);
-      const updated2 = [...bulkQueue, ...allowed];
-      saveBulkQueue(updated2);
-      message_default.warning(`Added ${allowed.length} drafts (batch cap of ${max} reached).`);
-      return;
+      updated = [...bulkQueue, ...allowed];
+      saveBulkQueue(updated);
+      setSelectedMap(/* @__PURE__ */ new Map());
+      message_default.warning(`Moved ${allowed.length} drafts to Bulk Orders (batch cap of ${max} reached).`);
+    } else {
+      updated = [...bulkQueue, ...newToAdd];
+      saveBulkQueue(updated);
+      setSelectedMap(/* @__PURE__ */ new Map());
+      message_default.success(`Moved ${newToAdd.length} draft(s) to Bulk Orders page!`);
     }
-    const updated = [...bulkQueue, ...newToAdd];
-    saveBulkQueue(updated);
-    message_default.success(`Added ${newToAdd.length} draft(s) to Bulk Queue!`);
+    setActiveTab("bulk");
   };
   const removeFromBulkQueue = (id) => {
+    const removed = bulkQueue.find((d) => d.id === id);
     const updated = bulkQueue.filter((d) => d.id !== id);
     saveBulkQueue(updated);
-    message_default.info("Removed from Bulk Queue");
+    message_default.info(`Returned ${removed?.name || "draft"} to Draft Orders page.`);
   };
   const clearBulkQueue = () => {
     saveBulkQueue([]);
-    message_default.info("Bulk Queue cleared.");
+    message_default.info("Bulk Queue cleared. All drafts returned to Draft Orders page.");
   };
   const [selectedMap, setSelectedMap] = (0, import_react150.useState)(/* @__PURE__ */ new Map());
   const [config, setConfig] = (0, import_react150.useState)(null);
@@ -76209,8 +76222,12 @@ function App() {
       setLoadingAudit(false);
     }
   };
+  const unstagedDrafts = (0, import_react150.useMemo)(() => {
+    const bulkIds = new Set(bulkQueue.map((d) => d.id));
+    return drafts.filter((d) => !bulkIds.has(d.id));
+  }, [drafts, bulkQueue]);
   const filteredDrafts = (0, import_react150.useMemo)(() => {
-    let list = drafts;
+    let list = unstagedDrafts;
     if (activeFilter === "COD_ONLY") {
       list = list.filter((d) => d.isCodEligible);
     } else if (activeFilter === "NON_COD") {
@@ -76230,7 +76247,7 @@ function App() {
       });
     }
     return list;
-  }, [drafts, activeFilter, searchQuery]);
+  }, [unstagedDrafts, activeFilter, searchQuery]);
   const selectedTotal = (0, import_react150.useMemo)(() => {
     return Array.from(selectedMap.values()).reduce((sum, d) => {
       const amt = parseFloat(d.totalPriceSet?.shopMoney?.amount || 0);
@@ -76373,21 +76390,22 @@ function App() {
       align: "center",
       width: 320,
       render: (_, record) => {
-        const isStaged = bulkQueue.some((d) => d.id === record.id);
         return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { whiteSpace: "nowrap", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: isStaged ? "Remove from Bulk Queue" : "Add this draft to Bulk Order Queue", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "Move this draft order to Bulk Orders page", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             button_default,
             {
               size: "small",
-              icon: isStaged ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckOutlined_default2, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
-              onClick: () => toggleBulkQueue(record),
+              type: "primary",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlusOutlined_default2, {}),
+              onClick: () => moveToBulk(record),
               style: {
-                background: isStaged ? "rgba(16, 185, 129, 0.15)" : "#1e293b",
-                borderColor: isStaged ? "#10b981" : "#334155",
-                color: isStaged ? "#34d399" : "#38bdf8",
-                fontWeight: isStaged ? 600 : 500
+                background: "#2563eb",
+                borderColor: "#2563eb",
+                color: "#ffffff",
+                fontWeight: 600,
+                borderRadius: 6
               },
-              children: isStaged ? "In Bulk" : "+ Bulk"
+              children: "+ Bulk"
             }
           ) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tooltip_default, { title: "View full draft order details (Customer, items, address, taxes)", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -77169,15 +77187,15 @@ function App() {
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Total Open Drafts" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, { style: { color: "#38bdf8", fontSize: 16 } })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1 }, children: pageInfo.totalOpenCount || drafts.length }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Fetched via GraphQL API" })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f8fafc", lineHeight: 1.1 }, children: unstagedDrafts.length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: bulkQueue.length > 0 ? `${bulkQueue.length} moved to Bulk Orders` : "Fetched via GraphQL API" })
             ] }) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "#0f172a", borderColor: "#1e293b" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Verified COD Ready" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { color: "#10b981", fontSize: 16 } })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#10b981", lineHeight: 1.1 }, children: drafts.filter((d) => d.isCodEligible).length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#10b981", lineHeight: 1.1 }, children: unstagedDrafts.filter((d) => d.isCodEligible).length }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: [
                 'Tagged with "',
                 config?.cod_marker_value || "COD",
@@ -77189,7 +77207,7 @@ function App() {
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 12, fontWeight: 500 }, children: "Flagged Anomalies" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarningOutlined_default2, { style: { color: "#f59e0b", fontSize: 16 } })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f59e0b", lineHeight: 1.1 }, children: drafts.filter((d) => d.flags && d.flags.length > 0).length }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 28, fontWeight: 800, color: "#f59e0b", lineHeight: 1.1 }, children: unstagedDrafts.filter((d) => d.flags && d.flags.length > 0).length }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text2, { type: "secondary", style: { fontSize: 11, display: "block", marginTop: 4 }, children: "Missing phone or high value" })
             ] }) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(col_default2, { xs: 24, sm: 12, md: 6, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(card_default, { bordered: true, style: { background: "linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(15, 23, 42, 0.95))", borderColor: "rgba(37, 99, 235, 0.35)" }, children: [
@@ -77226,10 +77244,10 @@ function App() {
                   value: activeFilter,
                   onChange: setActiveFilter,
                   options: [
-                    { label: `All (${drafts.length})`, value: "ALL" },
-                    { label: `COD Ready (${drafts.filter((d) => d.isCodEligible).length})`, value: "COD_ONLY" },
-                    { label: `Non-COD (${drafts.filter((d) => !d.isCodEligible).length})`, value: "NON_COD" },
-                    { label: `Flagged (${drafts.filter((d) => d.flags?.length > 0).length})`, value: "FLAGGED" }
+                    { label: `All (${unstagedDrafts.length})`, value: "ALL" },
+                    { label: `COD Ready (${unstagedDrafts.filter((d) => d.isCodEligible).length})`, value: "COD_ONLY" },
+                    { label: `Non-COD (${unstagedDrafts.filter((d) => !d.isCodEligible).length})`, value: "NON_COD" },
+                    { label: `Flagged (${unstagedDrafts.filter((d) => d.flags?.length > 0).length})`, value: "FLAGGED" }
                   ],
                   style: { background: "#090d16", padding: 3 }
                 }
@@ -77265,6 +77283,33 @@ function App() {
               columns: draftColumns,
               dataSource: filteredDrafts,
               expandable: { expandedRowRender },
+              locale: {
+                emptyText: drafts.length > 0 && bulkQueue.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "40px 20px", textAlign: "center" }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircleOutlined_default2, { style: { fontSize: 36, color: "#10b981", marginBottom: 12 } }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 16, fontWeight: 700, color: "#f8fafc", marginBottom: 6 }, children: "All Open Drafts Moved to Bulk Orders" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 13, color: "#94a3b8", maxWidth: 460, margin: "0 auto 18px" }, children: [
+                    "All ",
+                    drafts.length,
+                    " open draft orders have been moved to the Bulk Orders page (",
+                    bulkQueue.length,
+                    " staged)."
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                    button_default,
+                    {
+                      type: "primary",
+                      icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThunderboltOutlined_default2, {}),
+                      onClick: () => setActiveTab("bulk"),
+                      style: { background: "#2563eb", borderColor: "#2563eb", borderRadius: 6, fontWeight: 600, height: 36, padding: "0 18px" },
+                      children: [
+                        "Go to Bulk Orders Page (",
+                        bulkQueue.length,
+                        ")"
+                      ]
+                    }
+                  )
+                ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(empty_default2, { description: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#64748b" }, children: "No open draft orders found" }) })
+              },
               rowSelection: {
                 selectedRowKeys: Array.from(selectedMap.keys()),
                 onChange: onSelectChange,
