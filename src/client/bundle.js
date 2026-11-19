@@ -76415,7 +76415,7 @@ function App() {
       lineHeight: "normal",
       gap: 16
     }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 16, overflowX: "auto", flex: 1 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
             width: 36,
@@ -76433,7 +76433,7 @@ function App() {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 800, color: "#f8fafc", fontSize: 15, letterSpacing: -0.3, whiteSpace: "nowrap" }, children: "Upcraft Shopify" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "geekblue", style: { fontSize: 10, margin: 0, padding: "1px 6px", fontWeight: 600, borderRadius: 4 }, children: "API 2026-10" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 22, background: "#1e293b", flexShrink: 0 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 20, background: "#1e293b", flexShrink: 0 } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
           display: "flex",
           alignItems: "center",
@@ -76457,8 +76457,8 @@ function App() {
             "Live Store API"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 22, background: "#1e293b", flexShrink: 0 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 4, flexShrink: 0, whiteSpace: "nowrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 20, background: "#1e293b", flexShrink: 0 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 4, flexShrink: 0 }, children: [
           { key: "drafts", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, {}), label: "Draft Orders" },
           { key: "history", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HistoryOutlined_default2, {}), label: "Bulk Jobs History" },
           { key: "audit", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, {}), label: "Audit Trail" },

@@ -892,8 +892,8 @@ export default function App() {
           lineHeight: 'normal',
           gap: 16
         }}>
-          {/* Brand Left - Full Horizontal Row */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, overflowX: 'auto', flex: 1 }}>
+          {/* Brand & Navigation Tabs - Full Left-Aligned Horizontal Row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             {/* Logo + Title + Tag in single row */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
               <div style={{
@@ -920,7 +920,7 @@ export default function App() {
             </div>
 
             {/* Subtle Divider */}
-            <div style={{ width: 1, height: 22, background: '#1e293b', flexShrink: 0 }} />
+            <div style={{ width: 1, height: 20, background: '#1e293b', flexShrink: 0 }} />
 
             {/* Store Domain & Live Mode Chip (Single Row) */}
             <div style={{
@@ -952,10 +952,10 @@ export default function App() {
             </div>
 
             {/* Subtle Divider */}
-            <div style={{ width: 1, height: 22, background: '#1e293b', flexShrink: 0 }} />
+            <div style={{ width: 1, height: 20, background: '#1e293b', flexShrink: 0 }} />
 
             {/* Navigation Tabs - Horizontal Row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0, whiteSpace: 'nowrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
               {[
                 { key: 'drafts', icon: <ShoppingOutlined />, label: 'Draft Orders' },
                 { key: 'history', icon: <HistoryOutlined />, label: 'Bulk Jobs History' },
