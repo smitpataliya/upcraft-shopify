@@ -76405,48 +76405,60 @@ function App() {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      padding: "0 24px",
+      padding: "0 20px",
       background: "#090d16",
       borderBottom: "1px solid #1e293b",
       position: "sticky",
       top: 0,
       zIndex: 100,
-      height: 68,
-      lineHeight: "normal"
+      height: 64,
+      lineHeight: "normal",
+      gap: 16
     }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 28 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 16, overflowX: "auto", flex: 1 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-            width: 40,
-            height: 40,
-            borderRadius: 10,
+            width: 36,
+            height: 36,
+            borderRadius: 9,
             background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             color: "#fff",
-            fontSize: 20,
-            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.35)"
+            fontSize: 18,
+            boxShadow: "0 2px 10px rgba(37, 99, 235, 0.35)",
+            flexShrink: 0
           }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShopOutlined_default2, {}) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { lineHeight: 1.3 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 800, color: "#f8fafc", fontSize: 16, letterSpacing: -0.3 }, children: "Upcraft Shopify" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "geekblue", style: { fontSize: 10, margin: 0, padding: "0 6px", fontWeight: 600 }, children: "API 2026-10" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 11, color: "#94a3b8", marginTop: 2 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace" }, children: config?.store_domain || "upcraft-cod-demo.myshopify.com" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u2022" }),
-              config?.mock_mode ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#10b981", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#10b981", display: "inline-block" } }),
-                "Mock Simulator"
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#38bdf8", display: "inline-block" } }),
-                "Live Store API"
-              ] })
-            ] })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 800, color: "#f8fafc", fontSize: 15, letterSpacing: -0.3, whiteSpace: "nowrap" }, children: "Upcraft Shopify" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(tag_default, { color: "geekblue", style: { fontSize: 10, margin: 0, padding: "1px 6px", fontWeight: 600, borderRadius: 4 }, children: "API 2026-10" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 22, background: "#1e293b", flexShrink: 0 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          fontSize: 11,
+          color: "#94a3b8",
+          background: "#0f172a",
+          padding: "4px 10px",
+          borderRadius: 6,
+          border: "1px solid #1e293b",
+          whiteSpace: "nowrap",
+          flexShrink: 0
+        }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontFamily: "monospace", color: "#cbd5e1" }, children: config?.store_domain || "upcraft-cod-demo.myshopify.com" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#475569" }, children: "\u2022" }),
+          config?.mock_mode ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#10b981", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#10b981", display: "inline-block" } }),
+            "Mock Simulator"
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { color: "#38bdf8", fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: "#38bdf8", display: "inline-block" } }),
+            "Live Store API"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 4 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 1, height: 22, background: "#1e293b", flexShrink: 0 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 4, flexShrink: 0, whiteSpace: "nowrap" }, children: [
           { key: "drafts", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingOutlined_default2, {}), label: "Draft Orders" },
           { key: "history", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HistoryOutlined_default2, {}), label: "Bulk Jobs History" },
           { key: "audit", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyCertificateOutlined_default2, {}), label: "Audit Trail" },

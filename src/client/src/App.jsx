@@ -877,66 +877,85 @@ export default function App() {
   return (
     <ConfigProvider theme={antdTheme}>
       <Layout style={{ minHeight: '100vh', background: '#090d16' }}>
-        {/* Ant Design Header - Clean line-height and aligned elements */}
+        {/* Ant Design Header - Horizontal Row Layout */}
         <Header style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '0 24px',
+          padding: '0 20px',
           background: '#090d16',
           borderBottom: '1px solid #1e293b',
           position: 'sticky',
           top: 0,
           zIndex: 100,
-          height: 68,
-          lineHeight: 'normal'
+          height: 64,
+          lineHeight: 'normal',
+          gap: 16
         }}>
-          {/* Brand Left */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          {/* Brand Left - Full Horizontal Row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, overflowX: 'auto', flex: 1 }}>
+            {/* Logo + Title + Tag in single row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
               <div style={{
-                width: 40,
-                height: 40,
-                borderRadius: 10,
+                width: 36,
+                height: 36,
+                borderRadius: 9,
                 background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#fff',
-                fontSize: 20,
-                boxShadow: '0 4px 12px rgba(37, 99, 235, 0.35)'
+                fontSize: 18,
+                boxShadow: '0 2px 10px rgba(37, 99, 235, 0.35)',
+                flexShrink: 0
               }}>
                 <ShopOutlined />
               </div>
-              <div style={{ lineHeight: 1.3 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ fontWeight: 800, color: '#f8fafc', fontSize: 16, letterSpacing: -0.3 }}>
-                    Upcraft Shopify
-                  </span>
-                  <Tag color="geekblue" style={{ fontSize: 10, margin: 0, padding: '0 6px', fontWeight: 600 }}>
-                    API 2026-10
-                  </Tag>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
-                  <span style={{ fontFamily: 'monospace' }}>{config?.store_domain || 'upcraft-cod-demo.myshopify.com'}</span>
-                  <span>•</span>
-                  {config?.mock_mode ? (
-                    <span style={{ color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
-                      Mock Simulator
-                    </span>
-                  ) : (
-                    <span style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#38bdf8', display: 'inline-block' }} />
-                      Live Store API
-                    </span>
-                  )}
-                </div>
-              </div>
+              <span style={{ fontWeight: 800, color: '#f8fafc', fontSize: 15, letterSpacing: -0.3, whiteSpace: 'nowrap' }}>
+                Upcraft Shopify
+              </span>
+              <Tag color="geekblue" style={{ fontSize: 10, margin: 0, padding: '1px 6px', fontWeight: 600, borderRadius: 4 }}>
+                API 2026-10
+              </Tag>
             </div>
 
-            {/* Navigation Tabs */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            {/* Subtle Divider */}
+            <div style={{ width: 1, height: 22, background: '#1e293b', flexShrink: 0 }} />
+
+            {/* Store Domain & Live Mode Chip (Single Row) */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              fontSize: 11,
+              color: '#94a3b8',
+              background: '#0f172a',
+              padding: '4px 10px',
+              borderRadius: 6,
+              border: '1px solid #1e293b',
+              whiteSpace: 'nowrap',
+              flexShrink: 0
+            }}>
+              <span style={{ fontFamily: 'monospace', color: '#cbd5e1' }}>{config?.store_domain || 'upcraft-cod-demo.myshopify.com'}</span>
+              <span style={{ color: '#475569' }}>•</span>
+              {config?.mock_mode ? (
+                <span style={{ color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+                  Mock Simulator
+                </span>
+              ) : (
+                <span style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#38bdf8', display: 'inline-block' }} />
+                  Live Store API
+                </span>
+              )}
+            </div>
+
+            {/* Subtle Divider */}
+            <div style={{ width: 1, height: 22, background: '#1e293b', flexShrink: 0 }} />
+
+            {/* Navigation Tabs - Horizontal Row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0, whiteSpace: 'nowrap' }}>
               {[
                 { key: 'drafts', icon: <ShoppingOutlined />, label: 'Draft Orders' },
                 { key: 'history', icon: <HistoryOutlined />, label: 'Bulk Jobs History' },
